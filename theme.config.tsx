@@ -28,6 +28,11 @@ const config: DocsThemeConfig = {
 
     return (
       <>
+        <title>
+          {frontMatter.title
+            ? frontMatter.title + " - SearchSECO DAO Docs"
+            : "SearchSECO DAO Docs"}
+        </title>
         <meta property="og:site_name" content="Secure SECO DAO documentation" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -40,11 +45,6 @@ const config: DocsThemeConfig = {
               : "SearchSECO DAO Docs"
           }
         />
-        <title>
-          {frontMatter.title
-            ? frontMatter.title + " - SearchSECO DAO Docs"
-            : "SearchSECO DAO Docs"}
-        </title>
         <meta
           property="og:description"
           content={
@@ -58,8 +58,8 @@ const config: DocsThemeConfig = {
           }
         />
         <meta property="og:image" content={"/og-image.png"} />
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="mask-icon" href="/favicon.svg" color="#000000" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
