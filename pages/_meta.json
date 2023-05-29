@@ -2,8 +2,8 @@
   "index": "Introduction",
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
+  "joining": {
+    "title": "Joining the DAO",
     "type": "page"
   },
   "contact": {
