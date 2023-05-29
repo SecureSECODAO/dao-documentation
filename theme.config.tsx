@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import Logo from "@/components/Logo";
 import LogoFull from "@/components/LogoFull";
 
@@ -23,15 +23,50 @@ const config: DocsThemeConfig = {
   sidebar: {
     toggleButton: true,
   },
-  head: (
-    <>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <link rel="mask-icon" href="/favicon.svg" color="#000000" />
-      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-      <meta name="theme-color" content="#274E85" />
-    </>
-  ),
+  head: () => {
+    const { frontMatter } = useConfig();
+
+    return (
+      <>
+        <meta property="og:site_name" content="Secure SECO DAO documentation" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta
+          property="og:title"
+          content={
+            frontMatter.title
+              ? frontMatter.title + " - SearchSECO DAO Docs"
+              : "SearchSECO DAO Docs"
+          }
+        />
+        <title>
+          {frontMatter.title
+            ? frontMatter.title + " - SearchSECO DAO Docs"
+            : "SearchSECO DAO Docs"}
+        </title>
+        <meta
+          property="og:description"
+          content={
+            frontMatter.description || "Documentation for the SearchSECO DAO"
+          }
+        />
+        <meta
+          property="description"
+          content={
+            frontMatter.description || "Documentation for the SearchSECO DAO"
+          }
+        />
+        <meta property="og:image" content={"/og-image.png"} />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="/favicon.svg" color="#000000" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <meta name="theme-color" content="#274E85" />
+      </>
+    );
+  },
 };
 
 export default config;
