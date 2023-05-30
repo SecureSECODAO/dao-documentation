@@ -16,7 +16,8 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.com",
   },
-  docsRepositoryBase: "https://github.com/SecureSECODAO/dao-documentation",
+  docsRepositoryBase:
+    "https://github.com/SecureSECODAO/dao-documentation/blob/main/",
   footer: {
     text: <LogoFull className="w-32 h-fit shrink-0" />,
   },
