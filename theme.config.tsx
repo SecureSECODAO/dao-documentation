@@ -19,7 +19,12 @@ const config: DocsThemeConfig = {
   docsRepositoryBase:
     "https://github.com/SecureSECODAO/dao-documentation/blob/main/",
   footer: {
-    text: <LogoFull className="w-32 h-fit shrink-0" />,
+    text: (
+      <div className="flex w-full flex-col items-center sm:items-start">
+        <LogoFull className="w-32 h-fit shrink-0" />
+        <p className="mt-6 text-xs">© {new Date().getFullYear()} SecureSECO.</p>
+      </div>
+    ),
   },
   sidebar: {
     toggleButton: true,
@@ -29,8 +34,8 @@ const config: DocsThemeConfig = {
       twitter: {
         cardType: "summary_large_image",
       },
-      titleTemplate: "%s – SearchSECO DAO Docs",
-      defaultTitle: "SearchSECO DAO Docs",
+      titleTemplate: "%s – SecureSECO DAO Docs",
+      defaultTitle: "SecureSECO DAO Docs",
     };
   },
   head: () => {
@@ -45,13 +50,13 @@ const config: DocsThemeConfig = {
         <meta
           property="og:description"
           content={
-            frontMatter.description || "Documentation for the SearchSECO DAO"
+            frontMatter.description || "Documentation for the SecureSECO DAO"
           }
         />
         <meta
           property="description"
           content={
-            frontMatter.description || "Documentation for the SearchSECO DAO"
+            frontMatter.description || "Documentation for the SecureSECO DAO"
           }
         />
         <meta property="og:image" content={"/og-image.png"} />

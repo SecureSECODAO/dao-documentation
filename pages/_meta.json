@@ -1,13 +1,36 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "joining": {
-    "title": "Joining the DAO",
-    "type": "page"
+  "about": "About",
+  "joining": "Joining the DAO",
+  "searchSECO": "Search SECO integration",
+  "-- Tokenomics": {
+    "type": "separator",
+    "title": "Tokenomics"
   },
-  "contact": {
-    "title": "Contact ↗",
+  "secoin": "SECOIN",
+  "secorep": "SECOREP",
+  "-- Governance": {
+    "type": "separator",
+    "title": "Governance"
+  },
+  "proposals": "Proposals",
+
+  "-- Architecture": {
+    "type": "separator",
+    "title": "Architecture & Infrastructure"
+  },
+  "webapp": "DAO Webapp",
+  "aragon": "Aragon",
+  "diamond": "Diamond (ERC-2535)",
+
+  "dao": {
+    "title": "DAO webapp ↗",
+    "type": "page",
+    "href": "https://securesecodao.science.uu.nl/",
+    "newWindow": true
+  },
+  "SecureSECO": {
+    "title": "SecureSECO site ↗",
     "type": "page",
     "href": "https://twitter.com/shuding_",
     "newWindow": true
