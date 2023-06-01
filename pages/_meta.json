@@ -3,6 +3,7 @@
   "about": "About",
   "joining": "Joining the DAO",
   "searchSECO": "Search SECO integration",
+  "contact": "Contact",
   "-- Tokenomics": {
     "type": "separator",
     "title": "Tokenomics"
