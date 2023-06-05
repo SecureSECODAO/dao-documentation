@@ -2,7 +2,7 @@
   "index": "Introduction",
   "about": "About",
   "joining": "Joining the DAO",
-  "searchSECO": "Search SECO integration",
+  "searchSECO": "Search SECO Integration",
   "contact": "Contact",
   "-- Tokenomics": {
     "type": "separator",
@@ -26,13 +26,13 @@
   "contributing": "Contributing",
 
   "dao": {
-    "title": "DAO webapp ↗",
+    "title": "DAO Webapp ↗",
     "type": "page",
-    "href": "https://securesecodao.science.uu.nl/",
+    "href": "https://dao.secureseco.org/",
     "newWindow": true
   },
   "SecureSECO": {
-    "title": "SecureSECO site ↗",
+    "title": "SecureSECO Site ↗",
     "type": "page",
     "href": "https://twitter.com/shuding_",
     "newWindow": true
