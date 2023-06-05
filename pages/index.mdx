@@ -1,5 +1,5 @@
 import Cards from "../components/Card.tsx";
-import { Annoyed } from "lucide-react";
+import { Search, Radar, Vote, DoorOpen } from "lucide-react";
 import { Callout } from "nextra/components";
 
 # Welcome to SecureSECO DAO Documentation
@@ -16,10 +16,12 @@ Our DAO is here to incentivize contributions to SecureSECO in a sustainable mann
 
 We have implemented two types of tokens in our ecosystem:
 
-- `SECOREP`: A non-transferable governance token used for voting and rewards in the DAO.
-- `SECOIN`: A monetary token used for mining rewards, rewards and query payments.
+- `$SECOREP`: A non-transferable governance token used for voting and rewards in the DAO.
+- `$SECOIN`: A monetary token used for mining rewards, rewards and query payments.
 
 Explore our documentation sections as follows:
+
+## Quick start
 
 <Cards
   cardData={[
@@ -28,7 +30,7 @@ Explore our documentation sections as follows:
       name: "Joining SecureSECO DAO",
       description:
         "Find out how you can become a part of the SecureSECO DAO and contribute to a safer software ecosystem.",
-      icon: Annoyed,
+      icon: DoorOpen,
       pattern: {
         y: 16,
         squares: [
@@ -42,7 +44,7 @@ Explore our documentation sections as follows:
       name: "Making a Query",
       description:
         "Learn how to make queries using SECOIN, our project's monetary token.",
-      icon: Annoyed,
+      icon: Search,
       pattern: {
         y: -6,
         squares: [
@@ -56,7 +58,7 @@ Explore our documentation sections as follows:
       name: "Mining SECOIN",
       description:
         "Interested in mining SECOIN? This section will guide you on how to get started.",
-      icon: Annoyed,
+      icon: Radar,
       pattern: {
         y: 32,
         squares: [
@@ -70,7 +72,7 @@ Explore our documentation sections as follows:
       name: "Proposals and Voting",
       description:
         "Understand how the proposal and voting mechanism works within our DAO using the SECOREP token.",
-      icon: Annoyed,
+      icon: Vote,
       pattern: {
         y: 22,
         squares: [[0, 1]],
