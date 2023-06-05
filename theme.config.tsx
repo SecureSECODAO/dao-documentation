@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import Logo from "@/components/Logo";
 import LogoFull from "@/components/LogoFull";
+import BackToTop from "@/components/BackToTop";
 
 const config: DocsThemeConfig = {
   logo: (
@@ -15,6 +16,14 @@ const config: DocsThemeConfig = {
   },
   chat: {
     link: "https://discord.com",
+  },
+  main: ({ children }) => {
+    return (
+      <div className="my-8">
+        {children}
+        <BackToTop />
+      </div>
+    );
   },
   docsRepositoryBase:
     "https://github.com/SecureSECODAO/dao-documentation/blob/main/",
