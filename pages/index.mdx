@@ -1,5 +1,82 @@
-# Introduction
+import Cards from "../components/Card.tsx";
+import { Annoyed } from "lucide-react";
+import { Callout } from "nextra/components";
 
-Welcome to SecureSECO DAO! This is a basic docs. test pull request
+# Welcome to SecureSECO DAO Documentation
 
-## Documentation
+<Callout type="info" emoji="👾">
+  This is the official documentation for the SecureSECO Decentralized Autonomous
+  Organization (DAO). Whether you're a developer, a contributor, or someone just
+  interested in our cyber security project, you're in the right place!
+</Callout>
+
+Through the SecureSECO project, we aim to make the worldwide software ecosystem a safer place by maintaining a distributed ledger of facts about software that is used in the field.
+
+Our DAO is here to incentivize contributions to SecureSECO in a sustainable manner, ensure the management of a treasury, and govern itself. We've designed it to be self-sustaining and require minimal maintenance after project completion.
+
+We have implemented two types of tokens in our ecosystem:
+
+- `SECOREP`: A non-transferable governance token used for voting and rewards in the DAO.
+- `SECOIN`: A monetary token used for mining rewards, rewards and query payments.
+
+Explore our documentation sections as follows:
+
+<Cards
+  cardData={[
+    {
+      href: "/join",
+      name: "Joining SecureSECO DAO",
+      description:
+        "Find out how you can become a part of the SecureSECO DAO and contribute to a safer software ecosystem.",
+      icon: Annoyed,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/query",
+      name: "Making a Query",
+      description:
+        "Learn how to make queries using SECOIN, our project's monetary token.",
+      icon: Annoyed,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/mining",
+      name: "Mining SECOIN",
+      description:
+        "Interested in mining SECOIN? This section will guide you on how to get started.",
+      icon: Annoyed,
+      pattern: {
+        y: 32,
+        squares: [
+          [0, 2],
+          [1, 4],
+        ],
+      },
+    },
+    {
+      href: "/proposals/voting",
+      name: "Proposals and Voting",
+      description:
+        "Understand how the proposal and voting mechanism works within our DAO using the SECOREP token.",
+      icon: Annoyed,
+      pattern: {
+        y: 22,
+        squares: [[0, 1]],
+      },
+    },
+  ]}
+/>
+
+Feel free to explore each section to learn more about SecureSECO DAO. Your journey towards contributing to a safer worldwide software ecosystem starts here.
