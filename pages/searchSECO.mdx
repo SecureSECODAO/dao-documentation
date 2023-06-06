@@ -1,0 +1,74 @@
+from slides of Krishna, pls rewrite:
+
+What is SearchSECO?
+
+A hash based index for code fragments that enables searching source code at the method level in the worldwide software ecosystem.
+
+Comprises of a miner (which includes spider, crawler, parser), Cassandra DB and a Database API.
+
+We spider and crawl through the worldwide software ecosystem, indexing all methods found into searchable hashes which includes author, license and vulnerability information.
+
+Methods are similar when they have the same parse tree
+
+We hash an abstract representation of a method, to enable fast searching through the worldwide software ecosystem
+
+We find clones on a worldwide scale, far larger than the typical project scope
+
+Method level license violation checking
+We store the version metadata of project with date and the license. This enables us to check if any code clone matches violate the license of
+a) The projects from which code is borrowed and/or
+b) The projects that borrow your code
+We perform a detailed one-to-one method license checking with the help of license compatibility matrix from OSADL and provide an explanation for a violation (or compatibility).
+
+This is an example report for a facebook repo which has code matches from various repos including a repo with GPL-2.0 license.
+
+GPL-2.0 is a strong copyleft license which restricts code being borrowed to similar restrictions. Hence, borrowing project cannot have the Apache 2.0 license.
+
+The report contains explanations for the conflicts as well.
+
+We are also performing a study to look at license violations in the worldwide software ecosystem, and initially looking at large software companies with a large industry influence (most starred orgs on GitHub)
+
+We have found a lot of potential violations and are looking deeper into the kind of violations and how they can be reported/prevented.
+
+SearchSECO and DAO
+To monetise SearchSECO, DAO aims to provide monetisation mechanism for:
+Hosters submitting methods to the database
+Users can host a crawler, mine GitHub for methods and submit them to the database. They are then provided with a reward based on the number of methods submitted.
+Users using SearchSECO to check for matches
+Users can check the SearchSECO database for matches, vulnerabilities and license violations for which they are charged based on the number of methods queried.
+
+Server restructuring
+Restructured 3 cassandra nodes to a single monolith node for with 2 replicas; trading fault tolerance for better performance/cost.
+
+Current setup has 2 servers, one running cassandra node, API and Grafana; other running the frontend portal and Prometheus.
+Kubernetes cluster for mining
+We are currently running 2 miners on the existing servers which are also being used for the API, DB and portal.
+
+We will be migrating this to a kubernetes cluster with auto-scaling and fault tolerance.
+
+Rewriting the project to JS
+Our current controller is written C++ has issues like:
+
+Not handling web requests with grace
+Deadlock in specific repos
+Resource heavy (Surprisingly!)
+A rewrite is planned of the controller from C++ to JS and also use a better parser compared to the ones used now (SrcML -> Treesitter)
+Software Improvement Group collaboration
+SIG is interested in using SearchSECO for matching code in repo to specific version of libraries which is not available in any tool currently.
+
+A software project has been conducted with 11 bachelor students
+
+Over 28M methods indexed (7M unique), nearing 40k projects on GitHub
+
+Including author and license information
+
+Parsing Python, C(x), Java, and Javascript
+
+Currently improving performance, so we can “mine” even faster
+
+Thorough consideration of the ethical questions around developer data collection
+
+Roadmap includes:
+Advanced method-level license checking
+“Business model” so that use of the data is paid for with more mining
+Vulnerability marking for identifying vulnerable fragments in a project
