@@ -35,7 +35,9 @@ Images are rounded by default (see global.css), if you don't want the rounded im
 <div className="no-round-image">![Hello](/demo.png)</div>
 ```
 
-With Next.js Image, there will be no layout shift, and a beautiful blurry placeholder will be shown by default when loading the images
+With Next.js Image, there will be no layout shift, and a beautiful blurry placeholder will be shown by default when loading the images.
+
+You can place images with kebab-case names in the [public/img folder](/public/img) and use them like this: `![Hello](/img/demo.png)`.
 
 ### Links and navigation
 
@@ -51,9 +53,11 @@ will automatically use Next.js Link component under the hood, and will be prefet
 
 See [nextra's latex guide](https://nextra.site/docs/guide/latex) for more information.
 
-### diagrams
+### Diagrams
 
 See [nextra's Mermaid guide](https://nextra.site/docs/guide/mermaid) for more information.
+
+You can ofcourse also just use an image of a diagram.
 
 ### Tables
 
