@@ -1,8 +1,12 @@
 # SecureSECO DAO documentation
 
-this is the readme for the SecureSECO DAO documentation. This documentation was made using [nextra's](https://nextra.site/docs) docs theme.
+this is the readme for the SecureSECO DAO documentation. This documentation was made using [nextra's](https://nextra.site/) docs theme, see their [documentation](https://nextra.site/docs) for more information.
 
 ## Quick Start
+
+### Folder structure
+
+### Editing a page
 
 ## Local Development
 
