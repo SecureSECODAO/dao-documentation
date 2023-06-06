@@ -1,14 +1,14 @@
 # SecureSECO DAO documentation
 
-this is the readme
+this is the readme for the SecureSECO DAO documentation. This documentation was made using [nextra's](https://nextra.site/docs) docs theme.
 
 ## Quick Start
 
 ## Local Development
 
-First, run `pnpm i` to install the dependencies.
+First, run `npm i` to install the dependencies.
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+Then, run `npm run dev` to start the development server and visit localhost:3000.
 
 ## License
 
