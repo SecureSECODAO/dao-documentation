@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import Logo from "@/components/Logo";
-import LogoFull from "@/components/LogoFull";
-import BackToTop from "@/components/BackToTop";
+import Logo from "@/components/logo";
+import LogoFull from "@/components/logo-full";
+import BackToTop from "@/components/back-to-top";
 
 const config: DocsThemeConfig = {
   logo: (

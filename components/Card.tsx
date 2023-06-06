@@ -9,7 +9,7 @@
 import Link from "next/link";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 
-import { GridPattern } from "@/components/GridPattern";
+import { GridPattern } from "@/components/grid-pattern";
 import { LucideIcon } from "lucide-react";
 
 interface Pattern {

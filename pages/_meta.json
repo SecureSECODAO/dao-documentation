@@ -2,7 +2,7 @@
   "index": "Introduction",
   "about": "About",
   "joining": "Joining the DAO",
-  "searchSECO": "Search SECO Integration",
+  "searchseco": "Search SECO Integration",
   "contact": "Contact",
   "-- Tokenomics": {
     "type": "separator",
@@ -31,7 +31,7 @@
     "href": "https://dao.secureseco.org/",
     "newWindow": true
   },
-  "SecureSECO": {
+  "Secureseco": {
     "title": "SecureSECO Site ↗",
     "type": "page",
     "href": "https://twitter.com/shuding_",
