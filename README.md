@@ -167,7 +167,7 @@ Usage:
 - For multiple cards rendered automatically in a grid, use the Cards component.
 
 ```tsx
-import Cards from "../components/card";
+import { Cards } from "../components/cards";
 
 <Cards
   cardData={[
@@ -206,7 +206,7 @@ import Cards from "../components/card";
 - For a single card, use the Card component.
 
 ```tsx
-import { Card } from "../components/card";
+import { Card } from "../components/cards";
 
 <Card
   card={{
