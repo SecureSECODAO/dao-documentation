@@ -5,7 +5,7 @@ this is the readme for the SecureSECO DAO documentation. This documentation was 
 ## Installing dependencies and setting up environment variables
 
 1. Copy the .env.example file to .env and fill in the values
-2. Optional: Install the _Prettier_ and _ESlint_ plugin in vscode (or your editor of choice), might have to restart your editor.
+2. Optional: Install the _Prettier_, _MDX_ and _ESlint_ plugin in vscode (or your editor of choice), might have to restart your editor.
 3. In case you haven't already: Install _npm_
 4. run: `npm i`
 
@@ -18,6 +18,8 @@ Then, run `npm run dev` to start the development server and visit localhost:3000
 ## Quick Start
 
 ### Folder structure
+
+See [nextra's folder structure guide](https://nextra.site/docs/guide/organize-files) for more information.
 
 ### Editing a page
 
@@ -59,21 +61,188 @@ See [nextra's table guide](https://nextra.site/docs/guide/table) for more inform
 
 ### Icons
 
-This project uses [Lucide](https://lucide.dev/) for icons. To use an icon import it from the `@lucide/react` package and use it like this:
+This project uses [Lucide](https://lucide.dev/) and svg's for icons. To use an icon import it from the `@lucide/react` package in [icons.tsx](/components/icons.tsx). Add it to the object like:
 
-```jsx
+```tsx
 import { IconName } from "@lucide/react";
 
-<IconName />;
+export const Icons = {
+  // ...
+  iconName: IconName,
+  // or with an svg:
+  gitHub: (props: LucideProps) => (
+    <svg viewBox="0 0 438.549 438.549" {...props}>
+      <path fill="currentColor" d="M409.132 ... "></path>
+    </svg>
+  ),
+};
+```
+
+Then you can use it like this in your mdx or tsx files:
+
+```tsx
+import { Icons } from "../components/icons";
+
+<Icons.iconName className="h-5 w-5" />;
 ```
 
 You can do this directly in the mdx or in a tsx component.
+
+This way we keep all the svg and icon imports in one place and have autocomplete for the icons.
+
+### Useful Components for the mdx
+
+#### Callout component
+
+Checkout the [Callout component](https://nextra.site/docs/guide/built-ins/callout) for a nice callout component.
+
+Use it like this:
+
+- `type`: The type of the Callout.
+  Type: 'default' | 'info' | 'warning' | 'error'
+  Default: 'default'
+
+- `emoji`: Optional emoji to show in the Callout.
+
+```tsx
+import { Callout } from "nextra/components";
+
+<Callout type="error" emoji="️🚫">
+  This is a dangerous feature that can cause everything to explode.
+</Callout>;
+```
+
+#### Steps component
+
+Checkout the [Steps component](https://nextra.site/docs/docs-theme/built-ins/steps) for a nice steps component.
+
+Usage:
+
+```mdx
+import { Steps } from "nextra-theme-docs";
+
+<Steps>
+
+### Step 1
+
+Contents for step 1.
+
+### Step 2
+
+Contents for step 2.
+
+</Steps>
+```
+
+#### Tabs component
+
+Checkout the [Tabs component](https://nextra.site/docs/docs-theme/built-ins/tabs) for a nice tabs component.
+
+Usage:
+
+```tsx
+import { Tab, Tabs } from "nextra-theme-docs";
+
+<Tabs items={["pnpm", "npm", "yarn"]} defaultIndex="1">
+  <Tab>**pnpm**: Fast, disk space efficient package manager.</Tab>
+  <Tab>
+    **npm** is a package manager for the JavaScript programming language.
+  </Tab>
+  <Tab>**Yarn** is a software packaging system.</Tab>
+</Tabs>;
+```
+
+`defaultIndex` is optional and defaults to 0.
+
+#### Card component
+
+A nice [Card](components/card.tsx) component with a cool hover effect that links to a page
+
+Usage:
+
+- For multiple cards rendered automatically in a grid, use the Cards component.
+
+```tsx
+import { Cards } from "../components/card";
+
+<Cards
+  cardData={[
+    {
+      href: "/join",
+      name: "Joining SecureSECO DAO",
+      description:
+        "Find out how you can become a part of the SecureSECO DAO and contribute to safer software ecosystems.",
+      icon: Icons.doorOpen,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/query",
+      name: "Making a Query",
+      description:
+        "Learn how to make queries to check if your repository contains any known vulnerabilities.",
+      icon: Icons.search,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+  ]}
+/>;
+```
+
+- For a single card, use the Card component.
+
+```tsx
+import { Card } from "../components/card";
+
+<Card
+  card={{
+    href: "/join",
+    name: "Joining SecureSECO DAO",
+    description:
+      "Find out how you can become a part of the SecureSECO DAO and contribute to safer software ecosystems.",
+    icon: Icons.doorOpen,
+    pattern: {
+      y: 16,
+      squares: [
+        [0, 1],
+        [1, 3],
+      ],
+    },
+  }}
+/>;
+```
 
 ### Styling
 
 #### Tailwind
 
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling. Tailwind is a utility-first CSS framework for rapidly building custom user interfaces. You can use Tailwind classes directly in the mdx files. For example:
+
+```md
+<div className="text-red-500">Hello</div>
+```
+
+It is also possible to use Tailwind classes in tsx components.
+
 #### Darkmode
+
+You need to provide both colors for light mode and darkmode in your tailwind styling in components or mdx directly. For example:
+
+```tsx
+<div className="bg-black dark:bg-white">Hello</div>
+```
+
+Don't worry about things like changing text-white and text-black each time, since those classes are already set by Nextra, unless you want to override them.
 
 #### optional classes
 
@@ -97,11 +266,23 @@ In this project, we use the following naming conventions:
 
 #### kebab-case
 
-For folders, files (mdx), images (in the public folder), and css classes.
+For folders, files (both mdx file names and tsx components), images (in the public folder), and css classes.
 
-#### files
+#### Title Case
 
-#### page titles and headings
+For page titles (in \_meta.json files) and headings, we use Title Case.
+
+Title case is a style in which the first letter of each word is capitalized, except for certain short words, such as articles (a, an, the), conjunctions (and, but, or, for, nor), and prepositions (in, to, of, at, by, up, for, off, on). For example:
+
+- Welcome to SecureSECO DAO
+
+#### PascalCase
+
+For React components itself.
+
+#### camelCase
+
+For variables, icon and function names.
 
 ### Formatting
 

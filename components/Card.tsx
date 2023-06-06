@@ -68,7 +68,7 @@ function CardPattern({ mouseX, mouseY, ...gridProps }) {
   );
 }
 
-function Card({ card }: { card: CardData }) {
+export function Card({ card }: { card: CardData }) {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
 
@@ -102,7 +102,7 @@ function Card({ card }: { card: CardData }) {
   );
 }
 
-export default function Cards({ cardData }: { cardData: CardData[] }) {
+export function Cards({ cardData }: { cardData: CardData[] }) {
   return (
     <div className="not-prose xl:max-w-none mt-4 grid grid-cols-1 gap-4 dark:border-white/5 sm:grid-cols-2">
       {cardData.map((card) => (

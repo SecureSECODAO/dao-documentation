@@ -1,13 +1,12 @@
 import React, { ReactNode } from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import Logo from "@/components/logo";
-import LogoFull from "@/components/logo-full";
 import BackToTop from "@/components/back-to-top";
+import { Icons } from "@/components/icons";
 
 const config: DocsThemeConfig = {
   logo: (
     <span className="flex items-center justify-center gap-x-2">
-      <Logo className="h-10 w-10 shrink-0" />
+      <Icons.logo className="h-10 w-10 shrink-0" />
       SecureSECO DAO Docs
     </span>
   ),
@@ -30,7 +29,7 @@ const config: DocsThemeConfig = {
   footer: {
     text: (
       <div className="flex w-full flex-col items-center sm:items-start">
-        <LogoFull className="w-32 h-fit shrink-0" />
+        <Icons.logoFull className="w-32 h-fit shrink-0" />
         <p className="mt-6 text-xs">© {new Date().getFullYear()} SecureSECO.</p>
       </div>
     ),
