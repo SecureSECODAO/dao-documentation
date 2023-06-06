@@ -102,7 +102,7 @@ export function Card({ card }: { card: CardData }) {
   );
 }
 
-export function Cards({ cardData }: { cardData: CardData[] }) {
+function Cards({ cardData }: { cardData: CardData[] }) {
   return (
     <div className="not-prose xl:max-w-none mt-4 grid grid-cols-1 gap-4 dark:border-white/5 sm:grid-cols-2">
       {cardData.map((card) => (
@@ -111,3 +111,5 @@ export function Cards({ cardData }: { cardData: CardData[] }) {
     </div>
   );
 }
+
+export default Cards;

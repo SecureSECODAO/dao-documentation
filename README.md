@@ -163,7 +163,7 @@ Usage:
 - For multiple cards rendered automatically in a grid, use the Cards component.
 
 ```tsx
-import { Cards } from "../components/card";
+import Cards from "../components/card";
 
 <Cards
   cardData={[
