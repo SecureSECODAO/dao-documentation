@@ -1,6 +1,6 @@
 # SecureSECO DAO documentation
 
-this is the readme for the SecureSECO DAO documentation. This documentation was made using [nextra's](https://nextra.site/) docs theme, see their [documentation](https://nextra.site/docs) for more information.
+this is the readme for the SecureSECO DAO documentation. This documentation was made using [Nextra's](https://nextra.site/) docs theme, see their [documentation](https://nextra.site/docs) for more information.
 
 ## Installing dependencies and setting up environment variables
 
@@ -19,11 +19,11 @@ Then, run `npm run dev` to start the development server and visit localhost:3000
 
 ### Folder structure
 
-See [nextra's folder structure guide](https://nextra.site/docs/guide/organize-files) for more information.
+See [Nextra's folder structure guide](https://nextra.site/docs/guide/organize-files) for more information.
 
 ### Editing a page
 
-Find the page in the pages folder and edit it. The pages are written in markdown (mdx), so you can use markdown syntax to format the page. Check out [nextra's markdown guide](https://nextra.site/docs/guide/markdown) and [Nextra's syntax highlighting guide](https://nextra.site/docs/guide/syntax-highlighting) for more information.
+Find the page in the pages folder and edit it. The pages are written in markdown (mdx), so you can use markdown syntax to format the page. Check out [Nextra's markdown guide](https://nextra.site/docs/guide/markdown) and [Nextra's syntax highlighting guide](https://nextra.site/docs/guide/syntax-highlighting) for more information.
 
 ### Images
 
@@ -51,17 +51,17 @@ will automatically use Next.js Link component under the hood, and will be prefet
 
 ### Latex
 
-See [nextra's latex guide](https://nextra.site/docs/guide/latex) for more information.
+See [Nextra's latex guide](https://nextra.site/docs/guide/latex) for more information.
 
 ### Diagrams
 
-See [nextra's Mermaid guide](https://nextra.site/docs/guide/mermaid) for more information.
+See [Nextra's Mermaid guide](https://nextra.site/docs/guide/mermaid) for more information.
 
 You can ofcourse also just use an image of a diagram.
 
 ### Tables
 
-See [nextra's table guide](https://nextra.site/docs/guide/table) for more information.
+See [Nextra's table guide](https://nextra.site/docs/guide/table) for more information.
 
 ### Icons
 
