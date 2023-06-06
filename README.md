@@ -4,7 +4,7 @@ this is the readme for the SecureSECO DAO documentation. This documentation was 
 
 ## Installing dependencies and setting up environment variables
 
-1. Copy the .env.example file to .env and fill in the values
+1. Copy the .env.example file to .env and fill in the values (if there isn't a env.example, there aren't any environment variables to set)
 2. Optional: Install the _Prettier_, _MDX_ and _ESlint_ plugin in vscode (or your editor of choice), might have to restart your editor.
 3. In case you haven't already: Install _npm_
 4. run: `npm i`
