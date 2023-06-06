@@ -1,0 +1,53 @@
+import { Steps } from "nextra-theme-docs";
+
+# Joining through Verification
+
+One of the ways to join the DAO is by verifying your identity.
+Currently, only [Proof of Humanity](https://proofofhumanity.id/)
+and [GitHub](https://github.com/) are supported but we are working on adding more platforms.
+
+<Steps>
+### Connect your wallet
+
+First, you need to connect your wallet to the DAO. This can be done using Metamask or a variety of other wallets. Don't have
+a wallet? Create one by following the steps [here](/joining/installing-metamask).
+
+### Pick a platform
+
+Go to the [verification page](https://dao.secureseco.org/verification). You will be presented with
+a list of platforms that you can use to verify your identity. Click the 'Verify' button of the
+platform you want to use.
+
+![Pick one of the platforms](/img/pick-platform.png)
+
+### Approve signature
+
+Once you clicked the button, your wallet will notify you of a signature request. If you accept this request,
+a specific message will be signed using your wallet, after which it is sent to our server. This is needed
+to prove that you own the wallet.
+
+### Sign in to the platform
+
+After you have approved the signature request, you are redirected to the chosen platform. Here you
+will need to sign in to your account. If you are already signed in, you will be redirected back to the
+verification page instantly.
+
+### Finish verification
+
+If everything went well, a new card should be visible on the right side of the page under the "pending verifications" section.
+Clicking the "Finish" button will ask you to approve a transaction. Approving this transaction will call a smart contract function.
+Once this transaction is confirmed, you have been successfully verified on the chosen platform.
+
+![Finishing the verification process](/img/finish-verification.png)
+
+### Claim your reward
+
+If this is the first time you have verified your identity with the chosen platform, you will be able to claim a reward.
+A new card will appear on the right side of the page, informing you how much you can claim. Clicking the "Claim reward" button
+will once again ask you to approve a transaction. When the transaction has been processed, you will receive your reward!
+The reward is given in the form of a token called `SECOREP`. This token is used to vote on proposals and will be explained in
+more detail in the [SECOREP](/secorep) section.
+
+![Claim your reward](/img/claim-reward.png)
+
+</Steps>
