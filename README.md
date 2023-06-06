@@ -172,7 +172,7 @@ import { Cards } from "../components/cards";
 <Cards
   cardData={[
     {
-      href: "/join",
+      href: "/joining",
       name: "Joining SecureSECO DAO",
       description:
         "Find out how you can become a part of the SecureSECO DAO and contribute to safer software ecosystems.",
@@ -210,7 +210,7 @@ import { Card } from "../components/cards";
 
 <Card
   card={{
-    href: "/join",
+    href: "/joining",
     name: "Joining SecureSECO DAO",
     description:
       "Find out how you can become a part of the SecureSECO DAO and contribute to safer software ecosystems.",
