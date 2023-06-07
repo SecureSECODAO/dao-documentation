@@ -1,5 +1,5 @@
 # SECOIN Contracts
-The [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token contract for SECOIN is a separate (standalone) contract from the diamond governance plugin (and all their facets).
+The [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token contract for SECOIN is a separate (standalone) contract from the [diamond governance](/diamond/what-is-a-diamond) plugin (and all their facets).
 The contract itself is a simple [ERC-20 (metadata) contract](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata) with an exposed "initial mint" and burn function. 
 This initial mint function is used to mint the initial supply of tokens to the DAO treasury (for the [ABC](/secoin/abc)).
 The burn function is already present internally in the ERC-20 contract, but is exposed for the DAO to burn tokens as needed (for the [ABC](/secoin/abc)).
