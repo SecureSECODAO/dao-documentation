@@ -9,20 +9,15 @@
 import Link from "next/link";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 
-import { GridPattern } from "@/components/grid-pattern";
+import { GridPattern, GridPatternProps } from "@/components/grid-pattern";
 import { LucideIcon } from "lucide-react";
-
-interface Pattern {
-  y: number;
-  squares: [number, number][];
-}
 
 export interface CardData {
   href: string;
   name: string;
   description: string;
   icon: LucideIcon;
-  pattern: Pattern;
+  pattern: GridPatternProps;
 }
 
 function CardIcon({ icon: Icon }) {
@@ -44,7 +39,7 @@ function CardPattern({ mouseX, mouseY, ...gridProps }) {
           width={72}
           height={56}
           x={0.5}
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.02] stroke-black/5 dark:fill-white/1 dark:stroke-white/5"
+          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
           {...gridProps}
         />
       </div>
