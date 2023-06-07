@@ -23,6 +23,7 @@
     - [Claiming](#claiming)
       - [Time based](#time-based)
       - [One time](#one-time)
+      - [Monetary token (SECOIN)](#monetary-token-secoin)
 - [Permissions](#permissions)
   - [AragonOSx](#aragonosx)
 - [SearchSECO](#searchseco)
@@ -81,6 +82,8 @@ These token types are planned for the future. In all the code written so far, th
 Allows time based rewards to be available to be claimed by members of the DAO. There is also a tiered version that allows members of different tiers to get different rewards. There is also a configurable maximum amount of claimable tokens at once, preventing inactive members from being able to claim a large sum of tokens after a long period of inactivity.
 ##### One time
 Allows for a one-time reward to be claimed. The most basic claimable facet of this type will be claimable once per wallet, given that the wallet is a member of the DAO. There is a second, more advanced version that allows users to claim a reward for every verification that they pass.
+#### Monetary token (SECOIN)
+This facet is only used to keep track of the address of the SECOIN contract. This is done to make sure that the SECOIN contract can be upgraded without having to change the address in all the other contracts.
 
 ## Permissions
 The permission management defines which wallets are allowed to do certain actions.
