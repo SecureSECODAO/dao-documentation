@@ -9,7 +9,7 @@
 import React, { FC } from "react";
 import { useId } from "react";
 
-interface GridPatternProps extends React.SVGProps<SVGSVGElement> {
+export interface GridPatternProps extends React.SVGProps<SVGSVGElement> {
   width?: number;
   height?: number;
   x?: number;
