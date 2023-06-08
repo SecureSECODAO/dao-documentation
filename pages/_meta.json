@@ -15,6 +15,7 @@
     "title": "Governance"
   },
   "proposals": "Proposals",
+  "actions": "Actions",
 
   "-- Architecture": {
     "type": "separator",
