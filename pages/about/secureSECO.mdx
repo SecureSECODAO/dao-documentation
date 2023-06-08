@@ -1,19 +1,60 @@
+import { Cards } from "../../components/cards";
+import { Icons } from "../../components/icons";
+
 # SecureSECO
 
 ## What is SecureSECO?
 
-## Motivation (from slides, herschrijven Thijn en eigen dingen toevoegen, dit kwam ik gewoon tegen)
+[SecureSECO](https://secureseco.org/) is a cyber security project that seeks to create a safer software ecosystem through the use of distributed ledger technology and empirical software engineering research. The data that is collected and maintained in the ledger can be used to prevent vulnerabilities in a software configuration from being abused by malicious attackers.
 
-We want to enable software engineers to achieve their goals
-We want software engineers to work with secure software
-We want to provide a layer of trust under the worldwide software ecosystem
-We want to enable full provenance of source code to the place where it is used
-We want to use the data about this provenance for finding and warning about software vulnerabilities
-We love the open source space and its ability to self-cleanse
-We look at the worldwide software ecosystem and don’t discriminate on language, technology, platform, or other sub-ecosystem
+The software ecosystem is a trust-rich part of the world. Collaboratively, software engineers put their trust in major hubs in the ecosystem, such as package managers, repository services, and programming language ecosystems. However, there are many parts of the chain in which this trust can be broken.
 
-## Goal of the SecureSECO Initiative
+The aim of SecureSECO is to **find software vulnerabilities and propose methods to eliminate them**, by collecting and analyzing data on why software is or isn't trustworthy. The project researches, designs and builds prototype systems that use trust data to provide trustworthy, reliable systems for consumers and industry.
 
-Goal: The Secure Software Ecosystems initiative takes a worldwide scope on the produced software that society depends on. We hunt for software vulnerabilities and propose methods for eliminating them. We collect and analyze data on why software is to be trusted.
-We subsequently research, design, and build prototype systems that use trust data for providing trustworthy reliable systems for consumers and industry.
-These systems are frequently underpinned by open distributed systems that provide guarantees for reliable open untamperable data.
+Several reasons motivate the need for SecureSECO:
+
+- To enable software engineers to _achieve their goals_
+- To allow software engineers to work with _secure software_
+- To provide a layer of trust under the worldwide software ecosystem
+- To enable full provenance of source code to the place where it is used
+- To use the data about this provenance to find and warn about software vulnerabilities
+
+## SearchSECO
+
+SearchSECO, a project under the umbrella of the SecureSECO initiative, is a catalog of source code methods, focusing on call graphs and dependencies between projects. This information is stored in a database, which supports the identification of vulnerabilities and malware in software code.
+The database is built by extracting code from Git-based sources (currently only GitHub), parsing it, and storing its abstract representations in the database. The intention is for this project and its database to be built and maintained by the community. However, an incentive is required for people to want to participate in this ecosystem. This is where the [SecureSECO DAO](/about/dao) comes in.
+
+### More on SearchSECO
+
+<Cards
+  cardData={[
+    {
+      href: "/searchSECO/mining",
+      name: "Contributing to SearchSECO",
+      description:
+        "Learn more about running the SearchSECO miner and how you can earn money doing this.",
+      icon: Icons.hammer,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/searchSECO/querying",
+      name: "Querying the database",
+      description:
+        "Find out how to run queries against the SearchSECO database to check if your repository contains known vulnerabilities.",
+      icon: Icons.search,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+  ]}
+/>
