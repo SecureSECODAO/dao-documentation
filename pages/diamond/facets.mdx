@@ -1,44 +1,5 @@
 # Facets
-
-- [Governance](#governance)
-  - [Partial Voting](#partial-voting)
-    - [Partial Burn Voting](#partial-burn-voting)
-    - [Partial Burn Voting Proposals](#partial-burn-voting-proposals)
-  - [Structures](#structures)
-    - [Membership](#membership)
-      - [Base](#base)
-      - [Extended](#extended)
-      - [Tiered](#tiered)
-      - [Whitelist](#whitelist)
-    - [Voting Power](#voting-power)
-      - [Base](#base-1)
-      - [Mintable](#mintable)
-      - [Burnable](#burnable)
-- [Token](#token)
-  - [ERC20](#erc20)
-    - [Governance ERC20](#governance-erc20)
-      - [Governance ERC20 Burnable](#governance-erc20-burnable)
-      - [Governance ERC20 Disabled](#governance-erc20-disabled)
-  - [ERC721 and ERC1155](#erc721-and-erc1155)
-    - [Claiming](#claiming)
-      - [Time based](#time-based)
-      - [One time](#one-time)
-      - [Monetary token (SECOIN)](#monetary-token-secoin)
-- [Permissions](#permissions)
-  - [AragonOSx](#aragonosx)
-- [SearchSECO](#searchseco)
-  - [Mining reward pool](#mining-reward-pool)
-  - [SearchSECO Monetization](#searchseco-monetization)
-  - [SearchSECO Rewarding](#searchseco-rewarding)
-- [Other](#other)
-  - [Verification](#verification)
-  - [Reward multiplier](#reward-multiplier)
-  - [GitHub Pull Request Merger](#github-pull-request-merger)
-- [Planned](#planned)
-  - [Role based membership](#role-based-membership)
-  - [NFT Governance](#nft-governance)
-  - [Dashboard](#dashboard)
-
+This page details the facets that are currently implemented in the SecureSECO DAO. The facets are grouped by category and the functionality and technicality of each facet is summarized.
 ## Governance
 ### Partial Voting
 This facet extends upon Aragon's token voting. Instead of wallets only being able to vote once with all their voting power, proposals can be configured to allow people to vote multiple times with a part of their voting power. This plugin also supports multiple proposal types and a cap on voting power for any single wallet. Partial voting is based on the idea that people do not have super strong opinions on all proposals and thus do not want to influence the vote massively.
@@ -100,7 +61,7 @@ This allows miners to get rewarded for providing data to the SearchSECO database
 
 ## Other
 ### Verification
-Diamond Governance is the plugin to implement [Secure SECO Verification](https://github.com/SecureSECODAO/SecureSECOVerification), allowing wallets to become members of the DAO by verifying with their 1-year-old GitHub account or proof of humanity.
+**Diamond Governance** is the plugin to implement [Secure SECO Verification](https://github.com/SecureSECODAO/SecureSECOVerification), allowing wallets to become members of the DAO by verifying with their 1-year-old GitHub account or proof of humanity.
 ### Reward multiplier
 This facet is used by the [REDACTED] facet(s) to apply inflation to these rewards. This inflation is calculated based on the number of blocks passed since the multiplier was initially set. The facet currently includes three (or actually just two) options as to how the inflation is applied: constant, linear, and exponential.
 ### GitHub Pull Request Merger
@@ -113,4 +74,4 @@ Wallets are granted certain roles, and based on this, they are allowed to use ce
 ### NFT governance
 Voting power based on certain ERC721 or ERC1155 tokens present in the wallet.
 ### Dashboard
-Web portal to allow users to easily create a DAO with the Diamond Governance plugin and create proposals to alter the Diamond Governance plugin in existing DAOs.
+Web portal to allow users to easily create a DAO with the **Diamond Governance** plugin and create proposals to alter the **Diamond Governance** plugin in existing DAOs.
