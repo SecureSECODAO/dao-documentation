@@ -73,7 +73,7 @@ const config: DocsThemeConfig = {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="mask-icon" href="/favicon.svg" color="#000000" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-        <meta name="theme-color" content="#274E85" />
+        <meta name="theme-color" content="#6b9edb" />
       </>
     );
   },
