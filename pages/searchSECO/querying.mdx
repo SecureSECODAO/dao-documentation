@@ -1,5 +1,54 @@
 # Querying the SearchSECO database
 
+## Overview
+
+The Query functionality enables you to search the SearchSECO database for information about GitHub repositories. By entering the URL of a specific GitHub repository and your GitHub access token, you can query the database for relevant data.
+
+### Steps to Use the Query Functionality
+
+Follow these steps to use the Query feature:
+
+1. **Enter the GitHub URL**: 
+
+    - In the Query form, you'll find a field labeled "GitHub URL". 
+    - Here, enter the URL of the repository you want to query. 
+    - Ensure it's a valid Github URL, else you will receive an error.
+
+2. **Enter your GitHub Access Token**: 
+
+    - Below the URL field, you'll find another field labeled "GitHub Access Token".
+    - Enter your personal GitHub access token here. 
+    - The token must have read access to the repository you want to query.
+    - If the token is invalid, you'll receive an error message.
+
+3. **Submit the Query**: 
+
+    - Click on the "Submit" button to begin the querying process. 
+    - The application will first validate your URL and GitHub Access Token. 
+    - If there are no validation errors, the query process will begin. You'll be notified with a "Querying SearchSECO database..." message.
+
+4. **Pay for Hashes**: 
+
+    - Once the query has been run, you'll receive information about the cost and number of hashes found in the "Results" section. 
+    - If you wish to proceed, click the "Pay for hashes" button to pay for the session. 
+    - After clicking the button, a transaction request will be sent to your wallet for approval. 
+
+5. **Review Results**: 
+
+    - After the payment has been confirmed, the data will be fetched from the SearchSECO database.
+    - You can review the results in the "Results" section.
+    - If you wish to download the result, click the "Download as JSON" button. 
+
+6. **Cancel Session**:
+
+    - At any point, if you wish to cancel the session, you can click on the "Cancel" button.
+    - Please note that this will delete the current session and received data permanently. Make sure to download your data if you need it before cancelling the session.
+
+### Note
+
+Remember that your GitHub Access Token is sensitive information. Make sure not to share it with anyone else. The token is stored in your local storage for ease of use but can be removed or overwritten at any time.
+
+
 ## Why
 
 ## How
