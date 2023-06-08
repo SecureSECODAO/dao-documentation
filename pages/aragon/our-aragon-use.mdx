@@ -24,23 +24,23 @@ Here is a breakdown of what this contract handles:
 
 ### Permissions
 
-Aragon OSx contracts handle permissions mapping. Here, an address can have a permission of another smart contract, enabling plugins to interact securely with each other. A permission consists of an address that has the permission, the contract to which the permission is granted, and the permission id.
+Aragon OSx contracts handle permissions mapping. Here, an address can have a permission of another smart contract, enabling plugins to interact securely with each other. A permission consists of an address that has the permission, the contract where which the permission can be used, and the permission id.
 
 ### Action Execution
 
-Action execution is a permission that is granted to the governance plugin. This enables the governance plugin to execute actions on behalf of the DAO when proposals pass.
+Action execution is a permission that is granted to the governance plugin. This enables the governance plugin to execute actions on behalf of the DAO when consensus is reached.
 
 ### Storage of Treasury
 
-The Aragon OSx contract stores the treasury tokens in the smart contract, allowing them to be withdrawn as an action.
+The Aragon OSx contract stores the treasury tokens in the DAO smart contract, allowing them to be withdrawn as an action.
 
 ### Plugins
 
-Aragon OSx contracts facilitate plugins, which are a mapping of other smart contracts granted certain permissions to interact with the DAO or other plugins. Currently, we have one plugin: The overarching Diamond plugin that contains all the other facets. This was designed to enhance the modularity of the DAO and make it easier to add new features.
+Aragon OSx contracts facilitate plugins, which is a mapping of other smart contracts to which permissions are granted to interact with the DAO or other plugins. Currently, we have one plugin: The overarching Diamond plugin that contains a lot of facets to provide our desired functionality. This structure was chosen to enhance the modularity of the DAO and make it easier to add new features.
 
 ### Base Security Systems
 
-The core Aragon OSx contract also has some base security systems to protect the DAO.
+The core Aragon OSx contract also has some base security systems to protect the DAO. It has been audited for security flaws over 3 times. Some of the audit reports can be found on [their GitHub repository](https://github.com/aragon/osx/tree/develop/audits).
 
 ## Flexibility and Modularity
 
