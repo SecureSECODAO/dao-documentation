@@ -1,0 +1,13 @@
+The DAO can vote to merge pull requests into protected branches.
+This is useful to govern the maintenance and development of SecureSECO repositories.
+![Merge pull request input](/img/merge-pull-request-input.png)
+
+### Merge checks
+This action will only merge the pull request if all the branch protection rules have been met.
+This often includes the requirement of all tests passing and the branch being up to date with the base branch.
+
+### Available repositories
+The actual merging is done by the [SecureSECO-DAO bot](https://github.com/SecureSECO-DAO).
+Therefore, this action can be used to merge pull request for all repositories for which the bot has merge permissions.
+In short, this action can be used to merge pull request in all [repositories of the SecureSECO organization](https://github.com/orgs/SecureSECODAO/repositories).
+
