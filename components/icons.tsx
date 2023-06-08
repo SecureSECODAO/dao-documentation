@@ -12,6 +12,8 @@ import {
   Vote,
   DoorOpen,
   LucideProps,
+  Gem,
+  FileCode,
   type Icon as LucideIcon,
   Hammer,
 } from "lucide-react";
@@ -23,6 +25,8 @@ export const Icons = {
   radar: Radar,
   vote: Vote,
   doorOpen: DoorOpen,
+  gem: Gem,
+  fileCode: FileCode,
   hammer: Hammer,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
