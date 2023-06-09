@@ -1,19 +1,25 @@
+# Withdraw Assets
+
 The withdraw assets action can be used to withdraw assets from the DAO treasury.
 
-For example, you might use this action to reward someone for their contributions to the SecureSECO DAO.
+For example, you might use this action to reward someone for their contributions to the SecureSECO DAO codebase.
 
 ### Known tokens
-Withdraw known tokens, i.e. tokens that are already in the treasury (SECOIN and MATIC). 
+
+Withdraw known tokens, i.e. tokens that are already in the treasury (at least SECOIN will be present, but others could be by way of deposits from other people).
+
 1. Enter the address of the recipient for the recipient field.
 1. Select the token type you wish to withdraw using the token selector.
-1. Enter the amount of the token for the amount field. Note that this field supports decimals, thus for example it is possible to withdraw 0.0000000000001 MATIC.
+1. Enter the amount of the token for the amount field. Note that this field supports decimals. For example, it is possible to withdraw `0.0000000000001` MATIC.
 
 ![Change plugin parameter](/img/withdraw-assets-input.png)
 
 ### Custom token address
-Withdraw custom tokens, i.e. NFTs or tokens that are currently not yet in the treasury.
+
+In order to withdraw tokens that are not present in the treasury at the time of creating the proposal, you must enter the address of the token. Usually, the address of a token can easily be found online.
 
 #### Custom token address - MATIC
+
 It is possible to withdraw MATIC using 'Custom token address', in case the treasury does not yet contain MATIC.
 
 1. Enter the address of the recipient for the recipient field.
@@ -22,22 +28,26 @@ It is possible to withdraw MATIC using 'Custom token address', in case the treas
 1. Enter the amount of MATIC for the amount field.
 
 #### Custom token address - ERC20
+
 ERC20 is a standard used by most monetary tokens
+
 1. Enter the address of the recipient for the recipient field.
 1. Select 'Custom Token Address' using the token selector.
 1. Select 'ERC20: Most monetary tokens' using the token type selector.
 1. Enter the address of the ERC20 contract of the token for the 'token address' field.
 1. Enter the amount of the token for the amount field.
 1. The token decimals field should automatically be filled based on the token address.
-If this is not the case, this often means that the token address is incorrect! If you are sure the token address is correct, you can provide the token decimals manually if required.
+   If this is not the case, this often means that the token address is incorrect! If you are sure the token address is correct, you can provide the token decimals manually.
 
 ![Change plugin parameter](/img/withdraw-assets-input-custom.png)
 
 #### Custom token address - ERC721
+
 ERC721 is the standard used by NFTs
+
 1. Enter the address of the recipient for the recipient field.
 1. Select 'Custom Token Address' using the token selector.
 1. Select 'ERC721: NFTs' using the token type selector.
 1. As NFTs are indivisible, the amount is automatically set to 1.
 1. Enter the address of the ERC721 contract of the token for the 'token address' field.
-1. Enter the token ID of your NFT.
+1. Enter the token ID of the NFT to withdraw.

@@ -1,2 +1,8 @@
 {
+  "change-parameters": "Change Parameters",
+  "merge-pull-request": "Merge Pull Request",
+  "mint-tokens": "Mint Tokens",
+  "whitelist-member": "Whitelist Member",
+  "withdraw-assets": "Withdraw Assets",
+  "diamond-cut": "Diamond Cut"
 }

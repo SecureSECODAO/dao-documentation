@@ -1,10 +1,18 @@
-The mint tokens action can be used to create new SECOREP and send this to the specified address.
+import { Callout } from "nextra/components";
 
-Please note that SECOIN can not be minted. To send SECOIN to an address, you can use the [withdraw assets](withdraw-assets) action.
+# Mint Tokens
+
+The mint tokens action can be used to mint new SECOREP tokens to the wallet with the specified address.
+
+<Callout variant="info" emoji="ⓘ">
+  Note: SECOIN cannot be minted straight to a wallet. To send SECOIN to an
+  address, you can use the [withdraw assets](withdraw-assets) action.
+</Callout>
 
 ### Minting to multiple wallets
-With one mint tokens action, you can mint to multiple wallets.
+
+You can mint to multiple wallets with a single mint tokens action.
 This can be done by clicking the 'Add wallet' button.
-Therefore, it is not possible to add multiple mint tokens actions to a single proposal, as that would be redundant.
+Therefore, it is not possible to add multiple mint tokens actions to a single proposal.
 
 ![Mint Tokens Input](/img/mint-tokens-input.png)

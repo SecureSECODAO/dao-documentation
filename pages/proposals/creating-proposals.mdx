@@ -4,63 +4,71 @@ import { Callout } from "nextra/components";
 # Creating proposals
 
 Proposals are used to govern the DAO.
-Proposals can be created and voted on by any member in the DAO. 
-They can contain [actions](/actions), such as  withdrawing assets from the treasury, changing DAO parameters or merging a github PR.
+Proposals can be created and voted on by any member in the DAO.
+They can contain [actions](/actions), such as withdrawing assets from the treasury, changing DAO parameters or merging a github PR.
 These actions can be executed if the proposal has reaced the required approval threshold.
 
 The following steps explain how you can create your own proposal.
 It costs a small amount of SECOREP and MATIC to create a proposal.
 
-<Callout type="info" emoji="!">
-  Before you can create a proposal, you need to [join the DAO](/joining) and ensure you have [earned enough SECOREP](secorep/earning).
+<Callout type="warning" emoji="⚠">
+  Before you can create a proposal, you need to have [connected your
+  wallet](/joining/installing-metamask), [joined the DAO](/joining), and [earned
+  enough SECOREP](secorep/earning).
 </Callout>
 
 <Steps>
 ### Start proposal creation
 
-Go to the [governance page](https://dao.secureseco.org/governance) and click on the 'New proposal' button.
+Navigate to the [governance page](https://dao.secureseco.org/governance) and click on the "New proposal" button.
 
 ![Governance page](/img/governance-page.png)
 
 ### Enter proposal metadata
+
 Proposals need to have some metadata, informing other DAO members of the purpose of the proposal.
 
 1. Enter a proposal title. Preferably kept short and informative.
 2. Enter a proposal description.
 3. (Optional) enter a proposal body. The proposal body can be used to thorougly explain your proposal.
-4. Add proposal resources. It is good practice to always add a place for dicussion for your proposal, e.g. a discord link.
-5. Click on the 'Next' button.
-
+4. Add proposal resources. It is good practice to always add a place for dicussion for your proposal, e.g. a link to a Discord channel.
+5. Click on the "Next" button.
 
 ### Enter proposal voting settings.
-Currently, there is only one voting option: 'Yes, no, or abstain'. This might change in the future. 
+
+Currently, there is only one voting option: "Yes, no, or abstain". This might change in the future.
 Secondly, you must enter the vote timing.
 For the start time, you can select 'now' or enter a custom date and time.
 For the end time, you can select a duration or enter a custom date and time.
-Click on the 'Next' button to move to the next step.
+Click on the "Next" button to move to the next step.
 
-<Callout type="info" emoji="!">
-  There is a minimum duration for proposals. To account for time differences between time of creation and time of receival, a small time buffer might automatically be added to your duration.
+<Callout type="info" emoji="⚠">
+  There is a minimum duration for proposals. To account for time differences
+  between time of creation and time of receival, a small time buffer might
+  automatically be added to your duration.
 </Callout>
 
 ### Add proposal actions
+
 A proposal have as many actions as you want.
 Actions can be added by clicking the 'Add action' button and then clicking on the required action.
 Each action has different inputs, for more information about actions go to the [action documentation](/actions).
 
-Once you have added your actions, click on the 'Next' button to move to the next step.
-
+Once you have added your actions, click on the "Next" button to move to the next step.
 
 ### Confirm proposal
+
 The confirmation page provides a summary to confirm if you proposal is as you require.
-If you wish to change something about your proposal, you can use the 'Back' button to move back to the step you wish to change.
+If you wish to change something about your proposal, you can use the "Back" button to move back to the step you wish to change.
 If your proposal is to your liking, you can move on to submitting your proposal.
 ![New proposal confirmation](/img/new-proposal-confirmation.png)
 
 ### Submit proposal
+
 Please be reminded that it costs SECOREP and MATIC to create a proposal.
-Click the 'Submit' button, after which your wallet will notify you of a signature request.
+Click the "Submit" button, after which your wallet will notify you of a signature request.
 Accept this request to submit your proposal.
 A popup will appear informing you on the progress of your submission.
 When the popup has turned green, your proposal has successfully been submitted.
+
 </Steps>
