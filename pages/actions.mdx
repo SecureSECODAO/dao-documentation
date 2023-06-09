@@ -1,12 +1,50 @@
 import { Callout } from "nextra/components";
+import { Cards } from "../components/cards";
+import { Icons } from "../components/icons";
 
 # Actions
 
-Actions can be executed through the use of [proposals](/proposals).
-Actions can have real world effects outside of the DAO, such as merging github pull request.
-Actions can also have effects on the DAO, for example changing DAO parameters such as the amount of REP for the daily reward.
+Actions are essentially operations/method calls that will execute some code on a smart contract. They can be used to do all sorts of things, from minting SECOREP tokens to changing the DAO's parameters.
+Actions can also have real world effects outside of the DAO, such as merging a Github pull request.
+
+Actions are attached to proposals, and can be executed by the DAO's members if the proposal passes the voting stage.
 
 <Callout type="warning" emoji="⚠">
   Note: the webapp currently does not support the creation of proposals with
   [diamond cut](diamond/facets) actions.
 </Callout>
+
+## More information on actions
+
+<Cards
+  cardData={[
+    {
+      href: "/proposals/creating-proposals",
+      name: "Creating a proposal with actions",
+      description:
+        "Find out how to create a proposal with actions attached to it.",
+      icon: Icons.filePlus,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/proposals/voting",
+      name: "Executing actions",
+      description:
+        "Learn how to make execute the actions of a passed proposal.",
+      icon: Icons.fileCode,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+  ]}
+/>

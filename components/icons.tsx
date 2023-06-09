@@ -16,6 +16,8 @@ import {
   FileCode,
   type Icon as LucideIcon,
   Hammer,
+  FilePlus,
+  FileSignature,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -27,6 +29,7 @@ export const Icons = {
   doorOpen: DoorOpen,
   gem: Gem,
   fileCode: FileCode,
+  filePlus: FilePlus,
   hammer: Hammer,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
