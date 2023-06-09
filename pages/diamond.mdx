@@ -1,0 +1,44 @@
+import { Cards } from "../components/cards";
+import { Icons } from "../components/icons";
+
+# Diamonds, Multi-Facet proxy
+The SecureSECO DAO essentially boils down to the Aragon OSx contracts and our own **Diamond Governance** plugin. 
+The **Diamond Governance** plugin uses a modular smart contract system called [Diamond pattern](https://eips.ethereum.org/EIPS/eip-2535).
+This Diamond pattern allows us to add new functionality to the DAO without having to redeploy the entire DAO.
+This upgradability can be performed by the DAO itself, as opposed to just the developer in classic proxy patterns.
+It also circumvents the 24KB contract size limit on Ethereum.
+
+### More on Diamonds
+
+<Cards
+  cardData={[
+    {
+      href: "/diamond/what-is-a-diamond",
+      name: "What is a diamond?",
+      description:
+        "Learn what a diamond is and how we use it to add new functionality to the DAO.",
+      icon: Icons.gem,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/diamond/facets",
+      name: "Facets",
+      description:
+        "Find out about the different facets we've written for the DAO and how they work.",
+      icon: Icons.fileCode,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+  ]}
+/>

@@ -1,0 +1,5 @@
+# SECOREP Contracts
+SECOREP is a non-transferable [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token with an exposed mint and burn function (both require auth permissions).
+The token is not deployed as a standalone contract, but as a facet of the [Diamond Governance](/diamond). This is done because the token is not meant to be used as a standalone token, but as a governance token for the [SECOREP DAO](/dao/what-is-a-dao). It also gives a lot more flexibility over the token as it is part of the diamond. It could for example be upgraded to [ERC-1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/) if the DAO desires so.
+
+For more information on ERC-20, see [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata)
