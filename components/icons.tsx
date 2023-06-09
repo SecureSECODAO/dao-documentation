@@ -36,7 +36,7 @@ export const Icons = {
   hammer: Hammer,
   dao: Building2,
   shieldCheck: ShieldCheck,
-  users: Users2,
+  quorum: Users2,
   approve: CheckCircle,
   votingPower: Dumbbell,
   // Icons for proposal voting, executing and creating
