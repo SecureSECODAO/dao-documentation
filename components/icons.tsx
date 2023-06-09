@@ -20,6 +20,9 @@ import {
   Building2,
   TerminalSquare,
   ShieldCheck,
+  Users2,
+  CheckCircle,
+  Dumbbell,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -33,6 +36,9 @@ export const Icons = {
   hammer: Hammer,
   dao: Building2,
   shieldCheck: ShieldCheck,
+  users: Users2,
+  approve: CheckCircle,
+  votingPower: Dumbbell,
   // Icons for proposal voting, executing and creating
   vote: Vote,
   execute: TerminalSquare,

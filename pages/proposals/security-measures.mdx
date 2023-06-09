@@ -1,0 +1,85 @@
+import { Cards } from "../../components/cards";
+import { Icons } from "/components/icons.tsx";
+
+# Proposal Security Measures
+
+Several measures are in place to ensure that proposals are not susceptible to attacks from malicious actors.
+For example, a malicious actor might try to gain a majority of the voting power in the DAO, to be able to pass proposals by themselves, thereby essentially gaining control of the DAO.
+
+## Why we need security measures
+
+### Sybil attacks
+
+**What are they? How do they work? How can we prevent them?** (@Samuel you can remove this line, but just for inspiration what to put here)
+
+create multiple wallets and rack up enough voting power amongst them to gain the majority
+
+In order to prevent Sybil attacks against the DAO, each wallet must be verified using a 1+-year old Github account or Proof of Humanity (PoH). Alternatively, wallets may be verified permanently by whitelisting the through the [whitelist action](/actions/whitelist-member), but this requires a proposal te be passed by the entire DAO.
+
+### Etc.???
+
+## What measures are in place?
+
+### Voting power
+
+Voting power is determined by the amount of SECOREP tokens held by a wallet. When you cast a vote on a proposal, the power of that vote depends on the amount of tokens you held at the time that specific proposal was created. You will automatically vote with all of the voting power you held at that time, but there's a cap on the amount of voting power that can be used to vote on "Yes" or "No", known as the [Maximum Voting Power](/proposals/security-measures/maximum-voting-power). If you held more voting power than the maximum, and you are voting for "Yes" or "No", your vote will be capped at the maximum voting power, and any overflow will count towards "Abstain" (such that all of your voting power will still count towards the quorum).
+
+### Quorum
+
+The quorum is the minimum amount of voting power that must put into a proposal in order for it to pass. If a proposal does not reach the quorum, it will be defeated.
+
+### Approval threshold
+
+The approval threshold is the minimum amount of voting power that must vote "Yes" on a proposal in order for a proposal to pass. If a proposal does not reach the approval threshold, it will be defeated.
+
+### More information
+
+<Cards
+  cardData={[
+    {
+      href: "/proposals/security-measures/maximum-voting-power",
+      name: "Maximum Voting Power",
+      description:
+        "Learn more about the maximum amount of voting power that can be used to vote on a proposal",
+      icon: Icons.votingPower,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [4, 3],
+          [3, 1],
+        ],
+      },
+    },
+    {
+      href: "/proposals/security-measures/quorum",
+      name: "Quorum",
+      description:
+        "Learn more about the proposal quorum (minimum participation).",
+      icon: Icons.users,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [2, 0],
+        ],
+      },
+    },
+    {
+      href: "/proposals/security-measures/approval-threshold",
+      name: "Approval Threshold",
+      description:
+        "Learn more about the minimum amount of voting power that must vote 'Yes' on a proposal in order for it to pass",
+      icon: Icons.approve,
+      pattern: {
+        y: 32,
+        squares: [
+          [0, 2],
+          [1, 4],
+          [2, 2],
+        ],
+      },
+    },
+
+]}
+/>

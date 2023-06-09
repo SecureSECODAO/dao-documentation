@@ -7,10 +7,16 @@
  */
 
 import Link from "next/link";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import {
+  MotionValue,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+} from "framer-motion";
 
 import { GridPattern, GridPatternProps } from "@/components/grid-pattern";
 import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface CardData {
   href: string;
@@ -28,9 +34,16 @@ function CardIcon({ icon: Icon }) {
   );
 }
 
-function CardPattern({ mouseX, mouseY, ...gridProps }) {
+interface CardPatternProps extends GridPatternProps {
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+}
+
+function CardPattern({ mouseX, mouseY, ...gridProps }: CardPatternProps) {
   let maskImage = useMotionTemplate`radial-gradient(180px at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
+
+  // console.log(gridProps.y);
 
   return (
     <div className="pointer-events-none">
@@ -39,7 +52,7 @@ function CardPattern({ mouseX, mouseY, ...gridProps }) {
           width={72}
           height={56}
           x={0.5}
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
+          className="absolute inset-x-0 inset-y-[-30%] h-[200%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
           {...gridProps}
         />
       </div>
@@ -63,7 +76,13 @@ function CardPattern({ mouseX, mouseY, ...gridProps }) {
   );
 }
 
-export function Card({ card }: { card: CardData }) {
+export function Card({
+  card,
+  className,
+}: {
+  card: CardData;
+  className?: string;
+}) {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
 
@@ -77,7 +96,10 @@ export function Card({ card }: { card: CardData }) {
     <div
       key={card.href}
       onMouseMove={onMouseMove}
-      className="group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/5 dark:hover:shadow-black/5"
+      className={cn(
+        "group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/5 dark:hover:shadow-black/5",
+        className
+      )}
     >
       <CardPattern {...card.pattern} mouseX={mouseX} mouseY={mouseY} />
       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/10 group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20" />
@@ -100,9 +122,21 @@ export function Card({ card }: { card: CardData }) {
 export function Cards({ cardData }: { cardData: CardData[] }) {
   return (
     <div className="not-prose xl:max-w-none mt-4 grid grid-cols-1 gap-4 dark:border-white/5 sm:grid-cols-2">
-      {cardData.map((card) => (
-        <Card key={card.href} card={card} />
-      ))}
+      {cardData.map((card, i) => {
+        const fullWidth =
+          i === cardData.length - 1 && cardData.length % 2 !== 0;
+        // if (fullWidth) {
+        //   card.pattern.width = 72 * 2;
+        // }
+
+        return (
+          <Card
+            key={card.href}
+            card={card}
+            className={cn(fullWidth && "col-span-full")}
+          />
+        );
+      })}
     </div>
   );
 }
