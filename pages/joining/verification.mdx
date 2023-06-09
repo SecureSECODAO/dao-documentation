@@ -60,3 +60,51 @@ more detail in the [SECOREP](/secorep) section.
 ![Claim your reward](/img/claim-reward.png)
 
 </Steps>
+
+## Reverification
+
+Your verification status is not permanent. Depending on the platform you verified with, you will need to reverify yourself
+after a certain amount of time. Simply press the "Reverify" button on the card of the platform you want to reverify with.
+
+![Reverification](/img/reverification.png)
+
+## Unverification
+
+It is also possible to unverify yourself. This can be done by clicking the "Remove" button on the card of the platform you want to unverify from.
+
+## Technical details
+
+### Process overview
+
+Firstly, the user must visit the verification webpage and link their digital wallet (like Metamask, for instance). From there, the user must select one of the available identity verification providers, which currently includes Github and Proof of Humanity.
+
+After selecting a provider, the user will be directed to the provider's site for identity verification. In the case of Github, this process is carried out via [OAuth](https://oauth.net/2/).
+
+Following successful verification, the user is redirected back to our server which receives a verification token. This token allows our server to confirm the user's identity. Once confirmed, the server generates a proof which the user can then use to verify their identity on-chain.
+
+The proof is assembled as follows:
+
+    - Various data elements are collated:
+        - User's address
+        - A hash, derived from the combination of:
+            - Unique user-specific data (for example, the Github username)
+            - The ID of the provider (for instance, "github")
+            - An undisclosed secret
+        - The current timestamp
+    - This assembled data is then signed using a private key, which must originate from the same wallet that deployed the /block smart contract.
+
+The user can then use this proof to verify their identity on-chain using the smart contract. This is accomplished by invoking the verifyAddress function, which is as simple as clicking a button. Upon execution, the smart contract authenticates the proof, and if deemed valid, records the data on-chain.
+
+## Stamps
+
+On-chain verifications are encapsulated using a construct known as a stamp. A stamp is a data structure comprising the following fields:
+
+```solidity
+struct Stamp {
+    string providerId; // Unique identifier for the provider (github, proofofhumanity, etc.)
+    string userHash; // Hash of unique user data from the provider (username, email, etc.)
+    uint64[] verifiedAt; // Array of timestamps indicating when the user was verified
+}
+```
+
+Every user can have multiple stamps.
