@@ -38,13 +38,13 @@ The documentation is deployed at [docs.secureseco.org](https://docs.secureseco.o
 3. In case you haven't already: Install _npm_
 4. run: `npm i`
 
-## Local Development
+## Local development
 
 First, run `npm i` to install the dependencies.
 
 Then, run `npm run dev` to start the development server and visit localhost:3000.
 
-## Quick Start
+## Quick start
 
 ### Folder structure
 
@@ -123,7 +123,7 @@ You can do this directly in the mdx or in a tsx component.
 
 This way we keep all the svg and icon imports in one place and have autocomplete for the icons.
 
-### Useful Components for the mdx
+### Useful components for the mdx
 
 #### Callout component
 
@@ -279,7 +279,7 @@ You need to provide both colors for light mode and darkmode in your tailwind sty
 
 Don't worry about things like changing text-white and text-black each time, since those classes are already set by Nextra, unless you want to override them.
 
-#### optional classes
+#### Optional classes
 
 We use [Clsx](https://github.com/lukeed/clsx#readme) + [Tailwind-Merge](https://github.com/dcastil/tailwind-merge) for conditional CSS class application.
 
@@ -299,7 +299,7 @@ const isRed = true;
 
 In this project, we use the following naming conventions:
 
-#### kebab-case
+#### Kebab-case
 
 For folders, files (both mdx file names and tsx components), images (in the public folder), and css classes.
 
