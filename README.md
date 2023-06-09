@@ -1,6 +1,35 @@
+<p align="center">
+  <a
+    href="https://github.com/SecureSECODAO/dao-documentation/blob/main/LICENSE"
+    alt="License"
+  >
+    <img src="https://img.shields.io/github/license/SecureSECODAO/dao-documentation" />
+  </a>
+  <a
+    href="https://github.com/SecureSECODAO/dao-documentation/graphs/contributors"
+    alt="Contributors"
+  >
+    <img src="https://img.shields.io/github/contributors/SecureSECODAO/dao-documentation" />
+  </a>
+  <a
+    href="https://github.com/SecureSECODAO/dao-documentation/pulse"
+    alt="Activity"
+  >
+    <img src="https://img.shields.io/github/commit-activity/m/SecureSECODAO/dao-webapp" />
+  </a>
+  <a
+    href="https://docs.secureseco.org/"
+    alt="Vercel deployment"
+  >
+    <img src="https://img.shields.io/github/deployments/SecureSECODAO/dao-documentation/production?label=vercel&logo=vercel" />
+  </a>
+</p>
+
 # SecureSECO DAO documentation
 
-this is the readme for the SecureSECO DAO documentation. This documentation was made using [Nextra's](https://nextra.site/) docs theme, see their [documentation](https://nextra.site/docs) for more information.
+This is the readme for the SecureSECO DAO documentation. This documentation was made using [Nextra's](https://nextra.site/) docs theme, see their [documentation](https://nextra.site/docs) for more information.
+
+The documentation is deployed at [docs.secureseco.org](https://docs.secureseco.org/).
 
 ## Installing dependencies and setting up environment variables
 
