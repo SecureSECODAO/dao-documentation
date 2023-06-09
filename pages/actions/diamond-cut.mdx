@@ -1,4 +1,5 @@
 import { Callout } from "nextra/components";
+import { Steps } from "nextra-theme-docs";
 
 # Diamond Cut
 
@@ -9,4 +10,23 @@ import { Callout } from "nextra/components";
   cut action using the DAO webapp.
 </Callout>
 
-TODO: Add more information about how to create a diamond-cut action.
+<Steps>
+  
+## Create diamond cut proposal guide
+### Clone the Diamond Governance repo
+This repo can be found at [https://github.com/SecureSECODAO/diamond-governance](https://github.com/SecureSECODAO/diamond-governance).
+  
+### Build the Diamond Governance repo
+Follow the build process in the setup section of the readme. 
+  
+### Create the .env file
+Copy the `.env.sample` file to `.env` and fill out the required properties. This will likely only be your private key for the desired network.
+  
+### Fill in the settings in the proposal generator script
+Add your diamond address, cut and proposal metadata to `scripts/GenerateDiamondCutProposal.ts`.
+
+### Run the proposal generator script
+The script can be run with `npx hardhat run ./scripts/GenerateDiamondCutProposal.ts --network { your desired network name }`
+
+### Finished!
+You can now checkout the webapp and see your proposal in all its glory!
