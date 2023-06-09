@@ -1,32 +1,63 @@
-# hello
+import { Cards } from "../../components/Cards";
+import { Icons } from "../../components/Icons";
 
-An organization partially or wholly managed by decentralized computer program, with voting and finances handled through a blockchain, using smart contracts. DAOs are member-owned communities without centralized leadership. For DAOs, the legal status is unclear.
+# SecureSECO DAO
 
-Practically, for Secure SECO
-No owner (sorry Slinger!)
-Partial governance by deterministic smart contract execution
-Existence does not depend on one person
-Democratic, depending on design
-Identity is a challenge (who’s who, and why trust them?)
+## What is a DAO?
 
-For resources that:
-are at risk of capture by a central actor
-depend on community empowerment and engagement
-In situations where a need exists for:
-deterministic execution of governance decisions
-extremely flexible and scalable governance structures
-For pioneers that hope for:
-More innovation and experimentation in organization and technical structures
-A more decentralized and fair society
+DAO stands for Decentralized Autonomous Organization, which means it is an organization that manages itself without central authority. Governance of the DAO is conducted through the creation of proposals that members vote on to make decisions for the DAO. All of this is mediated by a set of programmable rules contained in smart contracts, which are deployed on the blockchain.
 
-Core values:
-Trust data is all around us, but we don’t use it properly
-Trust data does not belong to the big software companies, it should be available for all
-Trust data should be managed as open source, without the possibility to poison the well
+For more information on DAOs, see this [Aragon blog post](https://blog.aragon.org/what-is-a-dao/).
 
-How it works in practice
-The (Dutch) SecureSECO foundation is run by a board with very little power
-Money is made when data is “sold”
-Money is spent when data is added to the DAO
-Money is spent on new initiatives and features for TrustSECO and SecureSECO
-We introduce a kill switch, if the DAO starts rapidly bleeding money
+## Why do we need a DAO?
+
+The DAO for SecureSECO will enable the monetization of the data provided by [SearchSECO](/about/SecureSECO). The funds received that way can then be used to reward contributions to SearchSECO, thereby providing an incentive to make such contributions.
+
+The main reasons for using a DAO for this purpose are the following:
+
+- **Transparency**: The DAO will be fully transparent, since all of its operations are recorded on the blockchain. This is crucial in dealing with trust data, to avoid giving large corporations the chance to poison the well.
+- **Trust**: The DAO will be managed by the ecosystem itself, which means that it will not be controlled by a central authority.
+- **Maintenance**: The DAO will be self-sustaining, since it will be able to generate funds through the monetization of data.
+- **Innovation**: The DAO will enable community contributions to expand the DAO's functionality.
+- **Flexibility**: The DAO will be able to adapt to changing circumstances, since it is governed by a set of programmable rules, and the governance structure can be changed on the fly.
+
+## How does it work?
+
+Nobody _owns_ the SecureSECO DAO, except the community itself. The DAO is governed by a set of smart contracts, which are deployed on the Polygon blockchain. Decisions for the DAO are made through the [creation of proposals](/proposals/create-proposals) that members vote on.
+
+People can [query the SearchSECO database](/searchSECO/querying) to obtain trust data about Github repositories of their choosing. In doing so, they will pay a small fee depending on the amount of data being queried. This fee will be paid in SECOIN tokens, and will be sent to the DAO treasury. The treasury is used to reward people for [running SearchSECO miners](/searchSECO/mining), and for [contributions to SecureSECO](/contributing).
+
+## Where to start?
+
+<Cards
+  cardData={[
+    {
+      href: "/joining",
+      name: "Joining SecureSECO DAO",
+      description:
+        "Find out how you can become a part of the SecureSECO DAO and participate in its governance.",
+      icon: Icons.doorOpen,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/query",
+      name: "Making a Query",
+      description:
+        "Learn how to make queries to check if your repository contains any known vulnerabilities.",
+      icon: Icons.search,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+  ]}
+/>
