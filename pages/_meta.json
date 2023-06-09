@@ -2,7 +2,7 @@
   "index": "Introduction",
   "about": "About",
   "joining": "Joining the DAO",
-  "searchseco": "Search SECO Integration",
+  "searchseco": "SearchSECO Integration",
   "contact": "Contact",
   "-- Tokenomics": {
     "type": "separator",
@@ -32,7 +32,7 @@
     "href": "https://dao.secureseco.org/",
     "newWindow": true
   },
-  "Secureseco": {
+  "secureseco": {
     "title": "SecureSECO Site ↗",
     "type": "page",
     "href": "https://secureseco.org/",
