@@ -1,0 +1,53 @@
+Sure, here's the combined version:
+
+# Augmented Bonding Curve (ABC) for SECOIN
+
+The Augmented Bonding Curve (ABC) is a vital component of the economic design of SECOIN. This comprehensive document aims to provide an understanding of what an Augmented Bonding Curve is, its reasons for implementation, and how it operates.
+
+## What is an Augmented Bonding Curve?
+
+An Augmented Bonding Curve (ABC) is a complex financial model adopted in the blockchain space to manage the issuance and pricing of a token, serving as a 'value transfer interface' between a specific Commons and the rest of the world. It combines the characteristics of a traditional bonding curve with additional mechanisms to ensure price stability and enhance security for token holders.
+
+ABC generates continuous funding for open organizations producing and maintaining public goods, enabling circular, regenerative flows of value within the Commons, promoting economic sustainability.
+
+In the realm of public goods, the ABC aims to tackle the [free-rider problem](https://en.wikipedia.org/wiki/Free-rider_problem). The ABC model counteracts this by creating fully liquid micro-economies that provide alternative, incentive-aligned funding streams for important collective resources.
+
+Bonding curves provide a continuous, algorithmically determined price function for tokens. In an ABC, tokens are minted (created) or burned (destroyed) directly through the smart contract, and the price of tokens is automatically adjusted based on the current supply.
+
+## Why We Chose an Augmented Bonding Curve?
+
+### Stability and Security
+
+One of the key advantages of an ABC is the stability it provides. By basing the value of tokens on a predictable price function, an ABC can prevent abrupt shifts in token value, reducing the risk for holders. Moreover, the design of the ABC helps to moderate drastic price changes by ensuring that tokens aren't created from nothing, further bolstering their inherent value.
+
+### Friction as a Feature
+
+Friction is an integral part of the ABC model and takes the form of entry and exit fees. These fees act as a means of supporting the ecosystem and promoting a more stable environment. When tokens are burned for withdrawal, an exit tax is enacted on liquidation. A small percentage of the returns are sent back into the Funding Pool, allowing for simultaneous funding of the commons while contributors earn returns.
+
+## How does the Augmented Bonding Curve work for SECOIN?
+
+SECOIN's ABC creates an incentive mechanism, driving group behavior toward common goals and giving users the power to design the incentive mechanisms that will shape their Commons.
+
+In our system, we model a Reserve Pool (a reserve of bonded DAI and a supply of tokens) and a Funding Pool (floating supply of DAI available for use) that work together to create a self-sustaining funding mechanism for a continuous organization.
+
+We launch our system in two stages: the Hatch Phase and the Open Phase. During the Hatch Phase, initial contributors participate in a hatch sale, bootstrapping the Commons by funding an initial goal. A percentage is put into the Reserve Pool and "bonded" to the curve, and a percentage is put into the Funding Pool.
+
+The Hatchers receive newly minted tokens specific to the Commons. These tokens undergo a vesting process, helping to ensure the stability of the Reserve Pool and to prevent harmful early speculation. Once the goal for the Hatch Sale is met, the vesting process is initialized, and the system enters the Open Phase. In this phase, anyone can mint tokens by contributing DAI into the curve, thus becoming 'members of the Commons'.
+
+## The Curve
+
+The ABC uses Bancor's mathematical formula to shape the bonding curve. This formula determines the relationship between token supply and price.
+
+A crucial component of this formula is the **Reserve Ratio**. This ratio influences the curvature of the bonding curve, which in turn affects
+
+how the token price responds to changes in supply. A higher Reserve Ratio leads to a flatter curve, meaning token prices are less sensitive to supply changes. Conversely, a lower Reserve Ratio results in a steeper curve, making prices more responsive to changes in supply.
+
+In conclusion, the ABC is a sophisticated model designed to maintain the stability and security of the SECOIN system. Its use of friction, bonding curves, and other financial tools helps to foster a more predictable and robust token ecosystem. By understanding these mechanisms, you can make more informed decisions about participation in SECOIN's economy.
+
+## Further Reading
+
+For those interested in a deeper exploration of the ABC model, we recommend the following resources:
+
+1. [The ABC model by Commons Stack](https://commonsstack.org/abc)
+2. [Deep Dive: Augmented Bonding Curves](https://blog.giveth.io/deep-dive-augmented-bonding-curves-3f1f7c1fa751)
+3. [The Augmented Bonding Curve: A Web3 Way to Fund Public Goods](https://medium.com/commonsstack/the-augmented-bonding-curve-part-1-a-web3-way-to-fund-public-goods-7c9d1a871ae2)
