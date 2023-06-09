@@ -151,6 +151,8 @@ Checkout the [Steps component](https://nextra.site/docs/docs-theme/built-ins/ste
 
 Usage:
 
+When using the step component, please provide a h2 heading for the steps title, you can call it x Guide. Otherwise you might have an H1 go straight to an H3.
+
 ```mdx
 import { Steps } from "nextra-theme-docs";
 
