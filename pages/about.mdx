@@ -1,5 +1,43 @@
+import { Cards } from "../components/cards";
+import { Icons } from "../components/icons";
+
 # About
 
 This is a project under the umbrella of [SecureSECO](/about/secureSECO), with the purpose to provide an organization to manage contributions to the SearchSECO project. In the future, this organization may be used to manage other SecureSECO project, such as TrustSECO, as well.
 
 This project has been initially developed by a team of students at Utrecht University, in comission of the SecureSECO foundation.
+
+## Find out more
+
+<Cards
+  cardData={[
+    {
+      href: "/about/secureSECO",
+      name: "More on SecureSECO",
+      description:
+        "Learn more about the SecureSECO project, its goals, motivation and implementation.",
+      icon: Icons.logo,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+        ],
+      },
+    },
+    {
+      href: "/query",
+      name: "The DAO for SecureSECO",
+      description:
+        "Find out about the DAO for SecureSECO, why it is needed, how it works, and how you can participate.",
+      icon: Icons.dao,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [1, 3],
+        ],
+      },
+    },
+  ]}
+/>
