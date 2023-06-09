@@ -43,8 +43,6 @@ function CardPattern({ mouseX, mouseY, ...gridProps }: CardPatternProps) {
   let maskImage = useMotionTemplate`radial-gradient(180px at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
 
-  // console.log(gridProps.y);
-
   return (
     <div className="pointer-events-none">
       <div className="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
@@ -52,7 +50,7 @@ function CardPattern({ mouseX, mouseY, ...gridProps }: CardPatternProps) {
           width={72}
           height={56}
           x={0.5}
-          className="absolute inset-x-0 inset-y-[-30%] h-[200%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
+          className="absolute inset-x-0 inset-y-[-80%] h-[250%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
           {...gridProps}
         />
       </div>
@@ -122,21 +120,17 @@ export function Card({
 export function Cards({ cardData }: { cardData: CardData[] }) {
   return (
     <div className="not-prose xl:max-w-none mt-4 grid grid-cols-1 gap-4 dark:border-white/5 sm:grid-cols-2">
-      {cardData.map((card, i) => {
-        const fullWidth =
-          i === cardData.length - 1 && cardData.length % 2 !== 0;
-        // if (fullWidth) {
-        //   card.pattern.width = 72 * 2;
-        // }
-
-        return (
-          <Card
-            key={card.href}
-            card={card}
-            className={cn(fullWidth && "col-span-full")}
-          />
-        );
-      })}
+      {cardData.map((card, i) => (
+        <Card
+          key={card.href}
+          card={card}
+          className={cn(
+            i === cardData.length - 1 &&
+              cardData.length % 2 !== 0 &&
+              "col-span-full"
+          )}
+        />
+      ))}
     </div>
   );
 }
