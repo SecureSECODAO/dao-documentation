@@ -10,6 +10,9 @@ import { Steps } from "nextra-theme-docs";
   cut action using the DAO webapp.
 </Callout>
 
+## What is a diamond cut
+A diamond cut is a way of changing the functionality of the DAO. It can be used to add, replace or remove functionality of the DAO. For example you could create a diamond cut to change the current [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) based voting to [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) (NFTs). For this to work you would have to write an ERC-721 governance structure facet smart contract. As this action can have huge consequences if not considered carefully, this action can only be created using smart contract calls. This serves as a first test to see if you know what you are doing. Helper functions for create a proposal with a diamond cut action are provided in the Diamond Governance repo, for which you can follow the guide bellow.
+
 <Steps>
   
 ## Create diamond cut proposal guide
