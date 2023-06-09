@@ -10,28 +10,44 @@ import { Steps } from "nextra-theme-docs";
   cut action using the DAO webapp.
 </Callout>
 
-## What is a diamond cut
-A diamond cut is a way of changing the functionality of the DAO. It can be used to add, replace or remove functionality of the DAO. For example you could create a diamond cut to change the current [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) based voting to [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) (NFTs). For this to work you would have to write an ERC-721 governance structure facet smart contract. As this action can have huge consequences if not considered carefully, this action can only be created using smart contract calls. This serves as a first test to see if you know what you are doing. Helper functions for create a proposal with a diamond cut action are provided in the Diamond Governance repo, for which you can follow the guide bellow.
+## What is a diamond cut?
+
+A [diamond cut](/diamond/what-is-a-diamond#diamond-cut-and-loupe) is a way of changing the functionality of the DAO. It can be used to add, replace or remove functionality from the DAO. For example, you could create a diamond cut to change the current [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) based voting to [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) (NFTs). For this to work you would have to write an ERC-721 governance structure facet smart contract.
+
+As this action can have huge consequences if not considered carefully, this action can only be created using smart contract calls. This serves as a first test to see if you know what you are doing. Helper functions to create a proposal with a diamond cut action are provided in the Diamond Governance repo. Follow the guide below to add your own diamond cut proposal to the DAO.
+
+Note that, although creating a propsal with a diamond cut action is not supported in the webapp, viewing a proposal with a diamond cut action is supported. This means that you can create a proposal with a diamond cut action using the steps below and then view it in the webapp like any other action. This means voters will know what action is attached to the proposal, and can make an informed decision on whether to vote for it or not.
+
+## Diamond cut proposal guide
 
 <Steps>
-  
-## Create diamond cut proposal guide
-### Clone the Diamond Governance repo
-This repo can be found at [https://github.com/SecureSECODAO/diamond-governance](https://github.com/SecureSECODAO/diamond-governance).
-  
-### Build the Diamond Governance repo
-Follow the build process in the setup section of the readme. 
-  
-### Create the .env file
-Copy the `.env.sample` file to `.env` and fill out the required properties. This will likely only be your private key for the desired network.
-  
-### Fill in the settings in the proposal generator script
-Add your diamond address, cut and proposal metadata to `scripts/GenerateDiamondCutProposal.ts`.
+
+### Clone the Diamond Governance repository
+
+Start by cloning the [Diamond Governance repository](https://github.com/SecureSECODAO/diamond-governance) from GitHub. This repository contains helpful functions for creating a proposal with a diamond cut action.
+
+### Build the Diamond Governance project
+
+Follow the instructions provided in the readme's [setup section](https://github.com/SecureSECODAO/diamond-governance#setup) to build the project. This will generate a `dist` folder containing the compiled smart contracts.
+
+### Create the `.env` file
+
+Make a copy of the `.env.sample` file and rename it to `.env`. Fill in the required properties, which typically include your private key for the desired network.
+
+### Configure the proposal generator script
+
+Open the `scripts/GenerateDiamondCutProposal.ts` file and provide the necessary settings such as the diamond address, cut, and proposal metadata.
 
 ### Run the proposal generator script
-The script can be run with `npx hardhat run ./scripts/GenerateDiamondCutProposal.ts --network { your desired network name }`
 
-### Finished!
-You can now checkout the webapp and see your proposal in all its glory!
+Execute the proposal generator script by running the following command:
+
+```bash
+npx hardhat run ./scripts/GenerateDiamondCutProposal.ts --network {your desired network name}
+```
+
+### You're all set!
+
+Congratulations! You should now be able to view the proposal you created in the [webapp](https://dao.secureseco.org/governance) and see a diamond cut action attached to it.
 
 </Steps>
