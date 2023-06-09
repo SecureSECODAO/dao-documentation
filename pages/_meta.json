@@ -2,7 +2,7 @@
   "index": "Introduction",
   "about": "About",
   "joining": "Joining the DAO",
-  "searchseco": "SearchSECO Integration",
+  "searchseco-integration": "SearchSECO Integration",
   "contact": "Contact",
   "-- Tokenomics": {
     "type": "separator",
