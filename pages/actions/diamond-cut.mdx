@@ -1,4 +1,5 @@
 import { Callout } from "nextra/components";
+import { Steps } from "nextra-theme-docs";
 
 # Diamond Cut
 
@@ -9,4 +10,28 @@ import { Callout } from "nextra/components";
   cut action using the DAO webapp.
 </Callout>
 
-TODO: Add more information about how to create a diamond-cut action.
+## What is a diamond cut
+A diamond cut is a way of changing the functionality of the DAO. It can be used to add, replace or remove functionality of the DAO. For example you could create a diamond cut to change the current [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) based voting to [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) (NFTs). For this to work you would have to write an ERC-721 governance structure facet smart contract. As this action can have huge consequences if not considered carefully, this action can only be created using smart contract calls. This serves as a first test to see if you know what you are doing. Helper functions for create a proposal with a diamond cut action are provided in the Diamond Governance repo, for which you can follow the guide bellow.
+
+<Steps>
+  
+## Create diamond cut proposal guide
+### Clone the Diamond Governance repo
+This repo can be found at [https://github.com/SecureSECODAO/diamond-governance](https://github.com/SecureSECODAO/diamond-governance).
+  
+### Build the Diamond Governance repo
+Follow the build process in the setup section of the readme. 
+  
+### Create the .env file
+Copy the `.env.sample` file to `.env` and fill out the required properties. This will likely only be your private key for the desired network.
+  
+### Fill in the settings in the proposal generator script
+Add your diamond address, cut and proposal metadata to `scripts/GenerateDiamondCutProposal.ts`.
+
+### Run the proposal generator script
+The script can be run with `npx hardhat run ./scripts/GenerateDiamondCutProposal.ts --network { your desired network name }`
+
+### Finished!
+You can now checkout the webapp and see your proposal in all its glory!
+
+</Steps>
