@@ -18,6 +18,8 @@ import {
   Hammer,
   FilePlus,
   Building2,
+  TerminalSquare,
+  ShieldCheck,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -25,13 +27,17 @@ export type Icon = LucideIcon;
 export const Icons = {
   search: Search,
   radar: Radar,
-  vote: Vote,
   doorOpen: DoorOpen,
   gem: Gem,
   fileCode: FileCode,
-  filePlus: FilePlus,
   hammer: Hammer,
   dao: Building2,
+  shieldCheck: ShieldCheck,
+  // Icons for proposal voting, executing and creating
+  vote: Vote,
+  execute: TerminalSquare,
+  create: FilePlus,
+  // Logo's
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
