@@ -1,62 +1,113 @@
 # Facets
-This page details the facets that are currently implemented in the SecureSECO DAO. The facets are grouped by category and the functionality and technicality of each facet is summarized.
+
+This page provides details about the facets currently implemented in the SecureSECO DAO. The facets are categorized based on their functionality and technicality.
+
 ## Governance
+
 ### Partial Voting
-This facet extends upon Aragon's token voting. Instead of wallets only being able to vote once with all their voting power, proposals can be configured to allow people to vote multiple times with a part of their voting power. This plugin also supports multiple proposal types and a cap on voting power for any single wallet. Partial voting is based on the idea that people do not have super strong opinions on all proposals and thus do not want to influence the vote massively.
+
+This facet builds upon Aragon's token voting functionality. Instead of allowing wallets to vote once with their entire voting power, this facet enables multiple voting instances where individuals can vote multiple times with a portion of their voting power. It also supports different proposal types and allows for capping the voting power of a single wallet. The concept behind partial voting is that not all proposals require strong opinions, and individuals may prefer to have a moderate influence on the vote.
+
 #### Partial Burn Voting
-This facet is partial voting, with the addition of all used voting power being burned. If the proposal voted on does not reach the participation threshold, the plugin can be configured to make the burned tokens refundable. Partial burn voting is a way to make sure people will only vote on proposals that they care about, with an amount of voting power based on how much they care.
+
+This facet extends partial voting by burning the voting power used in each vote. If a proposal fails to reach the participation threshold, the burned tokens can be made refundable based on configuration. Partial burn voting ensures that individuals only vote on proposals they truly care about, with the amount of voting power corresponding to their level of interest.
+
 #### Partial Burn Voting Proposals
-This facet adds to the proposal creation of partial voting. Proposal creation will burn an amount of voting power of the proposer. The plugin can be configured to make the burned tokens refundable if the created proposal passes. Partial burn voting proposals is created to incentivize people to put effort and thought into their proposals and thus filter out ridiculous and low quality proposals.
+
+This facet introduces partial burn voting to the proposal creation process. When creating a proposal, a portion of the proposer's voting power is burned. If the created proposal passes, the burned tokens can be made refundable. Partial burn voting proposals incentivize individuals to put effort and thought into their proposals, discouraging frivolous or low-quality submissions.
+
 ### Structures
-Multiple governance structures have been defined for plugins to interact with each other. These structures allow future facets to be compatible with all existing plugins using the implemented structure interface.
+
+Multiple governance structures have been defined to enable seamless interaction between different plugins. These structures ensure compatibility with existing plugins by implementing a standardized structure interface.
+
 #### Membership
-These structures are related to what wallets are considered members of the DAO and other member-related information, such as ranks.
+
+These structures define the criteria for identifying wallets as members of the DAO and store member-related information, such as ranks.
+
 ##### Base
-All these plugins are based on the [`IMembership`](https://github.com/aragon/osx/blob/develop/packages/contracts/src/core/plugin/membership/IMembership.sol) of Aragon.
+
+All membership plugins are based on the [`IMembership`](https://github.com/aragon/osx/blob/develop/packages/contracts/src/core/plugin/membership/IMembership.sol) interface of Aragon.
+
 ##### Extended
-This interface requires the implementer to be able to tell if a wallet is a member at a certain timestamp and be able to provide a list of wallets that have been members at some point. This information can be used to loop over all members at a given timestamp on chain.
+
+This interface extends the base membership structure by providing additional functionality to check if a wallet was a member at a specific timestamp and retrieve a list of wallets that have been members at any point in time. This information can be utilized to iterate over all members at a given timestamp on-chain.
+
 ##### Tiered
-This interface also gives each member a tier instead of a yes/no value. These tiers can be used however wanted, for example, to give members who achieve a certain feat more permissions.
+
+The tiered membership structure assigns a tier to each member instead of a binary yes/no value. These tiers can be used to grant additional permissions or benefits to members based on their achievements or qualifications.
+
 ##### Whitelist
-This interface can add a wallet to the whitelist. This is a special way for a wallet to become a member, although it does not meet the normal member requirements.
+
+The whitelist membership structure allows adding wallets directly to the whitelist, enabling them to become members even if they don't meet the standard membership requirements.
+
 #### Voting Power
-These structures are related to how much voting power a given wallet has and losing or gaining voting power.
+
+These structures determine the voting power associated with each wallet and handle the dynamics of gaining or losing voting power.
+
 ##### Base
-The base governance structure should be able to provide information about the total voting power at a given block number and the total voting power of a certain wallet at a given block number.
+
+The base governance structure provides information about the total voting power at a given block number and the voting power of a specific wallet at a given block number.
+
 ##### Mintable
-This interface can mint voting power to a given wallet. This is done with a token id and/or amount, depending on what the voting token interface is (ERC20, ERC721, or ERC1155).
+
+This interface allows minting voting power to a wallet using a token ID and/or amount, depending on the voting token interface used (ERC20, ERC721, or ERC1155).
+
 ##### Burnable
-This interface can burn voting power from a given wallet. This is just an amount, and the implementer should decide how this maps to token ids and amounts.
+
+This interface enables burning voting power from a wallet by specifying an amount. The implementation defines how this amount maps to token IDs and quantities.
 
 ## Token
-### ERC20
-#### Governance ERC20
-This token is identical to the Governance ERC20 contract made by Aragon, only converted to a facet.
-##### Governance ERC20 Burnable
-This facet is an extension of Governance ERC20, allowing the token to be burned.
-##### Governance ERC20 Disabled
-This facet is an alteration of Governance ERC20, allowing functionality to be disabled. This will most often be used to create non-transferable and/or non-delegatable tokens.
-### ERC721 and ERC1155
-These token types can be implemented the future. In all the code written so far, they have been kept in mind, so after implementation, they will be compatible with the existing facets.
-#### Claiming
-##### Time based
-Allows time based rewards to be available to be claimed by members of the DAO. There is also a tiered version that allows members of different tiers to get different rewards. There is also a configurable maximum amount of claimable tokens at once, preventing inactive members from being able to claim a large sum of tokens after a long period of inactivity.
-##### One time
-Allows for a one-time reward to be claimed. The most basic claimable facet of this type will be claimable once per wallet, given that the wallet is a member of the DAO. There is a second, more advanced version that allows users to claim a reward for every verification that they pass.
-#### Monetary ERC20
-An option for a monetary token next to the governance token is provided. This allows a second way of rewarding people in the DAO. This token is stored in the DAO treasury, but it might require the DAO to approve the Diamond Governance to spend funds on its behalf for some functionality to work. Currently 2 options are provided for this monetary token, either a fixed supply that will mint all tokens on creation to the DAO treasury, or an augmented bonding curve.
 
-## Variable growth
-Linear, exponential and contrant growth multipliers are supported. This allows certain rewards or number to grow over time according to a certain variable. 
+### ERC20
+
+#### Governance ERC20
+
+This token functions identically to Aragon's Governance ERC20 contract but has been converted into a facet.
+
+##### Governance ERC20 Burnable
+
+This facet extends the functionality of Governance ERC20 by allowing the token to be burned.
+
+##### Governance ERC20 Disabled
+
+This facet modifies Governance ERC20 to enable disabling specific functionalities. It is commonly used to create non-transferable and/or non-delegatable tokens.
+
+### ERC721 and ERC1155
+
+Support for these token types is planned for future implementation. The existing code has been designed with compatibility in mind, ensuring smooth integration with the implemented facets in the future.
+
+#### Claiming
+
+##### Time-based
+
+This facet enables time-based rewards that can be claimed by DAO members. A tiered version of this facet allows different rewards based on member tiers. It also includes a configurable maximum amount of claimable tokens to prevent inactive members from claiming a large sum after a prolonged period of inactivity.
+
+##### One-time
+
+The one-time claiming facet allows members to claim a reward once. The basic version allows a single claim per wallet for DAO members. Additionally, an advanced version permits users to claim rewards for each verification they successfully pass.
+
+#### Monetary ERC20
+
+This facet provides an option for a monetary token alongside the governance token. It allows an alternative method of rewarding individuals in the DAO. The monetary token is stored in the DAO treasury, and certain functionalities may require the DAO to approve the Diamond Governance contract to spend funds on its behalf. Two options are currently available for the monetary token: a fixed supply that mints all tokens to the DAO treasury upon creation or an augmented bonding curve mechanism.
+
+## Variable Growth
+
+This feature supports linear, exponential, and constant growth multipliers. It allows rewards or numbers to increase over time based on a specific variable.
 
 ## Permissions
-The permission management defines which wallets are allowed to do certain actions. 
+
+Permission management determines which wallets are authorized to perform certain actions within the DAO.
+
 ### AragonOSx
-Currently, this is the only permission provider using the grant functionality of the DAO. However, the implementation allows for more providers to be added easily in the future and also allows members to use their own custom permission provider if wanted.
+
+Currently, the permission provider used in the DAO is AragonOSx, utilizing the grant functionality. The implementation allows for easy integration of additional permission providers in the future and permits members to use custom permission providers if desired.
 
 ## Other
-### Verification
-Diamond Governance is the plugin to implement [Secure SECO Verification](https://github.com/SecureSECODAO/SecureSECOVerification), allowing wallets to become members of the DAO by verifying with their 1-year-old GitHub account or proof of humanity.
-### GitHub Pull Request Merger
-Allows the plugin to merge pull requests on GitHub. This means that DAO members will be able to maintain the GitHub without needing to trust a centralized team of reviewers. This does however require some setup, which can be found on [their GitHub](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger).
 
+### Verification
+
+The Diamond Governance plugin implements [SecureSECO Verification](https://github.com/SecureSECODAO/SecureSECOVerification), which enables wallets to become DAO members by verifying their one-year-old GitHub account or proof of humanity.
+
+### GitHub Pull Request Merger
+
+This facet allows the DAO to merge pull requests on GitHub. DAO members gain the ability to maintain the GitHub repository without relying on a centralized team of reviewers. Initial setup instructions can be found on the [GitHub repository](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger).
