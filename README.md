@@ -305,7 +305,8 @@ For folders, files (both mdx file names and tsx components), images (in the publ
 
 #### Title Case
 
-For page titles (in \_meta.json files) and headings, we use Title Case.
+For page titles (in \_meta.json files) and h1 headings, we use Title Case.
+For headings below h1, so h2, h3 and onwards, we use Sentence case.
 
 Title case is a style in which the first letter of each word is capitalized, except for certain short words, such as articles (a, an, the), conjunctions (and, but, or, for, nor), and prepositions (in, to, of, at, by, up, for, off, on). For example:
 

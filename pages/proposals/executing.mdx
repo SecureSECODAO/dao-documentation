@@ -1,0 +1,77 @@
+import { Callout } from "nextra/components";
+import { Cards } from "/components/cards.tsx";
+import { Icons } from "/components/icons.tsx";
+import { Steps } from "nextra-theme-docs";
+
+# Executing Proposals
+
+Executing a proposal will (attempt to) perform all of the actions attached to it. A proposal can be executed when the required [approval threshold](/proposals/voting-security/approval-threshold) and [quorum](/proposals/voting-security/quorum) have been reached when the voting period comes to an end.
+
+<Cards
+  cardData={[
+    {
+      href: "/proposals/voting-security/approval-threshold",
+      name: "What is the Approval Threshold?",
+      description: "Learn about the approval threshold for proposals.",
+      icon: Icons.create,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [3, 2],
+        ],
+      },
+    },
+    {
+      href: "/proposals/voting-security/quorum",
+      name: "What is the Quorum?",
+      description:
+        "Find out what a quorum is, and how this is related to proposals.",
+      icon: Icons.vote,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [3, 3],
+          [1, 2],
+        ],
+      },
+    },
+  ]}
+/>
+
+## Early execution
+
+If the proposal reaches the required approval threshold and quorum before the voting period ends, it can be executed early. This is useful if the proposal is time-sensitive and needs to be executed as soon as possible.
+
+<Callout type="info" emoji="ⓘ">
+  When the quantity of "Yes" votes on a proposal exceeds the approval threshold,
+  it is impossible for it to be defeated. Hence, if the quorum is also reached,
+  the proposal can safely be executed before the end of the voting period,
+  because further votes will not change the outcome.
+</Callout>
+
+## Proposal execution guide
+
+<Steps>
+### Find a suitable proposal
+
+Navigate the [Governance page](https://dao.secureseco.org/governance) and find either an "Active" proposal that has passed both the approval threshold as well as the qourum, or a "Succeeded" proposal. You can filter proposals by their status using the tabs near the top of the page. Click on the title of a proposal to go to its page.
+
+![Governange page](/img/governance-page.png)
+
+### Execute the proposal
+
+On the proposal page, you can find a section containing the actions just below the voting results, in the bottom left corner of the page. If the proposal meets the requirements defined in step 1, and it has actions attached to it, the "Execute" button will be visible. Click on it to execute the proposal.
+
+![Proposal page](/img/proposal-page-executable.png)
+
+### Approve signature
+
+Once you clicked the button, your wallet will notify you of a signature request. After accepting this request, the proposal will be executed.
+
+### Await confirmation
+
+It may take a short time for the transaction to be confirmed on the blockchain. After the transaction is confirmed, the actions will have been completed.
+
+</Steps>
