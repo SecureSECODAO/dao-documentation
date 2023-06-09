@@ -1,0 +1,20 @@
+import { Callout } from "nextra/components";
+
+# DAO Webapp Architecture
+
+<Callout type="info" emoji="ⓘ">
+  Interested in contributing to the [DAO webapp
+  repository](https://github.com/SecureSECODAO/dao-webapp/)? Check out the
+  [contributing guide](/contributing) for more information.
+</Callout>
+
+The DAO webapp has been built using [React](https://react.dev/) and [Vite](https://vitejs.dev/). React serves as the main UI library, while Vite acts as the build tool and development server. The project also uses [React Router](https://reactrouter.com/) for client-side routing, [Storybook](https://storybook.js.org/) for component development and testing, and [Jest](https://jestjs.io/) for logic testing.
+
+The project relies on several important dependencies to build a robust and efficient web application. It leverages Web3 packages such as Ethers and Wagmi for seamless interaction with default and custom smart contracts, the Polygon blockchain, and wallet connections. For most blockchain interactions, we use an intermediary SDK, either the [Aragon SDK](/aragon/our-aragon-use#aragon-sdk) or our own [Diamond Governance SDK](https://github.com/SecureSECODAO/diamond-governance/).
+
+Additionally, the project utilizes Class Variance Authority for styling components with variants, Clsx and Tailwind-Merge for conditional CSS class application, and Radix UI as a collection of customizable UI components. These dependencies enhance the project's flexibility and maintainability by providing streamlined styling and highly reusable UI components.
+In particular, we use a component library built on top of Radix UI called [shadcn/ui](https://ui.shadcn.com/), which provides a default styling theme for Radix UI components, as well as some unique components of its own.
+
+ESLint and Prettier enforce code quality and formatting, while TypeScript adds static types for improved code reliability.
+
+For additional information on the project's architecture, check out the [readme](https://github.com/SecureSECODAO/dao-webapp/blob/dev/README.md) on the Github repository.
