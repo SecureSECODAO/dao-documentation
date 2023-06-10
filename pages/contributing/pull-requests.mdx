@@ -1,0 +1,52 @@
+import { Steps } from "nextra-theme-docs";
+
+# Pull Requests
+
+There's a few things to keep in mind when making pull requests a repository for the SecureSECO DAO. This page will explain the process of making pull requests and what to keep in mind when doing so.
+
+## Pull request process
+
+<Steps>
+### Fork the repository
+
+Fork the repository that you want to make changes to to your own GitHub account. This will allow you to make changes to the codebase without having to be a collaborator on the repository.
+
+### Create a branch
+
+Create a branch based on the `dev` branch. This will allow you to make changes to the codebase without affecting the `dev` branch. The `dev` branch is used to test new features and bug fixes before they are merged into the `main` branch.
+
+### Make changes
+
+Make the changes that you want to make to the codebase. Make sure that you follow the coding standards for the specific repository you are contributing to and that you test your changes before making a pull request.
+
+### Open a pull request
+
+Open a pull request to the `dev` branch. Make sure that you clearly describe what your pull request does. The following template for pull requests is recommended:
+
+```markdown
+# Type of change
+
+[Bug fix / New feature / Other]
+
+### Does it contain breaking changes?
+
+[Yes / No]
+[What it breaks, e.g. need to add env variable]
+
+# Description
+
+[Summary of the change]
+
+# Changes
+
+- [x] [some change that was done]
+- [ ] [change that was not finished yet]
+```
+
+You are free to use your own template, but please make sure that the PR is easy to understand and that it's clear what the PR does.
+
+### Create a proposal
+
+Follow the steps outlined on the [create a proposal page](/docs/dao/create-proposal) to create a proposal to merge your PR into the `dev` branch of the corresponding repository. Remember to add a [merge PR action](/actions/merge-pull-request) to the proposal. This will allow the community to vote on whether or not your PR should be merged into the `dev` branch. If the proposal passes, it can be executed to merge your pull request.
+
+</Steps>
