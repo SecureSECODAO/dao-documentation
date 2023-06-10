@@ -5,7 +5,9 @@ import { Steps } from "nextra-theme-docs";
 
 ## Overview
 
-The Query functionality enables you to search the SearchSECO database for information about GitHub repositories. By entering the URL of a specific GitHub repository and your GitHub access token, you can query the database for relevant data.
+The Query functionality enables you to search the SearchSECO database for information
+about GitHub repositories. By entering the URL of a specific GitHub repository,
+you can query the database for relevant data.
 
 ## Query Guide
 
@@ -15,35 +17,84 @@ Follow these steps to use the Query feature:
 
 ### Enter the GitHub URL
 
-In the Query form, find the field labeled "GitHub URL". Here, enter the URL of the repository you want to query. Make sure it's a valid GitHub URL, or you'll receive an error.
+In the Query form, find the field labeled "GitHub URL". Here, enter the URL of the
+repository you want to query. Make sure it's a valid GitHub URL, or you'll receive an error.
 
 ### Enter your GitHub Access Token
 
-Below the URL field, there's another field labeled "GitHub Access Token". Input your personal GitHub access token here. This token needs read access to the repository you wish to query. If it's invalid, an error message will be shown.
+Below the URL field, there's another field labeled "GitHub Access Token". Input
+your personal GitHub access token here. This token needs read access to the repository
+you wish to query. If it's invalid, an error message will be shown.
 
 ### Submit the Query
 
-Click the "Submit" button to initiate the querying process. The application first validates your URL and GitHub Access Token. If no validation errors occur, the query process begins and you'll see a "Querying SearchSECO database..." message.
+Click the "Submit" button to initiate the querying process. The application first
+validates your URL and GitHub Access Token. If no validation errors occur, the
+query process begins and you'll see a "Querying SearchSECO database..." message.
 
 ### Pay for Hashes
 
-Once the query is complete, you'll receive information about the cost and number of hashes found in the "Results" section. If you decide to continue, press the "Pay for hashes" button to pay for the session. Following this, a transaction request is sent to your wallet for approval.
+Once the query is complete, you'll receive information about the cost and number
+of hashes found in the "Results" section. If you decide to continue, press the "Pay for hashes"
+button to pay for the session. Following this, a transaction request is sent to your wallet for approval.
 
 ### Review Results
 
-After the payment confirmation, the data will be fetched from the SearchSECO database. You can inspect these results in the "Results" section. If you want to download the result, hit the "Download as JSON" button.
+After the payment confirmation, the data will be fetched from the SearchSECO database.
+You can inspect these results in the "Results" section. If you want to download the result,
+hit the "Download as JSON" button.
 
 ### Cancel Session
 
-If you want to cancel the session at any point, simply click the "Cancel" button. Be aware that this will permanently delete the current session and any data received. So, ensure to download your data before cancelling the session if you need it.
+If you want to cancel the session at any point, simply click the "Cancel" button.
+Be aware that this will permanently delete the current session and any data received.
+So, ensure to download your data before cancelling the session if you need it.
 
 </Steps>
 
 <Callout type="warning" emoji="⚠">
-
-Remember that your GitHub Access Token is sensitive information. Make sure not to share it with anyone else. The token is stored in your local storage for ease of use but can be removed or overwritten at any time.
-
+  Remember that your GitHub Access Token is sensitive information. Make sure not
+  to share it with anyone else. The token is stored in your local storage for
+  ease of use but can be removed or overwritten at any time.
 </Callout>
+
+## Query Results
+
+The output of the application's mining and parsing operation is a JSON object. This object contains important information about the code repositories that have been analyzed. It consists of three main parts: `methodData`, `authorData`, and `projectData`.
+
+### Method Data
+
+The `methodData` array contains objects that represent each individual method that has been analyzed within a project. Here's an overview of the data it includes:
+
+- `method_hash`: A unique identifier for the method.
+- `projectID`: The identifier of the project where the method was found.
+- `startVersion` & `startVersionHash`: The timestamp and commit hash of the version where the method was first identified.
+- `endVersion` & `endVersionHash`: The timestamp and commit hash of the version where the method was last identified.
+- `method_name`: The name of the method.
+- `file`: The file in which the method was found.
+- `lineNumber`: The line number in the file where the method starts.
+- `parserVersion`: The version of the parser used.
+- `vulnCode`: Any identified vulnerability code.
+- `authorTotal`: The total number of authors who contributed to the method.
+- `authorIds`: An array containing the IDs of the authors who contributed to the method.
+
+### Author Data
+
+The `authorData` array contains objects representing each unique author who has contributed to the analyzed methods. Currently, it contains:
+
+- `username`: The username of the author.
+
+### Project Data
+
+The `projectData` array contains objects that represent each unique project that has been analyzed. Here's an overview of the data it includes:
+
+- `id`: A unique identifier for the project.
+- `versionTime` & `versionHash`: The timestamp and commit hash of the project version.
+- `license`: The license of the project.
+- `name`: The name of the project.
+- `url`: The URL of the project.
+- `authorName`: The unique identifier of the author of the project.
+- `authorMail`: The mail id associated with the author of the project.
 
 ## Why
 
