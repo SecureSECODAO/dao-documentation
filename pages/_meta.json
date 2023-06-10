@@ -8,6 +8,7 @@
     "type": "separator",
     "title": "Tokenomics"
   },
+  "tokenomics": "Tokenomics Introduction",
   "secoin": "SECOIN",
   "secorep": "SECOREP",
   "-- Governance": {

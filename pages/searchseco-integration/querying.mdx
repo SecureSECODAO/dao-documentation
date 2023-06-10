@@ -1,55 +1,54 @@
+import { Callout } from "nextra/components";
+import { Steps } from "nextra-theme-docs";
+
 # Querying the SearchSECO database
 
 ## Overview
 
 The Query functionality enables you to search the SearchSECO database for information about GitHub repositories. By entering the URL of a specific GitHub repository and your GitHub access token, you can query the database for relevant data.
 
-### Steps to use the query functionality
+## Query Guide
 
 Follow these steps to use the Query feature:
 
-1. **Enter the GitHub URL**:
+<Steps>
 
-   - In the Query form, you'll find a field labeled "GitHub URL".
-   - Here, enter the URL of the repository you want to query.
-   - Ensure it's a valid Github URL, else you will receive an error.
+### Enter the GitHub URL
 
-2. **Enter your GitHub Access Token**:
+In the Query form, find the field labeled "GitHub URL". Here, enter the URL of the repository you want to query. Make sure it's a valid GitHub URL, or you'll receive an error.
 
-   - Below the URL field, you'll find another field labeled "GitHub Access Token".
-   - Enter your personal GitHub access token here.
-   - The token must have read access to the repository you want to query.
-   - If the token is invalid, you'll receive an error message.
+### Enter your GitHub Access Token
 
-3. **Submit the Query**:
+Below the URL field, there's another field labeled "GitHub Access Token". Input your personal GitHub access token here. This token needs read access to the repository you wish to query. If it's invalid, an error message will be shown.
 
-   - Click on the "Submit" button to begin the querying process.
-   - The application will first validate your URL and GitHub Access Token.
-   - If there are no validation errors, the query process will begin. You'll be notified with a "Querying SearchSECO database..." message.
+### Submit the Query
 
-4. **Pay for Hashes**:
+Click the "Submit" button to initiate the querying process. The application first validates your URL and GitHub Access Token. If no validation errors occur, the query process begins and you'll see a "Querying SearchSECO database..." message.
 
-   - Once the query has been run, you'll receive information about the cost and number of hashes found in the "Results" section.
-   - If you wish to proceed, click the "Pay for hashes" button to pay for the session.
-   - After clicking the button, a transaction request will be sent to your wallet for approval.
+### Pay for Hashes
 
-5. **Review Results**:
+Once the query is complete, you'll receive information about the cost and number of hashes found in the "Results" section. If you decide to continue, press the "Pay for hashes" button to pay for the session. Following this, a transaction request is sent to your wallet for approval.
 
-   - After the payment has been confirmed, the data will be fetched from the SearchSECO database.
-   - You can review the results in the "Results" section.
-   - If you wish to download the result, click the "Download as JSON" button.
+### Review Results
 
-6. **Cancel Session**:
+After the payment confirmation, the data will be fetched from the SearchSECO database. You can inspect these results in the "Results" section. If you want to download the result, hit the "Download as JSON" button.
 
-   - At any point, if you wish to cancel the session, you can click on the "Cancel" button.
-   - Please note that this will delete the current session and received data permanently. Make sure to download your data if you need it before cancelling the session.
+### Cancel Session
 
-### Note
+If you want to cancel the session at any point, simply click the "Cancel" button. Be aware that this will permanently delete the current session and any data received. So, ensure to download your data before cancelling the session if you need it.
+
+</Steps>
+
+<Callout type="warning" emoji="⚠">
 
 Remember that your GitHub Access Token is sensitive information. Make sure not to share it with anyone else. The token is stored in your local storage for ease of use but can be removed or overwritten at any time.
+
+</Callout>
 
 ## Why
 
 ## How
 
 ## Cost breakdown
+
+Maybe link to Secoin Utility page? Or do it here and link there to here?
