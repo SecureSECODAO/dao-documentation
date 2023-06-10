@@ -2,7 +2,9 @@
 
 This page describes the repositories that are used in the project and provides links to their source code and readme's for further information.
 
-## [dao-webapp](https://github.com/SecureSECODAO/dao-webapp)
+## DAO Webapp
+
+[View on Github](https://github.com/SecureSECODAO/dao-webapp)
 
 This repository contains the source code of the web application that is used to interact with the DAO.
 It uses React and Vite, and is written fully in TypeScript.
@@ -11,7 +13,9 @@ The live deployment of the web application can be found at [https://dao.securese
 
 For more information, see the page on the [DAO webapp architecture](/webapp) or the repository's [README](https://github.com/SecureSECODAO/dao-webapp/blob/master/README.md).
 
-## [dao-documentation](https://github.com/SecureSECODAO/dao-documentation)
+## Documentation Website
+
+[View on Github](https://github.com/SecureSECODAO/dao-documentation)
 
 This repository contains the source code of the very documentation website you are currently reading.
 It uses a [template](https://github.com/shuding/nextra-docs-template) for [Nextra](https://nextra.site/), which is a site generation framework for [Next.js](https://nextjs.org/).
@@ -21,14 +25,18 @@ The live deployment of the documentation website can be found at [https://docs.s
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/dao-documentation/blob/main/README.md).
 
-## [diamond-governance](https://github.com/SecureSECODAO/diamond-governance)
+## Diamond Governance
+
+[View on Github](https://github.com/SecureSECODAO/diamond-governance)
 
 This repository contains the source code of the diamond governance plugin that is used by the DAO. This plugin provides all of the custom functionality that the SecureSECO DAO needs to function on top of the base DAO smart contracts, which are provided by [AragonOSx](/aragon/our-aragon-use#aragon-osx).
 It uses Hardhat and is written fully in Solidity. Tests for [facets](/diamond/what-is-a-diamond#what-is-a-facet) are written in TypeScript.
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/diamond-governance/blob/main/README.md)
 
-## [SecureSECOVerification](https://github.com/SecureSECODAO/SecureSECOVerification)
+## Member Verification
+
+[View on Github](https://github.com/SecureSECODAO/SecureSECOVerification)
 
 This repository contains the source code of the verification server that is used to verify users for the DAO using third party platforms (currently supports [Github](https://github.com/) and [Proof of Humanity](https://proofofhumanity.id/)). It also contains the smart contract that enables the communication of the verifications to the blockchain, where the data regarding these verifications is stored.
 
@@ -36,7 +44,9 @@ The server component uses Express and is written in TypeScript, while the smart 
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/SecureSECOVerification/blob/main/README.md).
 
-## [SecureSECOPullRequestMerger](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger)
+## Pull Request Merger
+
+[View on Github](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger)
 
 This repository contains the source code of the Github PR merger bot that is used to merge PRs on Github. It is used to merge PRs that have been approved by the DAO through a proposal with a [merge PR action](/actions/merge-pull-request) attached to it. Internally, it will listen to an event on the smart contract that will be triggered by the execution of a proposal containing a merge action, and willl use the [Github API](https://docs.github.com/en/rest) to merge the right PR.
 
@@ -44,40 +54,54 @@ The smart contract is written as a facet of the [diamond governance plugin](/dia
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger/blob/main/README.md).
 
-## [searchSECO-api](https://github.com/SecureSECODAO/searchSECO-api)
+## SearchSECO API
+
+[View on Github](https://github.com/SecureSECODAO/searchSECO-api)
 
 This repository contains the source code of the API that is used by the DAO to interact with the SearchSECO database. It enables the monetization of queries and rewarding of SearchSECO miners.
 It uses Express and is written in TypeScript.
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/searchSECO-api/blob/main/README.md).
 
-## [searchSECO-spider](https://github.com/SecureSECODAO/searchSECO-spider)
+## SearchSECO Spider
+
+[View on Github](https://github.com/SecureSECODAO/searchSECO-spider)
 
 This repository contains the source code of the [SearchSECO spider](/searchseco-integration/mining#spider). The Spider handles the crawling of Github repositories, extracting metadata such as the author and blame data. The Spider returns data about each commit and code block, along with information about any detected vulnerabilities.
 
-## [searchSECO-crawler](https://github.com/SecureSECODAO/searchSECO-crawler)
+## SearchSECO Crawler
+
+[View on Github ](https://github.com/SecureSECODAO/searchSECO-crawler)
 
 This repository contains the source code of the [SearchSECO crawler](/searchseco-integration/mining#crawler). The crawler handles the fetching of repositories from the Github API and adding the URLs of those projects to the database as spider jobs. It will also upload metadata about the project to the database.
 
-## [searchSECO-parser](https://github.com/SecureSECODAO/searchSECO-parser)
+## SearchSECO Parser
+
+[View on Github](https://github.com/SecureSECODAO/searchSECO-parser)
 
 This repository contains the source code of the [SearchSECO parser](/searchseco-integration/mining#parser). The parser handles the parsing of code and converts methods into hashes, which will be uploaded to the SearchSECO database by the [miner](#searchseco-miner).
 
-## [searchSECO-miner](https://github.com/SecureSECODAO/searchSECO-miner)
+## SearchSECO Miner
+
+[View on Github](https://github.com/SecureSECODAO/searchSECO-miner)
 
 This repository contains the source code of the [SearchSECO miner](/searchseco-integration/mining#miner), also known as the SearchSECO controller. It combines the crawler, parser and spider into one application, which can be run to add essentially contribute to the SearchSECO project by adding data to its database.
 It is writting in TypeScript.
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/searchSECO-miner/blob/main/README.md).
 
-## [searchSECO-logger](https://github.com/SecureSECODAO/searchSECO-logger)
+## SearchSECO Logger
+
+[View on Github](https://github.com/SecureSECODAO/searchSECO-logger)
 
 This repository contains the source code of the logger module used by the [SearchSECO miner](#searchseco-miner) and its submodules to print to `stdout`.
 It is written entirely in TypeScript.
 
 For more information, see the repository's [README](https://github.com/SecureSECODAO/searchSECO-logger/blob/main/README.md).
 
-## [searchSECO-databaseAPI](https://github.com/SecureSECODAO/searchSECO-databaseAPI)
+## SearchSECO Database API
+
+[View on Github](https://github.com/SecureSECODAO/searchSECO-databaseAPI)
 
 This repository contains the source code for the TCP client that is used by the [SearchSECO miner](#searchseco-miner) and its submodules to interact with the SearchSECO database. It is written entirely in TypeScript.
 
