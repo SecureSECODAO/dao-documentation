@@ -191,7 +191,9 @@ import { Tab, Tabs } from "nextra-theme-docs";
 
 #### Card component
 
-A nice [Card](components/card.tsx) component with a cool hover effect that links to a page
+A nice [Card](components/card.tsx) component with a cool hover effect that links to a page on the website.
+
+If you want to link to an external website, pass `external: true` to the props for the card. This will render a smaller card without description, but with an external link icon on the right
 
 Usage:
 

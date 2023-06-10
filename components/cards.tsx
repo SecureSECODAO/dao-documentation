@@ -15,7 +15,7 @@ import {
 } from "framer-motion";
 
 import { GridPattern, GridPatternProps } from "@/components/grid-pattern";
-import { LucideIcon } from "lucide-react";
+import { ExternalLink, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface CardData {
@@ -24,6 +24,7 @@ export interface CardData {
   description: string;
   icon: LucideIcon;
   pattern: GridPatternProps;
+  external?: boolean;
 }
 
 function CardIcon({ icon: Icon }) {
@@ -96,22 +97,45 @@ export function Card({
       onMouseMove={onMouseMove}
       className={cn(
         "group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/5 dark:hover:shadow-black/5",
+        card.external && "h-fit",
         className
       )}
     >
       <CardPattern {...card.pattern} mouseX={mouseX} mouseY={mouseY} />
       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/10 group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20" />
-      <div className="relative rounded-2xl px-4 pb-4 pt-8">
-        <CardIcon icon={card.icon} />
-        <h3 className="mt-4 text-sm font-semibold leading-7 text-zinc-900 dark:text-white">
-          <Link href={card.href}>
-            <span className="absolute inset-0 rounded-2xl" />
-            {card.name}
-          </Link>
-        </h3>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          {card.description}
-        </p>
+      <div
+        className={cn(
+          "relative rounded-2xl px-4 pb-4 pt-8 w-full",
+          card.external && "flex items-center justify-between h-fit pt-4 px-6"
+        )}
+      >
+        <div className="flex items-center gap-x-4">
+          <CardIcon icon={card.icon} />
+          <h3
+            className={cn(
+              "text-sm font-semibold leading-7 text-zinc-900 dark:text-white",
+              !card.external && "mt-4"
+            )}
+          >
+            {card.external ? (
+              <a href={card.href} target="_blank" rel="noopener">
+                <span className="absolute inset-0 rounded-2xl" />
+                {card.name}
+              </a>
+            ) : (
+              <Link href={card.href}>
+                <span className="absolute inset-0 rounded-2xl" />
+                {card.name}
+              </Link>
+            )}
+          </h3>
+        </div>
+        {!card.external && (
+          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+            {card.description}
+          </p>
+        )}
+        {card.external && <ExternalLink className="h-5 w-5 shrink-0" />}
       </div>
     </div>
   );

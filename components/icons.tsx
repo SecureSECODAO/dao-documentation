@@ -23,6 +23,7 @@ import {
   Users2,
   CheckCircle,
   Dumbbell,
+  BookOpen,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -39,11 +40,12 @@ export const Icons = {
   quorum: Users2,
   approve: CheckCircle,
   votingPower: Dumbbell,
+  readme: BookOpen,
   // Icons for proposal voting, executing and creating
   vote: Vote,
   execute: TerminalSquare,
   create: FilePlus,
-  // Logo's
+  // Logos
   metamask: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
