@@ -1,17 +1,65 @@
-# SecureSECO DAO's Tokenomics
+import { Cards } from "../components/cards";
+import { Icons } from "../components/icons";
 
-## Why two tokens?
+# Introduction to SecureSECO DAO's Tokenomics
 
-explain why splitting up the token in a governance token and a monetary/utility token is a good idea
+SecureSECO DAO operates a dual-token structure comprising of a governance token (SECOREP) and a monetary/utility token (SECOIN). This unique system brings numerous benefits that cater to our ambition of fostering a decentralized, robust, and transparent ecosystem.
+
+## Why Two Tokens?
+
+Implementing a dual-token system offers a series of advantages that strengthen the mechanics of our ecosystem:
+
+1. **Ensuring Democratic Governance:** We firmly believe that governance power within a DAO should be earned and not purchased. By separating our governance token from our utility token, we ensure that decision-making power comes from active participation and valuable contributions over time, not financial strength.
+
+2. **Separation of Monetary and Governance Functions:** Distinguishing the governance and monetary utilities into two tokens enables us to sidestep potential conflicts between the two. This separation facilitates a more targeted development and maintenance of both the governance structure and the token economy.
+
+3. **Enhanced Security:** The split of functionalities provides an additional security layer to our system. Any potential attack or exploitation is limited to one aspect of the system, without affecting the other.
+
+4. **Flexibility and Adaptability:** The two-token model allows for greater adaptability in response to evolving network demands and market conditions, and increased flexibility in the management of the ecosystem.
+
+5. **Inclusivity:** By differentiating governance from monetary transactions, we establish a more inclusive system. Users can participate in the network’s economy without necessarily being involved in its governance, and vice versa.
 
 ## Governance Token (SECOREP)
 
-Introduct the governance token and explain its purpose very shortly, link to /secoin
+SECOREP operates as SecureSECO DAO's governance token. It equips its holders with the power to propose and vote on pivotal decisions that shape the SecureSECO ecosystem.
 
-Used for voting and creating proposals.
+SECOREP embodies the heart of SecureSECO DAO's decentralized governance model, ensuring the platform remains aligned with its democratic ideals by allowing every token holder a voice in its operations.
 
-## Monetary/Utility Token (SECO)
+## Monetary/Utility Token (SECOIN)
 
-Introduce the monetary/utility token and explain its purpose very shortly, link to /secoin
+SECOIN acts as SecureSECO DAO's monetary and utility token. It is utilized for making payments for queries and rewarding miners for their contributions to the ecosystem.
 
-Used for paying for queries, and rewarding miners for their work.
+SECOIN helps cultivate a flourishing economy within the SecureSECO DAO platform. Its design promotes a balance between supply and demand, fostering a sustainable reward mechanism for users who contribute value to the network.
+
+<Cards
+  cardData={[
+    {
+      href: "/secorep",
+      name: "SECOREP - Governance Token",
+      description:
+        "Dive into the details of SECOREP, SecureSECO DAO's governance token. Learn how to earn it, its utility, and its influence within the DAO.",
+      icon: Icons.secorep,
+      pattern: {
+        y: 16,
+        squares: [
+          [1, 1],
+          [4, 3],
+        ],
+      },
+    },
+    {
+      href: "/secoin",
+      name: "SECO - Monetary/Utility Token",
+      description:
+        "Explore the function and importance of SECO, SecureSECO DAO's monetary and utility token. Discover how it powers our economy and interacts with the Augmented Bonding Curve.",
+      icon: Icons.secoin,
+      pattern: {
+        y: -6,
+        squares: [
+          [3, 3],
+          [1, 0],
+        ],
+      },
+    },
+  ]}
+/>
