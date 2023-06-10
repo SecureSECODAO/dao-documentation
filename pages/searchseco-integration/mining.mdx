@@ -1,21 +1,27 @@
 # Mining for SearchSECO
 
 ## Overview
-The Miner functionality of the DAO WebApp is designed to extract relevant metadata from GitHub repositories and upload it to the application's database. It involves several components working together: The Crawler, the Spider, the Miner itself, and the Parser.
 
-### The Spider
-The Spider is responsible for crawling individual GitHub repositories, extracting metadata such as the author and blame data. The Spider returns data about each commit and code block, along with information about any detected vulnerabilities.
+The Miner functionality of the DAO WebApp is designed to extract relevant metadata from Github repositories and upload it to the application's database. It involves several components working together: The Crawler, the Spider, the Miner itself, and the Parser.
 
-### The Crawler
-The Crawler uses the GitHub API to traverse the list of GitHub repositories. It extracts metadata about the projects, such as who created the repo, the project's license, and more.
+### Spider
 
-### The Parser
+The Spider is responsible for crawling individual Github repositories, extracting metadata such as the author and blame data. The Spider returns data about each commit and code block, along with information about any detected vulnerabilities.
+
+### Crawler
+
+The Crawler uses the Github API to traverse the list of Github repositories. It extracts metadata about the projects, such as who created the repo, the project's license, and more.
+
+### Parser
+
 The Parser's role is to parse the repository's code and convert methods into hashes. These hashes are then uploaded to the database by the Miner.
 
-### The Miner
+### Miner
+
 The Miner is the key component that connects all these functionalities. It controls and executes commands for the Crawler and Spider to perform their tasks, and it uploads all of the data (including parsed hashes) to the database.
 
 ## Running a Mining node
+
 Users who run a mining node contribute to the extraction and uploading of metadata. In return, they are rewarded based on the amount of hashes they upload. This is a great way to contribute to the growth and data richness of the SecureSECO DAO while also earning rewards.
 
-Note: Make sure your GitHub Access Token has the necessary permissions to access and interact with the repositories you wish to mine.
+Note: Make sure your Github Access Token has the necessary permissions to access and interact with the repositories you wish to mine.
