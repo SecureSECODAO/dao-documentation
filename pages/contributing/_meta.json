@@ -1,5 +1,3 @@
 {
-  "repositories": "Repositories",
-  "code-style": "Code Style",
-  "pull-requests": "Pull Requests"
+  "repositories": "Repositories"
 }

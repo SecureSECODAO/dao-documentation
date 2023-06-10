@@ -1,0 +1,81 @@
+# Contributing to SecureSECO DAO
+
+If you're interested in contributing to the SecureSECO DAO project, you've come to the right place!
+
+There's several modules that work together to make the SecureSECO DAO work:
+
+- [DAO Webapp](/https://github.com/SecureSECODAO/dao-webapp/blob/master/README.md) - frontend webapp for the DAO
+- [Diamond Governance Plugin](https://github.com/SecureSECODAO/diamond-governance) - plugin for the base DAO contracts that adds diamond functionality
+- [SearchSECO API](https://github.com/SecureSECODAO/searchSECO-api) - API that handles interaction with the SearchSECO database
+- [Verification Server](https://github.com/SecureSECODAO/SecureSECOVerification) - server that handles user verification for the DAO
+- [Github PR Merger](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger) - a bot that merges PRs on Github
+
+## Contribution Guidelines
+
+### Issues
+
+Issues are always welcome. They can be used to discuss minor changes, bugs, or feature requests. If you're unsure about whether or not to open an issue, feel free to contact us on [Discord](https://discord.gg/).
+
+### Pull Requests
+
+Generally, the following steps should be taken to make your own contributions to the codebase:
+
+1. Fork the repo and create your branch from the `dev` branch.
+2. If you've added code that should be tested, add tests.
+3. Update documentation (readme's and this documentation site if necessary).
+4. Open a pull request to the `dev` branch.
+5. Create a proposal to merge your PR in the DAO webapp.
+
+The recommended template to use for pull requests is as follows:
+
+```markdown
+# Type of change
+
+[Bug fix / New feature / Other]
+
+### Does it contain breaking changes?
+
+[Yes / No]
+[What it breaks, e.g. need to add env variable]
+
+# Description
+
+[Summary of the change]
+
+# Changes
+
+- [x] [some change that was done]
+- [ ] [change that was not finished yet]
+```
+
+You are free to use your own template, but please make sure that the PR is easy to understand and that it's clear what the PR does.
+
+## Style Guide
+
+General guidliens for all modules regarding commits and branches are listed below.
+
+Specifics like coding style, code formatting, linters, etc. differ per module, as they are written in different programming languages and use different frameworks. Please refer to the readme of the module you're contributing to for more information.
+
+### Commits
+
+We use [semantic commits](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) for our commit messages. This ensures that the commit messages are easy to read and understand, and that the commit history is clean and easy to navigate.
+
+### Branches
+
+We use the following branches:
+
+- `master` or `main` - the latest stable release
+- `dev` - the latest development version
+- `feature/<feature-name>` - feature branches
+- `bugfix/<bug-name>` - bugfix branches
+
+## Communication and Collaboration
+
+We use [Discord](https://discord.gg/) for communication and collaboration. Feel free to join our server and ask questions, discuss ideas, or just hang out.
+If you have questions about the project, the architecture, some piece of code, or really anything else, the Discord server is the place to be.
+
+## License
+
+This project and all its repositories and code is licensed under the
+[MIT](https://choosealicense.com/licenses/mit/)
+license.

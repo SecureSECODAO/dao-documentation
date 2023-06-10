@@ -15,9 +15,13 @@ When the logic needs to be updated, a new logic contract can be deployed and the
 
 ## Diamonds
 
-Diamonds, also known as "Multi-Facet Proxies" have significant differences compared to regular proxies. The key distinction lies in the fact that diamonds don't have a single logic contract like proxies do. Instead, diamonds can have numerous logic contracts, offering a high degree of flexibility. Each logic contract specified by the diamond determines which functions can be called on the diamond itself. This feature allows diamonds to selectively incorporate specific functionalities of other contracts, making them highly modular and promoting contract reusability. In the diamond world, each logic contract is called a "facet" borrowing the term from the real-world diamond industry where it represents one face of a diamond.
+Diamonds, also known as "Multi-Facet Proxies" have significant differences compared to regular proxies. The key distinction lies in the fact that diamonds don't have a single logic contract like proxies do. Instead, diamonds can have numerous logic contracts known as "facets", offering a high degree of flexibility.
 
 A handy website that allows you to inspect and [cut](#diamond-cut-and-loupe) diamonds, developed by Nick Mudge, the creator of the diamond standard, can be found at https://louper.dev/.
+
+### What is a Facet?
+
+A _facet_ is a smart contract containing the logic functions that can be called by the diamond. Facets are added, removed or replaced using the diamond cut function, which is explained in more detail in the [diamond cut and loupe](#diamond-cut-and-loupe) section. The name "facet" originates from the diamond industry, where it represents one face of a diamond.
 
 ### Diamond storage
 
