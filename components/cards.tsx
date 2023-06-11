@@ -51,7 +51,7 @@ function CardPattern({ mouseX, mouseY, ...gridProps }: CardPatternProps) {
           width={72}
           height={56}
           x={0.5}
-          className="absolute inset-x-0 inset-y-[-80%] h-[250%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
+          className="absolute inset-x-0 inset-y-[-100%] h-[250%] w-full skew-y-[-18deg] fill-black/[0.03] stroke-black/5 dark:fill-white/[0.03] dark:stroke-white/5"
           {...gridProps}
         />
       </div>
