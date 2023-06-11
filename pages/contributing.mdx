@@ -1,14 +1,53 @@
+import { Cards } from "../components/cards";
+import { Icons } from "../components/icons";
+
 # Contributing to SecureSECO DAO
 
 If you're interested in contributing to the SecureSECO DAO project, you've come to the right place!
 
 There's several modules that work together to make the SecureSECO DAO work:
 
-- [DAO Webapp](/https://github.com/SecureSECODAO/dao-webapp/blob/master/README.md) - frontend webapp for the DAO
-- [Diamond Governance Plugin](https://github.com/SecureSECODAO/diamond-governance) - plugin for the base DAO contracts that adds diamond functionality
-- [SearchSECO API](https://github.com/SecureSECODAO/searchSECO-api) - API that handles interaction with the SearchSECO database
-- [Verification Server](https://github.com/SecureSECODAO/SecureSECOVerification) - server that handles user verification for the DAO
-- [Github PR Merger](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger) - a bot that merges PRs on Github
+- [DAO Webapp](/https://github.com/SecureSECODAO/dao-webapp) - frontend webapp for the DAO
+- [Diamond Governance Plugin](https://github.com/SecureSECODAO/diamond-governance) - plugin for the base DAO contracts that adds all of the functionality specific to the SecureSECO DAO
+- [SearchSECO API](https://github.com/SecureSECODAO/searchSECO-api) - API that handles the interaction between the DAO and the SearchSECO database
+- [Verification Server](https://github.com/SecureSECODAO/SecureSECOVerification) - server and smart contract that handles user verification for the DAO
+- [Github PR Merger](https://github.com/SecureSECODAO/SecureSECOPullRequestMerger) - bot that merges PRs on Github based on proposals in the DAO
+
+For more information about the different modules and their repositories: check out one of the below resources.
+
+<Cards
+  cardData={[
+    {
+      href: "https://github.com/SecureSECODAO",
+      name: "Github Organization",
+      description: "Visit the SecureSECO DAO Github organization, where all of the code for the DAO is hosted.",
+      icon: Icons.gitHub,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+          [5, 2]
+        ],
+      },
+    },
+    {
+      href: "/contributing/repositories",
+      name: "Repositories Overview",
+      description: "Get an overview of all the relevant repositories in the SecureSECO DAO Github organization.",
+      icon: Icons.readme,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [4, 3],
+          [3, 1],
+        ],
+      },
+    },
+
+]}
+/>
 
 ## Contribution Guidelines
 

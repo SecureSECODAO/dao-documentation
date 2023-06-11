@@ -109,13 +109,17 @@ export function Card({
           card.external && "flex items-center justify-between h-fit pt-4 px-6"
         )}
       >
-        <div className="flex items-center gap-x-4">
+        <div
+          className={cn(
+            "flex items-center gap-x-4",
+            !card.external && "mb-2 mt-4"
+          )}
+        >
           <CardIcon icon={card.icon} />
           <h3
-            className={cn(
-              "text-sm font-semibold leading-7 text-zinc-900 dark:text-white",
-              !card.external && "mt-4"
-            )}
+            className={
+              "text-sm font-semibold leading-7 text-zinc-900 dark:text-white"
+            }
           >
             {card.external ? (
               <a href={card.href} target="_blank" rel="noopener">
