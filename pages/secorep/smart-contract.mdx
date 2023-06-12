@@ -3,7 +3,7 @@ import { Icons } from "../../components/icons";
 
 # SECOREP Contract Structure
 
-SECOREP, a non-transferable [ERC-20 token](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), incorporates an exposed mint and burn function, both of which necessitate auth permissions for operation.
+SECOREP, a non-transferable [ERC-20 token](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), incorporates an exposed mint and burn function, both of which necessitate **auth permissions** for operation. These permissions ensure that only the DAO has permission to execute these functions. The DAO can vote to give other accounts permission to execute these functions too.
 
 Instead of being deployed as a standalone contract, SECOREP operates as a facet of the [Diamond Governance](/diamond). This design choice reflects its intended role not as a standalone token, but as a governance token within the [SECOREP DAO](/dao/what-is-a-dao) ecosystem. Additionally, as part of the diamond, it offers increased flexibility. For instance, it could potentially be upgraded to an [ERC-1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/) standard, should the DAO decide.
 
