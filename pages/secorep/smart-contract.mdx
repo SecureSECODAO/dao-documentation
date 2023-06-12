@@ -3,11 +3,17 @@ import { Icons } from "../../components/icons";
 
 # SECOREP Contract Structure
 
-SECOREP, a non-transferable [ERC-20 token](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), incorporates an exposed mint and burn function, both of which necessitate auth permissions for operation.
+SECOREP is a special type of token used in the SecureSECO DAO system. Like other tokens, it follows a specific standard known as [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/). This standard defines a common list of rules that all Ethereum tokens must follow.
 
-Instead of being deployed as a standalone contract, SECOREP operates as a facet of the [Diamond Governance](/diamond). This design choice reflects its intended role not as a standalone token, but as a governance token within the [SECOREP DAO](/dao/what-is-a-dao) ecosystem. Additionally, as part of the diamond, it offers increased flexibility. For instance, it could potentially be upgraded to an [ERC-1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/) standard, should the DAO decide.
+One unique aspect of SECOREP is its _non-transferable_ nature. Unlike many tokens, it can't be freely sent and received.
 
-To delve deeper into the ERC-20 standard and IERC20Metadata interface specification, you can consult [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata).
+Additionally, SECOREP has functions to create (mint) and destroy (burn) tokens. However, only special accounts with "auth permissions" can perform these actions. In our case, currently only the [Diamond Governance Plugin](/diamond) has these permissions, so only the DAO community can decide to mint and burn tokens using proposals.
+
+Being part of the diamond system allows for greater flexibility. For instance, if the DAO community agrees, SECOREP could be upgraded to a more complex token standard, [ERC-1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/).
+
+## Further reading
+
+To learn more about the ERC-20 standard and the IERC20Metadata interface specification, visit these links: [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata).
 
 <Cards
   cardData={[

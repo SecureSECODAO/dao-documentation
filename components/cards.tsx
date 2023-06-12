@@ -106,7 +106,8 @@ export function Card({
       <div
         className={cn(
           "relative rounded-2xl px-4 pb-4 pt-8 w-full",
-          card.external && "flex items-center justify-between h-fit pt-4 px-6"
+          card.external &&
+            "flex items-center justify-between h-fit pt-4 px-6 gap-x-4"
         )}
       >
         <div
