@@ -1,4 +1,7 @@
-# Acquiring SECOIN
+import { Card } from "../../components/cards";
+import { Icons } from "../../components/icons";
+
+# Earning SECOIN
 
 SECOIN, the native token of the SecureSECO ecosystem, can be earned through several means:
 
@@ -6,18 +9,60 @@ SECOIN, the native token of the SecureSECO ecosystem, can be earned through seve
 
 Miners have the opportunity to claim SECOIN in proportion to the hashes they've successfully mined. Additionally, they have the flexibility to decide the distribution ratio between SECOIN and [SECOREP](/secorep/earning).
 
-## Verification Reward
+<Card
+  card={{
+    external: true,
+    href: "/searchseco-integration/mining#running-a-mining-node",
+    name: "Mining Guide",
+    icon: Icons.hammer,
+    pattern: {
+      y: 16,
+      squares: [
+        [0, 1],
+        [1, 3],
+      ],
+    },
+  }}
+  className="w-fit mt-2"
+/>
+
+## Verification reward
 
 Upon successful verification, users are eligible to claim a specific amount of SECOIN. Notably, this reward can be claimed independently for each completed verification.
 
-## Algorithmic Bonding Curve (ABC)
+### Claiming verification reward guide
 
-Users can acquire SECOIN through the Algorithmic Bonding Curve mechanism, by swapping their DAI tokens for SECOIN.
+TODO
 
-## Liquidity Provision
+## Augmented Bonding Curve (ABC)
+
+Users can acquire SECOIN through the [Augmented Bonding Curve](/secoin/abc) mechanism, by swapping their DAI tokens for SECOIN.
+
+### ABC swap guide
+
+TODO
+
+## Liquidity provision
 
 The [liquidity pool](/secoin/liquiditypool) serves as another avenue for SECOIN acquisition. Users can directly swap tokens in the liquidity pool for SECOIN or earn SECOIN by contributing liquidity to the pool.
 
-## DAO Proposals
+<Card
+  card={{
+    external: true,
+    href: "/secoin/liquiditypool#providing-liquidity",
+    name: "Providing Liquidity Guide",
+    icon: Icons.hand,
+    pattern: {
+      y: 16,
+      squares: [
+        [0, 1],
+        [1, 3],
+      ],
+    },
+  }}
+  className="w-fit mt-2"
+/>
 
-DAO members hold the right to propose a withdrawal of SECOIN from the treasury. For instance, this can be employed to generate reward payouts upon bounty completion. Currently, there's no explicit functionality for creating bounty-specific proposals. However, members can adopt a DIY approach by initiating a standard proposal, and once it's achieved, follow up with a proposal for treasury withdrawal.
+## DAO treasury withdrawal
+
+DAO members hold the right to propose a withdrawal of SECOIN from the treasury. For instance, this can be employed to generate reward payouts upon bounty completion. Currently, there's no explicit functionality for creating bounty-specific proposals. However, members can adopt a DIY approach by initiating a standard proposal to see if the DAO is interested in the bounty, and once it's achieved, follow up with a proposal for [treasury withdrawal](/actions/withdraw-assets).

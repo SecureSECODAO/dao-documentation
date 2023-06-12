@@ -45,7 +45,7 @@ export const Icons = {
   approve: CheckCircle,
   votingPower: Dumbbell,
   readme: BookOpen,
-  earn: HelpingHand,
+  hand: HelpingHand,
   utility: Wallet,
   abc: LineChart,
   pool: Boxes,
