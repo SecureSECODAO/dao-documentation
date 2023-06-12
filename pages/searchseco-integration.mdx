@@ -24,13 +24,13 @@ They are then rewarded based on the number of methods submitted. Conversely, use
 can check the SearchSECO database for matches, vulnerabilities, and license violations,
 and they are charged based on the number of methods queried.
 
-Read more about how you can contribute to the SecureSECO DAO in the [Mining](/searchseco-integration/mining)
+Read more about how you can contribute to the SecureSECO DAO on the [Mining](/searchseco-integration/mining)
 and [Querying](/searchseco-integration/querying) pages.
 
 ## Architecture
 
 SearchSECO's architecture comprises three primary components: a miner
-(which includes a spider, crawler, parser), a Cassandra database, and a Database API.
+(which includes a spider, crawler and parser), a Cassandra database, and a Database API.
 The miner spiders and crawls the global software ecosystem, indexing all detected
 methods into searchable hashes, encapsulating author, license, and vulnerability information.
 
@@ -49,7 +49,7 @@ violation (or compatibility) by storing the version metadata of a project with t
 date and license. This setup facilitates license violation checks for both the projects 
 from which code is borrowed and the projects that borrow code.
 
-## Current state & Future Roadmap
+## Current State & Future Roadmap
 
 As of today, SearchSECO has successfully indexed over 28 million methods, including 
 7 million unique methods, from nearly 40,000 GitHub projects. Our system efficiently 
