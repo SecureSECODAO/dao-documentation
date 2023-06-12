@@ -1,10 +1,12 @@
+import { Steps } from "nextra-theme-docs";
+
 # Liquidity Pool
 
 ## What is a Liquidity Pool?
 
 A liquidity pool is a decentralized reservoir of funds - often comprised of two tokens - that exists on a blockchain protocol. It serves as the foundation for decentralized exchanges (DEXs) where users can trade tokens directly from the pool without the need for a counterparty. The primary advantage of liquidity pools over traditional market maker models is that they are automated and do not require orders to be matched between buyers and sellers.
 
-## Why Use a Liquidity Pool with an Augmented Bonding Curve (ABC)?
+## Why use a Liquidity Pool with an Augmented Bonding Curve (ABC)?
 
 While an [Augmented Bonding Curve (ABC)](/secoin/abc) is an efficient method for creating and pricing tokens, it has inherent frictions - entry and exit fees that users must pay when buying and selling tokens. These fees can discourage frequent trading. A liquidity pool serves as a valuable complement to an ABC as it facilitates smoother trading with potentially lower costs, depending on market conditions.
 
@@ -15,3 +17,35 @@ Liquidity pools can make it beneficial for users to trade tokens, especially whe
 While we currently do not have a liquidity pool for SECOIN, setting one up is relatively straightforward on decentralized finance (DeFi) platforms such as Uniswap. On Uniswap, users can easily create a liquidity pool with two chosen tokens. Once the pool is created, other users can add liquidity to the pool or trade with the tokens in the pool.
 
 Remember that participating in a liquidity pool has its risks and rewards. Contributors to the pool earn fees from trades, but they also expose themselves to potential impermanent loss - a situation where holding the tokens separately could have been more profitable than contributing to the pool. It's important to understand these aspects before getting involved in a liquidity pool.
+
+## Providing Liquidity
+
+Participating in a liquidity pool isn't just about making trades. You can also become a liquidity provider (LP), contributing to the pool's reserves of tokens. As an LP, you essentially add an equal value of two tokens to the pool. In return, you receive LP tokens, which are a representation of your share in that liquidity pool.
+
+When transactions occur within the pool, a small fee is taken and distributed amongst LPs. The rewards you earn are directly proportional to your share of the pool - the more you provide, the higher your potential returns.
+
+But providing liquidity isn't without its risks. A phenomenon known as ['impermanent loss'](https://academy.binance.com/en/articles/impermanent-loss-explained) can occur when the prices of your deposited tokens change compared to when they were deposited. This can potentially lead to less profit, or even a loss, compared to simply holding your tokens. Therefore, it's crucial to thoroughly understand the mechanism of liquidity pools before providing liquidity.
+
+If you are interested in becoming a liquidity provider, here are the general steps you would need to follow:
+
+<Steps>
+
+### Choose pool
+
+Choose the pool you want to participate in and ensure you have a sufficient amount of both tokens needed for the pool.
+
+### Connect wallet
+
+Connect your wallet to the chosen DeFi platform.
+
+### Add liquidity
+
+Follow the platform's process to add liquidity. Usually, this involves approving a transaction from your wallet to the liquidity pool.
+
+### Confirm transaction
+
+Confirm the transaction. Once the transaction has been processed, you will receive LP tokens representing your share in the pool.
+
+</Steps>
+
+Remember to always conduct your own research and understand the risks involved before becoming a liquidity provider.
