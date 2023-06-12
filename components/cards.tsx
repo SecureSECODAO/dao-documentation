@@ -25,6 +25,7 @@ export interface CardData {
   icon: LucideIcon;
   pattern: GridPatternProps;
   external?: boolean;
+  small?: boolean;
 }
 
 function CardIcon({ icon: Icon }) {
@@ -98,6 +99,7 @@ export function Card({
       className={cn(
         "group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/5 dark:hover:shadow-black/5",
         card.external && "h-fit",
+        card.small && "w-1/2",
         className
       )}
     >
@@ -106,14 +108,15 @@ export function Card({
       <div
         className={cn(
           "relative rounded-2xl px-4 pb-4 pt-8 w-full",
-          card.external &&
-            "flex items-center justify-between h-fit pt-4 px-6 gap-x-4"
+          card.external ||
+            (card.small &&
+              "flex items-center justify-between h-fit pt-4 px-6 gap-x-4")
         )}
       >
         <div
           className={cn(
             "flex items-center gap-x-4",
-            !card.external && "mb-2 mt-4"
+            !card.external && !card.small && "mb-2 mt-4"
           )}
         >
           <CardIcon icon={card.icon} />
