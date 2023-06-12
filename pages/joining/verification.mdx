@@ -23,9 +23,9 @@ a wallet? Create one by following the steps [here](/joining/installing-metamask)
 
 ### Pick a platform
 
-Go to the [verification page](https://dao.secureseco.org/verification). You will be presented with
-a list of platforms that you can use to verify your identity. Click the 'Verify' button of the
-platform you want to use.
+Navigate to the [verification page](https://dao.secureseco.org/verification). You will be presented with
+a list of platforms that you can use to verify your identity on the left side of the page. Click the 'Verify' button of the
+platform you wish to use.
 
 ![Pick one of the platforms](/img/pick-platform.png)
 
@@ -39,13 +39,12 @@ to prove that you own the wallet.
 
 After you have approved the signature request, you are redirected to the chosen platform. Here you
 will need to sign in to your account. If you are already signed in, you will be redirected back to the
-verification page instantly. Note that for GitHub, your account needs to be at least 1 year old.
+verification page immediately. Note that for Github, your account needs to be at least 1 year old.
 
 ### Finish verification
 
-If everything went well, a new card should be visible on the right side of the page under the "pending verifications" section.
-Clicking the "Finish" button will ask you to approve a transaction. Approving this transaction will call a smart contract function.
-Once this transaction is confirmed, you have been successfully verified on the chosen platform.
+If everything goes to plan, a new card will become visible on the right side of the page under the "Pending verifications" section.
+Clicking the "Finish" button on this card will prompt you to approve a transaction. Approving this transaction will call a smart contract function, which will finish your verification. After this transaction has been processed, you will successfully verified on the chosen platform.
 
 ![Finishing the verification process](/img/finish-verification.png)
 
@@ -63,48 +62,45 @@ more detail in the [SECOREP](/secorep) section.
 
 ## Reverification
 
-Your verification status is not permanent. Depending on the platform you verified with, you will need to reverify yourself
-after a certain amount of time. Simply press the "Reverify" button on the card of the platform you want to reverify with.
+Your verification status is not permanent. Your verifications will expire after a certain amount of time. The time until expiration is shown on the card of each platform. You can reset this time at any time by reverifying yourself. This can be done by clicking the "Reverify" button on the card of the platform you want to reverify with. The process for reverification is the same as the initial verification process, so you can follow the [steps above](#verification-guide).
 
 ![Reverification](/img/reverification.png)
 
 ## Unverification
 
-It is also possible to unverify yourself. This can be done by clicking the "Remove" button on the card of the platform you want to unverify from.
+It is also possible to unverify yourself for any of the available platforms. This can be done by clicking the "Remove" button on the card of the platform you want to unverify for. This will prompt you to approve a transaction. After the transaction has been processed, you will no longer be verified on the chosen platform.
 
 ## Technical details
 
 ### Process overview
 
-Firstly, the user must visit the verification webpage and link their digital wallet (like Metamask, for instance). From there, the user must select one of the available identity verification providers, which currently includes Github and Proof of Humanity.
+Firstly, the user must visit the verification webpage and link their digital wallet (like Metamask, for instance) to the webapp. From there, the user must select one of the available identity verification providers, which currently includes Github and Proof of Humanity.
 
 After selecting a provider, the user will be directed to the provider's site for identity verification. In the case of Github, this process is carried out via [OAuth](https://oauth.net/2/).
 
-Following successful verification, the user is redirected back to our site, which receives a verification token. This token allows our server to confirm the user's identity. Once confirmed, the server generates a proof which the user can then use to verify their identity on-chain.
+Following successful verification, the user is redirected back to our site, which receives a verification token that allows our server to confirm the user's identity. Once confirmed, the server generates a proof, which the user can then use to verify their identity on-chain.
 
 The proof is assembled as follows:
 
-    - Various data elements are collated:
-        - User's address
+    1. The following data elements are collated:
+        - User's wallet address
         - A hash, derived from the combination of:
-            - Unique user-specific data (for example, the Github username)
-            - The ID of the provider (for instance, "github")
+            - Unique user-specific data (e.g., the Github username)
+            - The ID of the provider (e.g., "github")
             - An undisclosed secret
-        - The current timestamp
-    - This assembled data is then signed using a private key, which must originate from the same wallet that deployed the /block smart contract.
+        - The current unix timestamp
+    1. This assembled data is then signed using the private key of the owner of the verification smart contract, which by default is the wallet that deployed the smart contract.
 
-The user can then use this proof to verify their identity on-chain using the smart contract. This is accomplished by invoking the verifyAddress function, which is as simple as clicking a button. Upon execution, the smart contract authenticates the proof, and if deemed valid, records the data on-chain.
+The user can then use this proof to verify their identity on-chain using the smart contract. This is accomplished by invoking the `verifyAddress` function, which is as simple as clicking a button. Upon execution, the smart contract authenticates the proof, and if deemed valid, records the data on-chain. These pieces of data that contain information about a verification are what we call a **stamp**.
 
 ### Stamps
 
-On-chain verifications are encapsulated using a construct known as a stamp. A stamp is a data structure comprising the following fields:
+On-chain verifications are encapsulated using a construct known as a stamp. Every user can verify with multiple different providers, and will receive a stamp for each provider they verify with. Internally, the data structure for a stamp looks as follows:
 
 ```solidity
 struct Stamp {
-    string providerId; // Unique identifier for the provider (github, proofofhumanity, etc.)
+    string providerId; // Unique identifier for the provider ("github", "proofofhumanity", etc.)
     string userHash; // Hash of unique user data from the provider (username, email, etc.)
-    uint64[] verifiedAt; // Array of timestamps indicating when the user was verified
+    uint64[] verifiedAt; // Array of timestamps indicating the times at which the user verified with this provider
 }
 ```
-
-Every user can have multiple stamps.
