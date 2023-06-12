@@ -24,6 +24,10 @@ import {
   CheckCircle,
   Dumbbell,
   BookOpen,
+  HelpingHand,
+  Wallet,
+  LineChart,
+  Boxes,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -41,6 +45,10 @@ export const Icons = {
   approve: CheckCircle,
   votingPower: Dumbbell,
   readme: BookOpen,
+  earn: HelpingHand,
+  utility: Wallet,
+  abc: LineChart,
+  pool: Boxes,
   // Icons for proposal voting, executing and creating
   vote: Vote,
   execute: TerminalSquare,
