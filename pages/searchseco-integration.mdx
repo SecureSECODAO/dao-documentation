@@ -9,6 +9,12 @@ the project reveals relationships between code fragments, code files, and their
 projects on an international scale. The fine-grained data propels empirical
 software engineering and repository mining forward by enabling more in-depth analyses.
 
+In the core of SearchSECO, methods are treated as central units of data. These 
+methods are considered similar when they possess identical parse trees. The 
+system hashes an abstract representation of a method to enable swift searching 
+throughout the global software ecosystem. It further identifies clones on a global 
+scale, well beyond the typical project scope.
+
 ## SecureSECO DAO and SearchSECO integration
 
 The SecureSECO DAO provides a monetisation mechanism for hosters submitting methods
@@ -37,16 +43,11 @@ At present, we operate two miners on the existing servers, which are also utiliz
 for the API, database, and portal. We plan to transition these miners to a Kubernetes 
 cluster, incorporating auto-scaling and fault tolerance to optimize operational efficiency.
 
-Methods are considered similar when they possess identical parse trees. The system
-hashes an abstract representation of a method to enable swift searching throughout
-the global software ecosystem.
-
-SearchSECO identifies clones on a global scale, well beyond the typical project
-scope. It stores the version metadata of a project with the date and license. This
-allows for checking if any code clone matches violate the license of either the
-projects from which code is borrowed or the projects that borrow your code.
-Detailed one-to-one method license checking is performed with the help of a license
-compatibility matrix from OSADL, offering an explanation for any violation (or compatibility).
+SearchSECO also provides detailed method-level license checking with the help of 
+a license compatibility matrix from OSADL. It offers explanations for any license 
+violation (or compatibility) by storing the version metadata of a project with the 
+date and license. This setup facilitates license violation checks for both the projects 
+from which code is borrowed and the projects that borrow code.
 
 ## Current state & Future Roadmap
 
