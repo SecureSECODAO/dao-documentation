@@ -10,8 +10,9 @@ SECOIN, the native token of the SecureSECO ecosystem, can be earned through seve
 Miners have the opportunity to claim SECOIN in proportion to the hashes they've successfully mined. Additionally, they have the flexibility to decide the distribution ratio between SECOIN and [SECOREP](/secorep/earning).
 
 <Card
+  className="mt-2"
   card={{
-    external: true,
+    small: true,
     href: "/searchseco-integration/mining#running-a-mining-node",
     name: "Mining Guide",
     icon: Icons.hammer,
@@ -23,16 +24,28 @@ Miners have the opportunity to claim SECOIN in proportion to the hashes they've 
       ],
     },
   }}
-  className="w-fit mt-2"
 />
 
 ## Verification reward
 
-Upon successful verification, users are eligible to claim a specific amount of SECOIN. Notably, this reward can be claimed independently for each completed verification.
+Upon successful verification, users are eligible to claim a specific amount of SECOIN. Notably, this reward can be claimed independently for each provider that the user verifies with. The Verification Guide provides a detailed walkthrough of the verification process and how to claim the reward.
 
-### Claiming verification reward guide
-
-TODO
+<Card
+  className="mt-2"
+  card={{
+    small: true,
+    href: "/joining/verification#claim-your-reward",
+    name: "Claiming Verification Reward",
+    icon: Icons.gitHub,
+    pattern: {
+      y: 16,
+      squares: [
+        [0, 1],
+        [1, 3],
+      ],
+    },
+  }}
+/>
 
 ## Augmented Bonding Curve (ABC)
 
@@ -47,8 +60,9 @@ TODO
 The [liquidity pool](/secoin/liquiditypool) serves as another avenue for SECOIN acquisition. Users can directly swap tokens in the liquidity pool for SECOIN or earn SECOIN by contributing liquidity to the pool.
 
 <Card
+  className="mt-2"
   card={{
-    external: true,
+    small: true,
     href: "/secoin/liquiditypool#providing-liquidity",
     name: "Providing Liquidity Guide",
     icon: Icons.hand,
@@ -60,7 +74,6 @@ The [liquidity pool](/secoin/liquiditypool) serves as another avenue for SECOIN 
       ],
     },
   }}
-  className="w-fit mt-2"
 />
 
 ## DAO treasury withdrawal
