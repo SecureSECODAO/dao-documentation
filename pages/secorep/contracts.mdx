@@ -1,5 +1,43 @@
-# SECOREP Contracts
-SECOREP is a non-transferable [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token with an exposed mint and burn function (both require auth permissions).
-The token is not deployed as a standalone contract, but as a facet of the [Diamond Governance](/diamond). This is done because the token is not meant to be used as a standalone token, but as a governance token for the [SECOREP DAO](/dao/what-is-a-dao). It also gives a lot more flexibility over the token as it is part of the diamond. It could for example be upgraded to [ERC-1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/) if the DAO desires so.
+import { Cards } from "../../components/Cards.tsx";
+import { Icons } from "../../components/Icons";
 
-For more information on ERC-20, see [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata)
+# SECOREP Contract Structure
+
+SECOREP, a non-transferable [ERC-20 token](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), incorporates an exposed mint and burn function, both of which necessitate auth permissions for operation.
+
+Instead of being deployed as a standalone contract, SECOREP operates as a facet of the [Diamond Governance](/diamond). This design choice reflects its intended role not as a standalone token, but as a governance token within the [SECOREP DAO](/dao/what-is-a-dao) ecosystem. Additionally, as part of the diamond, it offers increased flexibility. For instance, it could potentially be upgraded to an [ERC-1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/) standard, should the DAO decide.
+
+To delve deeper into the ERC-20 standard and IERC20Metadata interface specification, you can consult [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata).
+
+<Cards
+  cardData={[
+    {
+      external: true,
+      href: "https://github.com/SecureSECODAO/dao-documentation",
+      name: "View on Github",
+      icon: Icons.gitHub,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+          [5, 2],
+        ],
+      },
+    },
+    {
+      external: true,
+      href: "https://github.com/SecureSECODAO/dao-documentation/blob/main/README.md",
+      name: "Open README",
+      icon: Icons.readme,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [4, 3],
+          [3, 1],
+        ],
+      },
+    },
+  ]}
+/>
