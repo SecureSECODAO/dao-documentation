@@ -1,15 +1,17 @@
 import { Cards } from "../../components/cards.tsx";
 import { Icons } from "../../components/icons";
 
-# SECOIN Contract Structure
+# Understanding the SECOIN Contract Structure
 
-SECOIN operates on a [ERC-20 token contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), independent from the [Diamond Governance](/diamond) plugin and its facets.
+SECOIN is a type of token that follows the [ERC-20 token contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) standard. This standard is a set of rules and guidelines followed by many tokens in the Ethereum ecosystem.
 
-The contract, designed as a straightforward [ERC-20 (metadata) contract](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata), incorporates exposed mint and burn functions, crucial for the [ABC](/secoin/abc) operations. Note, however, these functions are secured with an authentication layer exclusively accessible to the MarketMaker contract of the ABC, so only the ABC can use the mint and burn functions.
+Unlike our other token SECOREP that is part of the [Diamond Governance](/diamond), SECOIN operates independently.
 
-To delve into the deployed contract, follow the link [here](https://mumbai.polygonscan.com/token/0x10941b83d2c881ec157784b896be23d2b0e1acf7?a=0xaf7e68bcb2fc7295492a00177f14f59b92814e70#code).
+SECOIN's contract is quite simple. It features a few important functions that create (mint) and destroy (burn) tokens as needed for [ABC](/secoin/abc) operations. However, only a specific part of the system, the MarketMaker contract of the ABC, can use these functions.
 
-For more comprehensive information on the ERC-20 standard and IERC20Metadata interface specification, you can consult [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata).
+To see the deployed contract in all its technical detail, you can follow this [link](https://mumbai.polygonscan.com/token/0x10941b83d2c881ec157784b896be23d2b0e1acf7?a=0xaf7e68bcb2fc7295492a00177f14f59b92814e70#code).
+
+For a deeper dive into the ERC-20 standard and the specific structure of these types of contracts, check out the [Ethereum token standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) and the [IERC20Metadata interface specification](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20Metadata).
 
 <Cards
   cardData={[
