@@ -42,4 +42,48 @@ This is a great way to contribute to the growth and data richness of the SecureS
   interact with the repositories you wish to mine.
 </Callout>
 
-<Steps>### Steps to running node here</Steps>
+<Steps>
+### Setting up and running a Mining node
+
+Download the SearchSECO Miner repository [here](https://github.com/SecureSECODAO/searchSECO-miner).
+
+Make a .env file, fill in the relevant variables and run the
+following commands to install the miner:
+
+```
+npm i
+git submodule update --init --recursive
+```
+
+Then use the following command to run the miner for Windows:
+
+`npm run start-win`
+
+For Unix:
+
+`npm run start-unix`
+
+Please refer to the [SearchSECO Miner repository](https://github.com/SecureSECODAO/searchSECO-miner) for a more detailed installation guide.
+
+### Claiming rewards
+
+<Callout type="warning" emoji="⚠">
+  Before you can can claim rewards for running a mining node, you need to have
+  [connected your wallet](/joining/installing-metamask) and have [joined the
+  DAO](/joining).
+</Callout>
+
+Navigate to the [SearchSECO Mining page](https://dao.secureseco.org/mining).
+
+In the "Miners" section of the page, you can verify that your mining
+nodes are connected to your account and also check the status of your nodes.
+
+The "Claim rewards" section of the page provides the option to claim
+your rewards as either SECOREP or SECOIN. The amount of your reward is
+based on the amount of claimable hashes you have available. You can set the percentage
+of the reward you want to claim as SECOREP or SECOIN with the slider.
+
+Pressing the "Claim reward" button sets sets the claimable hashes to zero and
+adds the tokens to your wallet.
+
+</Steps>
