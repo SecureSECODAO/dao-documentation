@@ -14,7 +14,7 @@ const config: DocsThemeConfig = {
     link: "https://github.com/orgs/SecureSECODAO/repositories",
   },
   chat: {
-    link: "https://discord.com",
+    link: "https://discord.gg/2naUnwE9Y2",
   },
   main: ({ children }) => {
     return (
