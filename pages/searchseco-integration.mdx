@@ -2,11 +2,11 @@
 
 SearchSECO is a hash-based index specifically designed for code fragments, facilitating
 method-level source code search throughout the global software ecosystem. The initiative
-employs parsers to extract fragments (methods) from code files, thereby enhancing
-their discoverability. This allows for more precise license checks, vulnerability
-searches, and extraction of call graphs from the identified methods. Furthermore,
-the project reveals relationships between code fragments, code files, and their
-projects on an international scale. The fine-grained data propels empirical
+employs parsers to extract fragments (methods) from code files making them findable. 
+This allows for more precise license checks, vulnerability searches, and extraction 
+of call graphs from the identified methods. 
+Additionally, the project reveals relationships between code fragments, code files, and their
+projects in the global software ecosystem. The fine-grained data propels empirical
 software engineering and repository mining forward by enabling more in-depth analyses.
 
 In the core of SearchSECO, methods are treated as central units of data. These 
@@ -35,7 +35,7 @@ The miner spiders and crawls the global software ecosystem, indexing all detecte
 methods into searchable hashes, encapsulating author, license, and vulnerability information.
 
 To strike a balance between performance and cost, we have streamlined our server architecture 
-by merging 3 Cassandra nodes into a single monolithic node, bolstered with 2 replicas. 
+by merging 3 Cassandra nodes into a single monolithic node,  with 2 replicas. 
 Our existing setup includes 2 servers. One server hosts the Cassandra node, API, and Grafana, 
 while the other accommodates the frontend portal and Prometheus.
 
@@ -54,7 +54,7 @@ from which code is borrowed and the projects that borrow code.
 As of today, SearchSECO has successfully indexed over 28 million methods, including 
 7 million unique methods, from nearly 40,000 GitHub projects. Our system efficiently 
 handles author and license information, and supports parsing for Python, C(x), Java, 
-and JavaScript languages. While we strive for continual performance improvements to 
+and JavaScript languages. While we strive for continuous performance improvements to 
 speed up our "mining" process, we are mindful of the ethical considerations involved 
 in developer data collection.
 
@@ -62,16 +62,12 @@ Our previous controller, developed in C++, has encountered several issues, inclu
 sub-optimal handling of web requests, deadlocks in specific repositories, and 
 surprisingly high resource consumption. To address these challenges, we are currently 
 rewriting the controller in JavaScript and plan to employ a more efficient parser 
-(transitioning from SrcML to Treesitter).
+(transitioning from SrcML to Treesitter) in the future.
 
-The Software Improvement Group (SIG) has shown interest in using SearchSECO. Our 
-collaboration with SIG promises exciting prospects. SIG is keen to utilize 
-SearchSECO for matching code in repositories to specific versions of libraries, 
-a feature not available in existing tools. This partnership has already given rise 
-to a software project involving 11 bachelor students.
-
-Efforts are ongoing to enhance performance to "mine" data even faster. Simultaneously, 
-we're carefully considering the ethical implications of collecting developer data.
+The Software Improvement Group (SIG) is keen to utilize SearchSECO for matching 
+code in repositories to specific versions of libraries, a feature not available 
+in existing tools. Our collaboration with SIG promises exciting prospects and has 
+already given rise to a software project involving 11 bachelor students.
 
 Our future roadmap for the SearchSECO project includes:
 - Advanced method-level license checking
