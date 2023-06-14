@@ -9,7 +9,7 @@ The Query functionality enables you to search the SearchSECO database for inform
 about GitHub repositories. By entering the URL of a specific GitHub repository,
 you can query the database for relevant data.
 
-## Query Guide (Webapp)
+## Query Guide
 
 Follow these steps to use the Query feature:
 
@@ -90,11 +90,34 @@ The `projectData` array contains objects that represent each unique project that
 - `authorName`: The unique identifier of the author of the project.
 - `authorMail`: The mail id associated with the author of the project.
 
-## Query Guide (Api)
-
 ## Why
 
-## How
+Querying the SearchSECO database is the counterpart to running a Mining node. As such,
+it provides a way to spend your SECOIN to gain insight about software evolution and quality.
+
+The insights gained can be used to better the global software ecosystem:
+
+- **Software Mainenance**: Information about the software evolution, such as changes
+  in methods, can aid in predicting future software maintenance activities. Knowledge
+  about who changed what, when and how can facilitate better management and coordination
+  of development efforts, especially in large, distributed teams.
+- **Quality Assessment**: By evaluating the various aspects of code evolution, it's
+  possible to identify software quality metrics. Information like method complexity,
+  frequency of change, and contributor details can help assess the overall health of a project.
+- **Vulnerability Detection**: The SearchSECO database also captures data about vulnerable code snippets.
+  Querying this data can provide insights about potential vulnerabilities in the system,
+  enabling proactive remediation efforts.
+- **Historical Analysis**: The history of changes made to a method, captured as
+  different versions, offers a detailed understanding of how the software has evolved
+  over time. This historical view can be used for research, auditing, debugging, or even legal purposes.
+- **Contributor Analysis**: Information about the contributors to a method or project
+  can provide insights about the development practices followed by the team. This
+  can be especially useful for open-source projects, where tracking contributions
+  can be challenging due to the distributed and often asynchronous nature of work.
+
+While mining nodes contribute to the growth of the database by extracting and parsing
+data from various repositories, querying lets you extract and utilize that data to
+gain valuable insights. The SecureSECO DAO acts as a cohesive entity that integrates SearchSECO in its entirety.
 
 ## Cost breakdown
 
