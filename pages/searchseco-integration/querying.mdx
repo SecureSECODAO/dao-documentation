@@ -9,24 +9,26 @@ The Query functionality enables you to search the SearchSECO database for inform
 about GitHub repositories. By entering the URL of a specific GitHub repository,
 you can query the database for relevant data.
 
-## Query Guide (Webapp)
+## Querying Guide
 
 Follow these steps to use the Query feature:
 
 <Steps>
 
-### Enter the GitHub URL
+### Enter query fields
 
-In the Query form, find the field labeled "GitHub URL". Here, enter the URL of the
-repository you want to query. Make sure it's a valid GitHub URL, or you'll receive an error.
+Navigate to the [Query page](https://dao.secureseco.org/query) and fill in the fields.
 
-### Enter your GitHub Access Token
+1. In the Query form, find the field labeled "GitHub URL". Here, enter the URL of the
+   repository you want to query. Make sure it's a valid GitHub URL, or you'll receive an error.
 
-Below the URL field, there's another field labeled "GitHub Access Token". Input
-your personal GitHub access token here. This token needs read access to the repository
-you wish to query. If it's invalid, an error message will be shown.
+2. Below the URL field, there's another field labeled "Branch". Input
+   the branch you want to query here. If it's the branch doesn't exist, an error
+   message will be shown.
 
-### Submit the Query
+![Query page](/img/query-page.png)
+
+### Submit the query
 
 Click the "Submit" button to initiate the querying process. The application first
 validates your URL and GitHub Access Token. If no validation errors occur, the
@@ -38,11 +40,17 @@ Once the query is complete, you'll receive information about the cost and number
 of hashes found in the "Results" section. If you decide to continue, press the "Pay for hashes"
 button to pay for the session. Following this, a transaction request is sent to your wallet for approval.
 
+![Query page pay](/img/query-page-pay.png)
+
+The total cost is calculated as the hash cost multiplied by the amount of hashes in the project.
+
+For an overview of SECOIN, what it is, and how you can swap it for other monetary tokens, have a look at the [SECOIN page](/secoin).
+
 ### Review Results
 
 After the payment confirmation, the data will be fetched from the SearchSECO database.
 You can inspect these results in the "Results" section. If you want to download the result,
-hit the "Download as JSON" button.
+click the "Download as JSON" button.
 
 ### Cancel Session
 
@@ -90,10 +98,29 @@ The `projectData` array contains objects that represent each unique project that
 - `authorName`: The unique identifier of the author of the project.
 - `authorMail`: The mail id associated with the author of the project.
 
-## Query Guide (Api)
+## Why query SearchSECO?
 
-## Why
+Querying the SearchSECO database is the counterpart to running a Mining node. As such,
+it provides a way to spend your SECOIN to gain insight about software evolution and quality.
 
-## Cost breakdown
+The insights gained can be used to better the global software ecosystem:
 
-Maybe link to Secoin Utility page? Or do it here and link there to here?
+- **Software Maintenance**: Information about the software evolution, such as changes
+  in methods, can aid in predicting future software maintenance activities. Knowledge
+  about who changed what, when and how can facilitate better management and coordination
+  of development efforts, especially in large, distributed teams.
+- **Quality Assessment**: By evaluating the various aspects of code evolution, it's
+  possible to identify software quality metrics. Information like method complexity,
+  frequency of change, and contributor details can help assess the overall health of a project.
+- **Vulnerability Detection**: The SearchSECO database also captures data about vulnerable code snippets.
+  Querying this data can provide insights about potential vulnerabilities in the system,
+  enabling proactive remediation efforts.
+- **Historical Analysis**: The history of changes made to a method, captured as
+  different versions, offers a detailed understanding of how the software has evolved
+  over time.
+- **Contributor Analysis**: Information about the contributors to a method or project
+  can provide insights about the development practices followed by the team.
+
+While mining nodes contribute to the growth of the database by extracting and parsing
+data from various repositories, querying lets you extract and utilize that data to
+gain valuable insights.

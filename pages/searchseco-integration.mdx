@@ -1,31 +1,69 @@
+import { Cards } from "/components/cards.tsx";
+import { Icons } from "/components/icons.tsx";
+
 # What is SearchSECO?
 
 SearchSECO is a hash-based index specifically designed for code fragments, facilitating
 method-level source code search throughout the global software ecosystem. The initiative
-employs parsers to extract fragments (methods) from code files, thereby enhancing
-their discoverability. This allows for more precise license checks, vulnerability
-searches, and extraction of call graphs from the identified methods. Furthermore,
-the project reveals relationships between code fragments, code files, and their
-projects on an international scale. The fine-grained data propels empirical
+employs parsers to extract fragments (methods) from code files making them findable.
+This allows for more precise license checks, vulnerability searches, and extraction
+of call graphs from the identified methods.
+Additionally, the project reveals relationships between code fragments, code files, and their
+projects in the global software ecosystem. The fine-grained data propels empirical
 software engineering and repository mining forward by enabling more in-depth analyses.
 
-In the core of SearchSECO, methods are treated as central units of data. These 
-methods are considered similar when they possess identical parse trees. The 
-system hashes an abstract representation of a method to enable swift searching 
-throughout the global software ecosystem. It further identifies clones on a global 
+In the core of SearchSECO, methods are treated as central units of data. These
+methods are considered similar when they possess identical parse trees. The
+system hashes an abstract representation of a method to enable swift searching
+throughout the global software ecosystem. It further identifies clones on a global
 scale, well beyond the typical project scope.
 
-## SecureSECO DAO and SearchSECO integration
+## Integration with the SecureSECO DAO
 
-The SecureSECO DAO provides a monetisation mechanism for hosters submitting methods
+The SecureSECO DAO provides a monetization mechanism for hosters submitting methods
 to the database, and users using SearchSECO to check for matches.
 Users can host a crawler, mine GitHub for methods, and submit them to the database.
 They are then rewarded based on the number of methods submitted. Conversely, users
 can check the SearchSECO database for matches, vulnerabilities, and license violations,
 and they are charged based on the number of methods queried.
 
-Read more about how you can contribute to the SecureSECO DAO on the [Mining](/searchseco-integration/mining)
-and [Querying](/searchseco-integration/querying) pages.
+Want to know more about contributing to SearchSECO or using its data to your advantage?
+
+<Cards
+  cardData={[
+    {
+      href: "/searchseco-integration/mining",
+      name: "Contribute to SearchSECO",
+      description:
+        "Find out how you can run a miner to contribute to the SearchSECO database.",
+      icon: Icons.hammer,
+      pattern: {
+        y: 16,
+        squares: [
+          [0, 1],
+          [1, 3],
+          [5, 2]
+        ],
+      },
+    },
+    {
+      href: "/searchseco-integration/querying",
+      name: "Query the SearchSECO Database",
+      description:
+        "Learn how to make queries to check if your repository contains any known vulnerabilities.",
+      icon: Icons.search,
+      pattern: {
+        y: -6,
+        squares: [
+          [-1, 2],
+          [4, 3],
+          [3, 1],
+        ],
+      },
+    },
+
+]}
+/>
 
 ## Architecture
 
@@ -34,46 +72,43 @@ SearchSECO's architecture comprises three primary components: a miner
 The miner spiders and crawls the global software ecosystem, indexing all detected
 methods into searchable hashes, encapsulating author, license, and vulnerability information.
 
-To strike a balance between performance and cost, we have streamlined our server architecture 
-by merging 3 Cassandra nodes into a single monolithic node, bolstered with 2 replicas. 
-Our existing setup includes 2 servers. One server hosts the Cassandra node, API, and Grafana, 
+To strike a balance between performance and cost, we have streamlined our server architecture
+by merging 3 Cassandra nodes into a single monolithic node, with 2 replicas.
+Our existing setup includes 2 servers. One server hosts the Cassandra node, API, and Grafana,
 while the other accommodates the frontend portal and Prometheus.
 
-At present, we operate two miners on the existing servers, which are also utilized 
-for the API, database, and portal. We plan to transition these miners to a Kubernetes 
+At present, we operate two miners on the existing servers, which are also utilized
+for the API, database, and portal. We plan to transition these miners to a Kubernetes
 cluster, incorporating auto-scaling and fault tolerance to optimize operational efficiency.
 
-SearchSECO also provides detailed method-level license checking with the help of 
-a license compatibility matrix from OSADL. It offers explanations for any license 
-violation (or compatibility) by storing the version metadata of a project with the 
-date and license. This setup facilitates license violation checks for both the projects 
+SearchSECO also provides detailed method-level license checking with the help of
+a license compatibility matrix from OSADL. It offers explanations for any license
+violation (or compatibility) by storing the version metadata of a project with the
+date and license. This setup facilitates license violation checks for both the projects
 from which code is borrowed and the projects that borrow code.
 
-## Current State & Future Roadmap
+## Current State & Roadmap
 
-As of today, SearchSECO has successfully indexed over 28 million methods, including 
-7 million unique methods, from nearly 40,000 GitHub projects. Our system efficiently 
-handles author and license information, and supports parsing for Python, C(x), Java, 
-and JavaScript languages. While we strive for continual performance improvements to 
-speed up our "mining" process, we are mindful of the ethical considerations involved 
+As of today, SearchSECO has successfully indexed over 28 million methods, including
+7 million unique methods, from nearly 40,000 GitHub projects. Our system efficiently
+handles author and license information, and supports parsing for Python, C(x), Java,
+and JavaScript languages. While we strive for continuous performance improvements to
+speed up our "mining" process, we are mindful of the ethical considerations involved
 in developer data collection.
 
-Our previous controller, developed in C++, has encountered several issues, including 
-sub-optimal handling of web requests, deadlocks in specific repositories, and 
-surprisingly high resource consumption. To address these challenges, we are currently 
-rewriting the controller in JavaScript and plan to employ a more efficient parser 
-(transitioning from SrcML to Treesitter).
+Our previous controller, developed in C++, has encountered several issues, including
+sub-optimal handling of web requests, deadlocks in specific repositories, and
+surprisingly high resource consumption. To address these challenges, we are currently
+rewriting the controller in JavaScript and plan to employ a more efficient parser
+(transitioning from SrcML to Treesitter) in the future.
 
-The Software Improvement Group (SIG) has shown interest in using SearchSECO. Our 
-collaboration with SIG promises exciting prospects. SIG is keen to utilize 
-SearchSECO for matching code in repositories to specific versions of libraries, 
-a feature not available in existing tools. This partnership has already given rise 
-to a software project involving 11 bachelor students.
-
-Efforts are ongoing to enhance performance to "mine" data even faster. Simultaneously, 
-we're carefully considering the ethical implications of collecting developer data.
+The Software Improvement Group (SIG) is keen to utilize SearchSECO for matching
+code in repositories to specific versions of libraries, a feature not available
+in existing tools. Our collaboration with SIG promises exciting prospects and has
+already given rise to a software project involving 11 bachelor students.
 
 Our future roadmap for the SearchSECO project includes:
+
 - Advanced method-level license checking
 - Implementation of a “business model” where data usage funds more mining
 - Vulnerability marking to identify vulnerable fragments within a project
