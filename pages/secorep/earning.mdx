@@ -1,16 +1,41 @@
 # Earning SECOREP
 
+## SECOREP Inflation
+
+Every form of SECOREP reward is inflated automatically over time. 
+The inflation rate is aimed at around 1.5% per month, although this value can be modified through a proposal in the DAO. 
+Inflation ensures that newer contributions are rewarded more than older contributions, which means old contributions won't have as much of an impact on the governance as new contributions (see [Seniority Bias](/proposals/security-measures#seniority-bias)). 
+The inflation rate is calculated as follows:
+
+```
+inflation = growth ^ time
+```
+
+This inflation rate is then multiplied by the base reward to get the total reward. Optionally, the inflation rate can be multiplied by a constant variable.
+
 ## Mining
 
-Miners can claim coins based on how many hashes they have mined. They can choose the ratio in which they want to be paid our in SECOIN and SECOREP.
+Miners can claim coins based on how many hashes they have mined. 
+They can choose the ratio in which they want to be paid out in SECOIN and SECOREP. 
+The base reward (which is inflated through [SECOREP Inflation](#secorep-inflation)) is calculated by the following formula:
+
+```
+reward = hashReward * numHashes
+```
 
 ## One time verification reward
 
-Users will be able to claim some SECOREP upon successfully verifying. This verification reward is claimable for each verification separately.
+Users will be able to claim some SECOREP upon successfully verifying. 
+This verification reward is claimable for each verification separately. 
+This is a constant reward, which means it is not inflated over time. 
+This is to encourage users to verify as soon as possible, and not to wait for a higher reward.
 
 ## Daily rewards
 
-Members of the DAO will be able to claim some SECOREP every day. If left unclaimed it will stack up to a certain amount, after which it will not increase further. The amount of SECOREP that is added to the claimable pool each day depends on the verification tier of the member.
+Members of the DAO will be able to claim some SECOREP every day. 
+If left unclaimed it will stack up to a certain amount, after which it will not increase further. 
+The amount of SECOREP that is added to the claimable pool each day depends on the verification tier of the member.
+This reward is inflated through [SECOREP Inflation](#secorep-inflation).
 
 ## Proposals
 
