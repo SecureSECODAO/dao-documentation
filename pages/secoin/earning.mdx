@@ -9,6 +9,28 @@ SECOIN, the native token of the SecureSECO ecosystem, can be earned through seve
 
 Miners have the opportunity to claim SECOIN in proportion to the hashes they've successfully mined. Additionally, they have the flexibility to decide the distribution ratio between SECOIN and [SECOREP](/secorep/earning).
 
+### Mining reward pool
+The mining reward pool operates in the following manner: when a miner successfully mines hashes, they can claim these hashes by requesting a proof from the server and submitting that proof to the smart contract. 
+In return, the miner receives a portion of the mining reward pool proportional to the number of new hashes they submit. 
+This portion is a fraction ranging from 0 to 1. The purpose of this approach is to prevent rapid depletion of the mining reward pool. The funding for the mining reward pool is generated through [queries](/searchseco-integration/querying) to the SearchSECO database.
+
+The calculation for the payout is as follows:
+- For 1 hash: ``(1 - 0.99) = 1%``
+- For 2 hashes: ``(1 - 0.99*0.99) = 1.99%``
+- For 3 hashes: ``(1 - 0.99*0.99*0.99) = 2.9701%``
+- and so on...
+
+This calculation can be generalized using the function:  
+```(1 - payoutFraction^numHashes)```
+
+To further control the rate of depletion in the reserve, there is another adjustable parameter called the hash devaluation factor. The number of hashes is divided by this factor to restrict its growth.
+
+The formula becomes:  
+```(1 - payoutFraction^(numHashes/hashDevaluationFactor))```
+
+Finally, this fraction is multiplied by the current amount of tokens in the mining reward pool/reserve to determine the specific number of coins that will be paid out to the miner:  
+```numTokensInPool * (1 - payoutFraction^(numHashes/hashDevaluationFactor))```
+
 <Card
   className="mt-2"
   card={{
@@ -29,6 +51,17 @@ Miners have the opportunity to claim SECOIN in proportion to the hashes they've 
 ## Verification reward
 
 Upon successful verification, users are eligible to claim a specific amount of SECOIN. Notably, this reward can be claimed independently for each provider that the user verifies with. The Verification Guide provides a detailed walkthrough of the verification process and how to claim the reward.
+
+### Verification reward pool
+The verification reward pool, similar to the mining reward pool, is a designated portion of the treasury specifically allocated for one-time verification rewards. 
+However, there are significant differences between the two pools. 
+While the mining reward pool is funded through [queries](/searchseco-integration/querying) to the SearchSECO project, the verification rewards are entirely funded by donors, notably Slinger Jansen. 
+Additionally, unlike mining rewards, the verification rewards remain constant and are not influenced by external factors such as the current token balance in the pool or the reward multiplier. 
+Consequently, the verification reward pool simply transfers SECOIN tokens from the pool to the user whenever they claim their rewards.
+
+The reason for maintaining constant verification rewards lies in discouraging users from delaying their reward claims. 
+If the verification rewards were to increase similar to mining rewards or daily claimable rewards, it would incentivize users to postpone claiming their rewards in anticipation of higher token amounts. 
+By offering a fixed reward amount, users become eligible for the same number of tokens every time they verify, regardless of the timing of their verification or reward claim.
 
 <Card
   className="mt-2"
