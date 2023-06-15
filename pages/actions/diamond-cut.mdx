@@ -12,11 +12,21 @@ import { Steps } from "nextra-theme-docs";
 
 ## What is a diamond cut?
 
-A [diamond cut](/diamond/what-is-a-diamond#diamond-cut-and-loupe) is a way of changing the functionality of the DAO. It can be used to add, replace or remove functionality from the DAO. For example, you could create a diamond cut to change the current [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) based voting to [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) (NFTs). For this to work you would have to write an ERC-721 governance structure facet smart contract.
+A [diamond cut](/diamond/what-is-a-diamond#diamond-cut-and-loupe) is a way of changing the functionality of the DAO.
+It can be used to add, replace or remove functionality from the DAO.
+For example, you could create a diamond cut to change the current [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) based voting to [ERC-721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) (NFTs). 
+For this to work you would have to write an ERC-721 governance structure facet smart contract.
 
-As this action can have huge consequences if not considered carefully, this action can only be created using smart contract calls. This serves as a first test to see if you know what you are doing. Helper functions to create a proposal with a diamond cut action are provided in the Diamond Governance repo. Follow the guide below to add your own diamond cut proposal to the DAO.
+As this action can have huge consequences if not considered carefully, this action can only be created using smart contract calls.
+This serves as a first test to see if you know enough about smart contracts to create a good diamond cut.
+Helper functions to create a proposal with a diamond cut action are provided in the [Diamond Governance repository](https://github.com/SecureSECODAO/diamond-governance).
+Follow the guide below to add your own diamond cut proposal to the DAO.
 
-Note that, although creating a propsal with a diamond cut action is not supported in the webapp, viewing a proposal with a diamond cut action is supported. This means that you can create a proposal with a diamond cut action using the steps below and then view it in the webapp like any other action. This means voters will know what action is attached to the proposal, and can make an informed decision on whether to vote for it or not.
+Note that, although creating a propsal with a diamond cut action is not supported in the webapp, viewing a proposal with a diamond cut action is supported.
+This means that you can create a proposal with a diamond cut action using the steps below and then view it in the webapp like any other action.
+This means voters will know what action is attached to the proposal.
+It is the responsibility of the creator of the diamond cut action to provide adequate context and explanation to the proposal metadata, such that members can make an informed decision for their vote.
+
 
 ## Diamond cut proposal guide
 
@@ -24,15 +34,18 @@ Note that, although creating a propsal with a diamond cut action is not supporte
 
 ### Clone the Diamond Governance repository
 
-Start by cloning the [Diamond Governance repository](https://github.com/SecureSECODAO/diamond-governance) from GitHub. This repository contains helpful functions for creating a proposal with a diamond cut action.
+Start by cloning the [Diamond Governance repository](https://github.com/SecureSECODAO/diamond-governance) from GitHub.
+This repository contains helpful functions for creating a proposal with a diamond cut action.
 
 ### Build the Diamond Governance project
 
-Follow the instructions provided in the readme's [setup section](https://github.com/SecureSECODAO/diamond-governance#setup) to build the project. This will generate a `dist` folder containing the compiled smart contracts.
+Follow the instructions provided in the readme's [setup section](https://github.com/SecureSECODAO/diamond-governance#setup) to build the project.
+This will generate a `dist` folder containing the compiled smart contracts.
 
 ### Create the `.env` file
 
-Make a copy of the `.env.sample` file and rename it to `.env`. Fill in the required properties, which typically include your private key for the desired network.
+Make a copy of the `.env.sample` file and rename it to `.env`. 
+Fill in the required properties, which typically include your private key for the desired network.
 
 ### Configure the proposal generator script
 
