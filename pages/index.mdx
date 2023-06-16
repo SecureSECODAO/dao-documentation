@@ -1,6 +1,7 @@
 import { Cards } from "/components/cards.tsx";
 import { Icons } from "/components/icons.tsx";
 import { Callout } from "nextra/components";
+import Image from "next/image";
 
 # Welcome to SecureSECO DAO
 
@@ -11,7 +12,14 @@ import { Callout } from "nextra/components";
   place!
 </Callout>
 
-![SecureSECO DAO documentation introduction image](/og-image.png)
+<Image
+  src="/og-image.png"
+  width={1200}
+  height={630}
+  quality={100}
+  priority={true}
+  alt="SecureSECO DAO documentation introduction image"
+/>
 
 Through the SecureSECO project, we aim to make the worldwide software ecosystem a safer place by maintaining a distributed ledger of facts about software that is used in the field.
 
