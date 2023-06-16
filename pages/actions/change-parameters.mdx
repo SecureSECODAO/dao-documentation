@@ -1,8 +1,19 @@
 # Change Parameters
 
-The DAO has many [facets](/diamond/facets), also referred to as _plugins_, and each facet can have multiple variables which can be changed by the DAO, known as _parameters_.
+The DAO has many [facets](/diamond/facets), also referred to as _plugins_, and each facet can have multiple variables which can be changed by the DAO, known as _parameters_ or _DAO variable_.
 
 Using the change plugin parameter action, these facet variables can be changed through proposals.
 The [settings page](https://dao.secureseco.org/settings) shows all changeable parameters, their current value, and a description explaining what it entails.
 
 ![Change plugin parameter](/img/change-plugin-parameter-input.png)
+
+## DAO variable requirements (for smart contract developers)
+
+A DAO variable is associated with a "get" and "set" function in a facet smart contract in the Diamond Governance plugin. To facilitate automatic variable display on the webapp, there are further requirements:
+
+- An associated "getX" function, with no inputs and one output that matches the input type of the "setX" function. Multiple outputs are not allowed.
+- The variable, "get" and "set" functions must be contained within the facets of the diamond structure.
+- The "set" function should have exactly one input of the same type as the GetX function's return type. The "set" function should also be called SetX, where X is the same name as in the Get function. 
+- Preferably the "set" function should have an "auth" modifier, that checks if the caller of the function has the right permissions to call the set. If this was not the case anyone on the blockchain would be able to change the variable. 
+
+These requirements ensure that DAO variables are secure and conveniently accessible for the SDK, and thus also the DAO webapp.
