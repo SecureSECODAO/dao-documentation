@@ -123,25 +123,32 @@ a wallet? Create one by following the steps [here](/joining/installing-metamask)
 
 ### Select the token to swap
 
-Decide if you want to buy or sell SECOIN. If you want to buy SECOIN, select DAI as the token to swap (on the top). If you want to sell SECOIN, select SECOIN as the token on the top. You can switch the order or tokens by clicking the arrow in the middle.
+Decide if you want to buy or sell SECOIN. By default, you will be buying SECOIN in exchange for DAI. If you want to sell SECOIN instead, press the button with the arrows in the middle of the two input fields. This will change the order of the two tokens, and you will be selling SECOIN in exchange for DAI.
 
 ### Make sure you have enough tokens
 
-If you want to buy tokens, you have to have DAI, if you don't have DAI, you can get it by swapping any other tokens in a liquidity pool like Uniswap. Make sure you buy DAI on Polygon mainnet.
+If you want to buy SECOIN, you have to have DAI. You can obtain DAI swapping any other token using tools such as [Uniswap](https://app.uniswap.org/). Make sure you buy DAI on the Polygon mainnet.
 
-For developers: If you are testing on testnet, use wrapped Matic (WMATIC) instead of DAI, since DAI is not available on testnet.
+<Callout type="info" emoji="ⓘ">
+  Are you a developer? If you are testing the swap functionality on the Mumbai
+  testnet, you need to use Wrapped MATIC (WMATIC) instead of DAI, because DAI is
+  not available on the Mumbai testnet.
+</Callout>
 
 ### Enter the amount
 
-Enter the amount of tokens you want to swap. The expected amount of tokens you will receive will be displayed below. The amount of tokens you will receive is calculated using the [Augmented Bonding Curve](/secoin/abc). You can use the max button to swap all of your tokens.
+Enter the amount of tokens you want to swap in the top input field.
+Under the icon of each of the two tokens, you can see your current balance of that token. If you want to swap all of your available tokens, you can click the "Max" button, shown next to your current balance of the token on top.
+
+A summary of the transaction will be displayed below the input fields in an accordion that you can open by clicking it. The amount of tokens you will receive is calculated using the [Augmented Bonding Curve](/secoin/abc), and is displayed in the summary under the label "Expected".
 
 ![Enter the amount](/img/abc-enter-amount.png)
 
 ### Approve the transaction
 
-If you've not swapped before, or if you've not approved enough tokens before, you will have to approve the spening cap of your DAI tokens for the swap. If you don't see the approve button, you have already approved enough tokens, and can skip this step.
+If you've not swapped before, or if you've approved only a limited amount before, you will have to approve the spending cap of your DAI or SECOIN tokens to be able to swap. A spending cap refers the maximum amount of tokens your wallet provider will let you spend. If you don't see the approve button, you have already approved enough tokens, and can safely skip this step.
 
-Click the approve button to approve the transaction. This will open a Metamask window, where you can enter the amount to approve for the transaction. You will have to pay a small gas fee to approve the transaction. If you never want to approve this swap again, you can use "Use default" (see picutre below) to set your spending limit to the max possible, otherwise you can set a spending limit yourself. This is a one time fee, you will not have to pay it again, unless you have reached the spending limit.
+Click the "Approve" button to get a prompt from your wallet provider to set your spending cap for the token you are selling. In Metamask, you can use the "Use default" (see picture below) button to set your spending limit to the maximum amount possible, which will avoid the need to approve again in the future. If you do not want to approve the maximum amount possible, you can set a spending limit manually. When you're satisfied with your spending cap, go ahead and continue. You will have to confirm a transaction to set your new spending cap. After the transaction has been confirmed, the "Approve" button will disappear and you can continue with the next step.
 
 ![ABC approve swap](/img/abc-approve-swap.png)
 
@@ -151,13 +158,15 @@ Use default spending limit if you don't want to approve ever again, if you get a
 
 ### Set the slippage
 
-The slippage is the maximum amount of tokens you are willing to lose due to price fluctuations. If the price of SECOIN changes by more than the slippage (negatively), the transaction will revert. If you are not sure what to set the slippage to, set it to 1%. If you are swapping a large amount of tokens, you may want to set it to a lower value, like 0.1%.
+The slippage is the maximum amount of tokens you are willing to lose due to price fluctuations. If the price of SECOIN changes by more than the slippage (negatively), the transaction will be reverted and all of the tokens you tried to swap will be returned to you.
+
+To set the slippage, click the settings button in the top right of the modal. If you are not sure what to set the slippage to, set it to 1%. If you are swapping a large amount of tokens, you may want to set it to a lower value, like 0.1%.
 
 ![ABC set slippage](/img/abc-slippage.png)
 
 ### Swap
 
-Click the swap button to swap your tokens. This will open a Metamask window, where you can confirm the transaction. You will have to pay a small gas fee to swap the tokens. Once the transaction is confirmed, you will receive your tokens.
+Click the "Swap" button to swap your tokens. You will receive a prompt from your wallet provider to sign the transaction. Once the transaction is confirmed, you will have received your tokens.
 
 </Steps>
 
