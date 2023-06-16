@@ -1,5 +1,7 @@
 import { Card } from "../../components/cards";
 import { Icons } from "../../components/icons";
+import { Callout } from "nextra/components";
+import { Steps } from "nextra-theme-docs";
 
 # Earning SECOIN
 
@@ -10,26 +12,28 @@ SECOIN, the native token of the SecureSECO ecosystem, can be earned through seve
 Miners have the opportunity to claim SECOIN in proportion to the hashes they've successfully mined. Additionally, they have the flexibility to decide the distribution ratio between SECOIN and [SECOREP](/secorep/earning).
 
 ### Mining reward pool
-The mining reward pool operates in the following manner: when a miner successfully mines hashes, they can claim these hashes by requesting a proof from the server and submitting that proof to the smart contract. 
-In return, the miner receives a portion of the mining reward pool proportional to the number of new hashes they submit. 
+
+The mining reward pool operates in the following manner: when a miner successfully mines hashes, they can claim these hashes by requesting a proof from the server and submitting that proof to the smart contract.
+In return, the miner receives a portion of the mining reward pool proportional to the number of new hashes they submit.
 This portion is a fraction ranging from 0 to 1. The purpose of this approach is to prevent rapid depletion of the mining reward pool. The funding for the mining reward pool is generated through [queries](/searchseco-integration/querying) to the SearchSECO database.
 
 The calculation for the payout is as follows:
-- For 1 hash: ``(1 - 0.99) = 1%``
-- For 2 hashes: ``(1 - 0.99*0.99) = 1.99%``
-- For 3 hashes: ``(1 - 0.99*0.99*0.99) = 2.9701%``
+
+- For 1 hash: `(1 - 0.99) = 1%`
+- For 2 hashes: `(1 - 0.99*0.99) = 1.99%`
+- For 3 hashes: `(1 - 0.99*0.99*0.99) = 2.9701%`
 - and so on...
 
 This calculation can be generalized using the function:  
-```(1 - payoutFraction^numHashes)```
+`(1 - payoutFraction^numHashes)`
 
 To further control the rate of depletion in the reserve, there is another adjustable parameter called the hash devaluation factor. The number of hashes is divided by this factor to restrict its growth.
 
 The formula becomes:  
-```(1 - payoutFraction^(numHashes/hashDevaluationFactor))```
+`(1 - payoutFraction^(numHashes/hashDevaluationFactor))`
 
 Finally, this fraction is multiplied by the current amount of tokens in the mining reward pool/reserve to determine the specific number of coins that will be paid out to the miner:  
-```numTokensInPool * (1 - payoutFraction^(numHashes/hashDevaluationFactor))```
+`numTokensInPool * (1 - payoutFraction^(numHashes/hashDevaluationFactor))`
 
 <Card
   className="mt-2"
@@ -50,17 +54,18 @@ Finally, this fraction is multiplied by the current amount of tokens in the mini
 
 ## Verification reward
 
-Upon successful verification, users are eligible to claim a specific amount of SECOIN. Notably, this reward can be claimed independently for each provider that the user verifies with. The Verification Guide provides a detailed walkthrough of the verification process and how to claim the reward.
+Upon successful verification, users are eligible to claim a specific amount of SECOIN. Notably, this reward can be claimed independently for each provider that the user verifies with. The [Verification Guide](/joining/verification#verification-guide) provides a detailed walkthrough of the verification process and how to claim the reward.
 
 ### Verification reward pool
-The verification reward pool, similar to the mining reward pool, is a designated portion of the treasury specifically allocated for one-time verification rewards. 
-However, there are significant differences between the two pools. 
-While the mining reward pool is funded through [queries](/searchseco-integration/querying) to the SearchSECO project, the verification rewards are entirely funded by donors, notably Slinger Jansen. 
-Additionally, unlike mining rewards, the verification rewards remain constant and are not influenced by external factors such as the current token balance in the pool or the reward multiplier. 
+
+The verification reward pool, similar to the mining reward pool, is a designated portion of the treasury specifically allocated for one-time verification rewards.
+However, there are significant differences between the two pools.
+While the mining reward pool is funded through [queries](/searchseco-integration/querying) to the SearchSECO project, the verification rewards are entirely funded by donors, notably Slinger Jansen.
+Additionally, unlike mining rewards, the verification rewards remain constant and are not influenced by external factors such as the current token balance in the pool or the reward multiplier.
 Consequently, the verification reward pool simply transfers SECOIN tokens from the pool to the user whenever they claim their rewards.
 
-The reason for maintaining constant verification rewards lies in discouraging users from delaying their reward claims. 
-If the verification rewards were to increase similar to mining rewards or daily claimable rewards, it would incentivize users to postpone claiming their rewards in anticipation of higher token amounts. 
+The reason for maintaining constant verification rewards lies in discouraging users from delaying their reward claims.
+If the verification rewards were to increase similar to mining rewards or daily claimable rewards, it would incentivize users to postpone claiming their rewards in anticipation of higher token amounts.
 By offering a fixed reward amount, users become eligible for the same number of tokens every time they verify, regardless of the timing of their verification or reward claim.
 
 <Card
@@ -82,13 +87,86 @@ By offering a fixed reward amount, users become eligible for the same number of 
 
 ## Augmented Bonding Curve (ABC)
 
-Users can acquire SECOIN through the [Augmented Bonding Curve](/secoin/abc) mechanism, by swapping their DAI tokens for SECOIN.
+Users can acquire SECOIN through the [Augmented Bonding Curve](/secoin/abc) mechanism, by swapping their DAI tokens for SECOIN. Please refer to our ABC page for more information.
 
-### ABC swap guide
+## ABC swap guide
 
-TODO
+<Steps>
 
-## Liquidity provision
+### Navigate to the ABC swap page
+
+Navigate to the ABC swap page on the SecureSECO DAO website using the link below. Always make sure you are on the official SecureSECO DAO website (https://dao.secureseco.org) before signing any transactions. We will never ask for your seed phrase or private keys.
+
+<Card
+  className="mt-2"
+  card={{
+    external: true,
+    href: "https://dao.secureseco.org/swap",
+    name: "SecureSECO DAO Swap Page",
+    icon: Icons.logo,
+    pattern: {
+      y: 16,
+      squares: [
+        [0, 1],
+        [1, 3],
+      ],
+    },
+  }}
+/>
+
+### Connect your wallet
+
+First, you need to connect your wallet to the DAO. This can be done using Metamask or a variety of other wallets. Don't have
+a wallet? Create one by following the steps [here](/joining/installing-metamask). You don't have to be a member of the DAO or be verified to use this swap.
+
+![wallet connected](/img/wallet-connected.png)
+
+### Select the token to swap
+
+Decide if you want to buy or sell SECOIN. If you want to buy SECOIN, select DAI as the token to swap (on the top). If you want to sell SECOIN, select SECOIN as the token on the top. You can switch the order or tokens by clicking the arrow in the middle.
+
+### Make sure you have enough tokens
+
+If you want to buy tokens, you have to have DAI, if you don't have DAI, you can get it by swapping any other tokens in a liquidity pool like Uniswap. Make sure you buy DAI on Polygon mainnet.
+
+For developers: If you are testing on testnet, use wrapped Matic (WMATIC) instead of DAI, since DAI is not available on testnet.
+
+### Enter the amount
+
+Enter the amount of tokens you want to swap. The expected amount of tokens you will receive will be displayed below. The amount of tokens you will receive is calculated using the [Augmented Bonding Curve](/secoin/abc). You can use the max button to swap all of your tokens.
+
+![Enter the amount](/img/abc-enter-amount.png)
+
+### Approve the transaction
+
+If you've not swapped before, or if you've not approved enough tokens before, you will have to approve the spening cap of your DAI tokens for the swap. If you don't see the approve button, you have already approved enough tokens, and can skip this step.
+
+Click the approve button to approve the transaction. This will open a Metamask window, where you can enter the amount to approve for the transaction. You will have to pay a small gas fee to approve the transaction. If you never want to approve this swap again, you can use "Use default" (see picutre below) to set your spending limit to the max possible, otherwise you can set a spending limit yourself. This is a one time fee, you will not have to pay it again, unless you have reached the spending limit.
+
+![ABC approve swap](/img/abc-approve-swap.png)
+
+Use default spending limit if you don't want to approve ever again, if you get a warning, you can ignore it, or set a lower spending limit.
+
+![ABC use default](/img/abc-spending-cap-default.png)
+
+### Set the slippage
+
+The slippage is the maximum amount of tokens you are willing to lose due to price fluctuations. If the price of SECOIN changes by more than the slippage (negatively), the transaction will revert. If you are not sure what to set the slippage to, set it to 1%. If you are swapping a large amount of tokens, you may want to set it to a lower value, like 0.1%.
+
+![ABC set slippage](/img/abc-slippage.png)
+
+### Swap
+
+Click the swap button to swap your tokens. This will open a Metamask window, where you can confirm the transaction. You will have to pay a small gas fee to swap the tokens. Once the transaction is confirmed, you will receive your tokens.
+
+</Steps>
+
+## Liquidity pool
+
+<Callout type="info" emoji="ⓘ">
+  There currently is not a liquidity pool for SECOIN. However, this
+  functionality is planned for the future.
+</Callout>
 
 The [liquidity pool](/secoin/liquiditypool) serves as another avenue for SECOIN acquisition. Users can directly swap tokens in the liquidity pool for SECOIN or earn SECOIN by contributing liquidity to the pool.
 

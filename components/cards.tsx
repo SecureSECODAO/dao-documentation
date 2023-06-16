@@ -119,7 +119,7 @@ export function Card({
           )}
         >
           <CardIcon icon={card.icon} />
-          <h3
+          <p
             className={
               "text-sm font-semibold leading-7 text-zinc-900 dark:text-white"
             }
@@ -135,7 +135,7 @@ export function Card({
                 {card.name}
               </Link>
             )}
-          </h3>
+          </p>
         </div>
         {!card.external && (
           <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
