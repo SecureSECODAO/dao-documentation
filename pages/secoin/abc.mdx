@@ -38,6 +38,12 @@ The minting process in the ABC model involves two key financial components:
 
 Conversely, during the SECOIN burning process, users are subject to an exit fee (a part of the burn proceeds). While nothing from this exit fee is directly sent to the DAO, it serves a crucial role in maintaining the price dynamics of SECOIN and ensuring the stability and security of the ecosystem.
 
+### DAO Minting Restrictions
+
+The unique structure of the Augmented Bonding Curve (ABC) presents a potential challenge in the context of the DAO's interactions. Given that the DAO receives the minting fee, the DAO could mint SECOIN at a lower cost since the fee would, effectively, be paid to itself. This scenario could disrupt the balance of the ecosystem, create unequal conditions for token holders and possibly lead to manipulation of SECOIN's price dynamics. To address this issue, a restriction has been put in place to prevent the DAO from utilizing the standard mint function.
+
+Instead, the DAO is granted a unique ability to mint SECOIN through a 'Sponsored Mint' function. In this operation, 100% of the deposited DAI remains in the ABC contract, and no portion of the minting fee is transferred to the DAO. Although this function is open to everyone, the resulting SECOIN is always directed to the DAO's treasury, making it particularly suited for generous parties wishing to donate SECOIN to the DAO. Utilizing the 'Sponsored Mint' function, while simultaneously bypassing an additional transfer transaction, enables donors to contribute efficiently and transparently to the DAO's sustainability and success.
+
 ## How does the Augmented Bonding Curve work for SECOIN?
 
 The Augmented Bonding Curve (ABC) model for SECOIN integrates two main elements: the Reserve Pool, which bonds DAI and manages the minting and burning of SECOIN, and the Funding Pool (also referred to as the Treasury). This combined structure creates a self-sustaining financial ecosystem.
