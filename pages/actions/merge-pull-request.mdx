@@ -4,13 +4,41 @@ The DAO can vote to merge open pull requests within the [SecureSECO DAO Github o
 This is useful to govern the maintenance and development of SecureSECO repositories.
 ![Merge pull request input](/img/merge-pull-request-input.png)
 
-### Merge checks
+## Merge checks
 
 This action will only merge the pull request if all the branch protection rules have been met.
 This often includes the requirement of all tests passing and the branch being up to date with the base branch.
 
-### Available repositories
+## Available repositories
 
 The actual merging is done by the [SecureSECO-DAO Github account](https://github.com/SecureSECO-DAO).
 Therefore, this action can be used to merge pull request for all repositories for which the bot has merge permissions.
 In short, this action can be used to merge pull request in all the repositories of the [SecureSECO DAO Github organization](https://github.com/orgs/SecureSECODAO/repositories).
+
+## Technical details
+
+The DAO needs to be self-sustainable, meaning that members from the community need to be able to contribute to the project on GitHub. However, pull requests for these contributions cannot be arbitrarily accepted, as this would pose a serious security risk. If anybody could change the code with the click of the button, the DAO would likely not last long. Therefore, a pull request requires a review before being able to merge it into the main branches of the repository. However, instead of relying on a centralized team of reviewers, the DAO itself recieves control over the pull requests through the merge pull request action.
+
+To this extent, it is possible to create a proposal that contains an action to merge a pull request for one of the repositories in the SecureSECO DAO GitHub organization. Such an action contains a few parameters:
+
+- The unique GitHub username of the owner of the repository of the pull request to merge
+- The name of the repository
+- The unique, numerical identifier of the pull request
+- An encrypted version of the hash for the latest commit in the pull request
+
+The first three parameters can be extracted from a valid URL to the pull request on Github, while the last parameter is fetched automatically right before the proposal is created (when the user clicks the "Next" button on the step three of the new proposal page). The reason for this last parameter is explained in the [security section](#security).
+
+### PR merging server
+
+Similar to the verification server used in [member verification](/joining/verification#technical-details), the server for pull requests, also built using TypeScript and Express, bridges the gap between blockchain and the outside world. The server listens to events emitted by a dedicated smart contract when a proposal with an action to merge a pull request is executed. This smart contract is included in the diamond as the [IGithubPullRequestFacet](/diamond/facets#github-pull-request-merger). When such an event is received, the server performs the following steps:
+
+1. _Approve the pull request_. A dedicated SecureSECO-DAO GitHub account is used, which has admin access to all repositories in the SecureSECO DAO GitHub organization, and thus has permission to approve pull requests.
+2. _Check that the pull request is mergeable_. For instance, all required tests must have passed and the branch must be up to date with the base branch.
+3. _Check that the action was meant for the current state of the pull request_. This step will ensure that the hash of the latest commit on the pull request branch matches that of the action's parameters. An explanation of why this is necessary is included below, in the [security section](#security).
+4. _Merge the pull request_.
+
+### Security
+
+The third step in the process defined in above checks whether the latest commit hash matches the one that was submitted when the proposal was created. The reason for this is to avoid attacks that push malicious code to a pull request branch after the proposal to merge it has been accepted by the DAO, but the proposal has yet to have been executed. An attacker could attempt to create a seemingly innocuous pull request, have the DAO vote on it and pass the proposal, only for the attacker to push some malicious code at the last moment before the proposal is executed.
+
+Our solution to this risk is to include the latest commit hash of the pull request at the time the proposal is created. To ensure a user-friendly experience, this commit hash is fetched automatically when the proposal is created, meaning the user only needs to enter a URL to the pull request. This latest commit hash can then be used to ensure that a pull request is only merged when it has not been altered beyond the state that the action is targeted at. Unfortunately, this hash can be tampered with, since it is fetched from the frontend. To avoid such tampering, the latest commit hash is encrypted by our pull request server before being sent back to the frontend. Once the smart contract event fires, the server receives the encrypted commit hash and can decrypt it using its private encryption key. If the hashes do not match, the pull request is not merged.
