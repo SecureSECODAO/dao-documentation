@@ -1,0 +1,95 @@
+import { Callout } from "nextra/components";
+
+# Contribution Ideas
+
+This page is a collection of ideas for (future) contributions to the project. They're split into categories based on the module that they're related to. Note that these are just some ideas, and you're free to contribute anything you want, as long as it's in line with the [contribution guidelines](/contributing#contribution-guidelines) and the project.
+
+<Callout type="info" emoji="ⓘ">
+  Before you start working on a contribution, please make sure to read the
+  [contributing guidelines](/contributing#contribution-guidelines) first.
+</Callout>
+
+## Projet-Wide Ideas
+
+These are some general ideas that would likely involve adjustments to multiple modules of the project, or are not specific to a specific module.
+
+### Discord bot for proposal notifications
+
+The Discord server enables discussion of the DAO and particularly the proposals in the community. A Discord bot could be built to automatically notify the Discord server of new proposals and provide dedicated channels or threads for discussion about each proposal. This would improve the visibility of new proposals, helping to ensure that important proposals will not be missed by the members of the DAO.
+
+### Dedicated bounty system
+
+Bounties are a great way to incentivize contributions to the project. They involve a reward for the completion of a task, which is usually paid out in the native token of the project.
+
+#### Current system
+
+Currently, it is possible to create bounties in the form of proposals through the following steps:
+
+1. A member of the DAO creates a regular proposal, where they detail the requirements for the bounty and outline the reward for completing the bounty. For instance, this could be a request for the support of a new proposal action to be added to the DAO webapp.
+2. If the created proposal is passed by the DAO, the bounty is considered _activated_, and developers who are interested can work on an implementation.
+3. When a developer believes they have reached an adequate solution for the bounty, they create another proposal, where they link to the proposal that suggested the bounty, and outline how their approach adheres to the requirements of the bounty. Two proposal actions may be attached to this proposal: a [withdraw assets action](/actions/withdraw-assets) to reward the developer for the completed bounty, and a [merge pull request action](/actions/merge-pull-request) to include the new feature in the production environment of the DAO.
+4. When a proposal for a completed bounty is accepted by the DAO, the developer will receive their rewards through the withdraw assets action attached to the proposal and the implementation will be merged into the main repository for the relevant module.
+
+#### Potential improved system
+
+Despite the possibility to simulate bounties using the existing infrastructure, the process can be streamlined through a dedicated bounty system. Such a system would likely involve a special type of proposal, specifically designed for bounties, which includes dedicated metadata for the requirements and reward of a bounty. Such a proposal should be able to track how many people are working on the bounty, and whether or not it has been completed. Both of these features will help to avoid unnecessary work by developers. In the current bounty system, it may be unclear whether or not a bounty has been completed or not, since proposals for the completion of a bounty cannot be seen on the proposal of the original bounty.
+
+### Mathematical simulations
+
+A simulation model could be provided for the [Augmented Bonding Curve (ABC) of SECOIN](/secoin/abc), to visualize its curve and help the DAO to make well-advised decisions about the ABC. Additionally, the development of mining rewards, and other rewards in SECOIN could be simulated, keeping into the account their inflation.
+
+### Ability to queue repos for SearchSECO miners
+
+Currently, the order that SearchSECO mines Github repositories in is determined by the number of stars the repository has. This defines when repositories will be analyzed and added to the SearchSECO database. A feature could be added to allow users to request specific Github repositories to be added to the queue for SearchSECO miners. This could be monetized to involve a payment to the DAO treasury, providing the DAO with extra liquidity. However, this feature requires thorough consideration of its details and viability before implementing, so discussion in our Discord server is recommended.
+
+## Ideas for the Webapp
+
+These are some ideas for improvements to the [DAO webapp](/contributing/repositories#dao-webapp), which is the frontend for the SecureSECO DAO.
+
+### Support for arbitrary proposal actions
+
+Currently, the webapp supports a set of specific [proposal actions](/actions), even though the possibilities for proposal actions are limited only by the functions defined in the smart contracts. When creating or viewing a proposal, only the supported actions can be added or viewed respectively. Support could be added to provide users with the ability to add any arbitrary action to a proposal and allow it to be viewed in the webapp. This would not be as user friendly as adding dedicated functionality for each action separately, since it would require the user to provide the interface and method name of the smart contract function to call. However, it would greatly expand the possibilities of proposal actions in the webapp. It should also be noted that such actions could already be added when creating a proposal manually through smart contract calls.
+
+### URL parameters new-proposal page
+
+The new-proposal page of the webapp could utilize URL parameters to automatically fill in certain data about a proposal. This would allow users to share a proposal by copying a URL before actually creating it. In addition to that, it could be used by the webapp itself to create links to quickly create a proposal with certain actions already attached. For instance, a button could be added to the settings page that would lead users to the new-proposal page, with metadata, voting settings and an action to change a specific parameter already filled in.
+
+### Claiming back proposal creation cost
+
+Users pay a small, configurable, fee in SECOREP to create a proposal. A facet already exists for the Diamond Governance plugin to allow users to claim back this fee if their proposal is passed by the DAO. The webapp does not support this yet, so a button could be added, for instance on the proposal page, to allow users to claim back the fee for succeeded proposals created by them.
+
+### Partial voting
+
+The DAO uses partial voting, which means a user can choose to vote with however much of the SECOREP they wish, so long as it stays within the limit of the amount of SECOREP they owned at the time that the proposal was created. The webapp currently only supports voting with all of the available SECOREP at the time of proposal creation of a user. Full support for partial voting could be added in the future if there is demand for it.
+
+## Ideas for the Diamond Governance plugin
+
+These are some ideas for improvements or extensions to the [Diamond Governance plugin](/contributing/repositories#diamond-governance).
+
+### Custom base DAO contracts
+
+Currently, the DAO is built on top of smart contracts provided by Aragon OSx, which form a basis. These smart contracts provide the functionality for withdrawals from the DAO treasury through proposals, among other things. However, the SecureSECO DAO uses separate pools for the DAO treasury and withdrawals do not take into account the pool that is being withdrawn from. As a result, if the treasury gets very low on funds, it is possible that a SECOIN withdrawal from the treasury will drain the general pool, causing it to tap into the verification or miner reward pool. Note that the verification and mining reward pools only contain SECOIN, meaning this situation can only occur when withdrawing SECOIN from the general pool. Not only could this impact the rewarding of miners and members of the DAO, it would also cause the contents of the pools as displayed in the webapp to be inaccurate, since those values are not updated correctly by such a withdrawal. This could be prevented by customizing the withdrawal functionality in the Aragon OSx contracts.
+
+Still, the likelihood of such a situation occurring is low, because every withdrawal requires the DAO's approval, which likely will not be given if it would mean emptying the general pool of the treasury. In addition to that, in case this does happen, the separate pools can be refilled by depositing SECOIN to the general pool of the treasury, because this will first fill up the other pools before adding funds to the general pool. Replacing the Aragon OSx contracts with a custom implementation is relatively simple, but this would get rid of the easy installation of other plugins for the DAO.
+
+### Variable minimum SECOREP to create a proposal
+
+There is a requirement in place where members must own a specific amount of SECOREP to be allowed to create a proposal. Currently, this requirement is a setting that is configurable by the DAO, and applies to every proposal, no matter what actions are attached to the proposal. Proposals with a potentially high impact, such as changing a sensitive setting, could be given a higher SECOREP requirement by making this amount of SECOREP variable depending on the proposal and the actions attached to it. Additionally, this value could be inflated over time, just like the verification and mining rewards, to ensure that the value remains appropriate in the future.
+
+### Variable proposal creation cost
+
+Similar to a variable minimum SECOREP balance to be allowed to create a proposal, the SECOREP cost to create a proposal could also be dynamically calculated based on the proposal and the attached actions.
+
+### Variable voting thresholds
+
+Currently, the participation and approval threshold of a proposal are the same for each proposal, and based on a setting in the DAO, which the DAO can change. For reasons similar to those for the [variable proposal creation cost](#variable-proposal-creation-cost), it may be beneficial to determine these thresholds based on the impact that a proposal could have. Ideally, there should still be a setting, or multiple, to change the threshold for different levels of impact, to allow the DAO to change these variables to its liking.
+
+## Recommendations for SearchSECO
+
+### Mining freely chosen repositories
+
+Currently, SearchSECO mines Github repositories based on the number of stars they have. This is a good way to determine the popularity of a repository. A feature could be added to allow users to mine any repository of their choosing, instead of following the order enforced by the Controller, such that they can later query the repositories that they are interested in.
+
+### Support beyond Github
+
+Currently, SearchSECO only supports Github repositories. However, there are many other platforms that could be supported, such as Gitlab, Bitbucket, and more. In addition to that, SearchSECO could be extended to support other types of data, such as code snippets, or even entire websites. This would require a lot of work, but it would greatly expand the possibilities of SearchSECO.
