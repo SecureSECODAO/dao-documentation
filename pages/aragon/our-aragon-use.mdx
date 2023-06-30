@@ -1,20 +1,6 @@
 # Our Use of Aragon
 
-We will delve into how we integrate and utilize Aragon's SDK and Aragon OSx in our system. While we have created our own custom frontend and [Diamond Governance SDK](https://github.com/SecureSECODAO/diamond-governance), we continue to use certain elements of Aragon's robust framework.
-
-## Aragon SDK
-
-While our platform primarily uses our own Diamond governance SDK, we continue to use the Aragon SDK for certain nice-to-have features.
-
-For all other features such as members, fetching DAO variables/settings, proposal fetching and sorting, proposal voting, proposal execution, creating new proposals, and all other interaction with the DAO, we use our Diamond governance SDK.
-
-### Treasury contents
-
-Given the on-chain constraints, such as the inability to directly query all the ERC20 tokens an address holds (it is only easy to see the token balance, if you know the token you're looking at), we utilize Aragon SDK's functionality. Aragon's SDK effectively tracks all the contract events for our DAO's treasury wallet. This enables us to accurately visualize the token balances of the treasury.
-
-### Transfers history
-
-We use Aragon SDK to maintain a record of transfers to and from the treasury. This feature goes beyond a simple smart contract call, making it a valuable resource.
+We will delve into how we integrate and utilize Aragon OSx in our system. While we have created our own custom frontend and [Diamond Governance SDK](https://github.com/SecureSECODAO/diamond-governance), and thus, do not use the Aragon SDK, the SecureSECO DAO is built upon a foundation laid by the Aragon OSx smart contracts.
 
 ## Aragon OSx
 
